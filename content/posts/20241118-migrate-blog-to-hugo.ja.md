@@ -2,6 +2,7 @@
 title = "ブログを Hugo に引っ越した"
 slug = "migrate-blog-to-hugo"
 date = "2024-11-18"
+featuredImage = "images/featured/season-automn-01.webp"
 tags = [
     "hugo",
     "shortcodes"
@@ -9,7 +10,6 @@ tags = [
 categories = [
     "その他",
 ]
-# series = ["Demonstração do Tema"]
 +++
 
 数年間更新してなかった個人ブログを再度整備しようと思い、あわせて SSG を Hugo に乗り換えてみました。これはその備忘録的なポストです。
