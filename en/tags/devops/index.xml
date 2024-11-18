@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DevOps on /etc/openjny</title><link>https://openjny.github.io/en/tags/devops/</link><description>Recent content in DevOps on /etc/openjny</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 15 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://openjny.github.io/en/tags/devops/index.xml" rel="self" type="application/rss+xml"/><item><title>AIOps Advancements in Microsoft Azure #2: Incident Management</title><link>https://openjny.github.io/en/2024/11/15/inside-azure-aiops-02-incident-management/</link><pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/en/2024/11/15/inside-azure-aiops-02-incident-management/</guid><description>&lt;p>この記事は「Azure の運用を支える AIOps」シリーズの第２回です。今回は、Microsoft Azure のインシデント管理システムで活用されている AIOps のテクノロジーを紹介します。AIOps の概要や Microsoft と AIOps の関わり方については、第１回をご覧ください。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DevOps on /etc/openjny</title><link>https://openjny.github.io/en/tags/devops/</link><description>Recent content in DevOps on /etc/openjny</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 15 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://openjny.github.io/en/tags/devops/index.xml" rel="self" type="application/rss+xml"/><item><title>Inside Azure AIOps #2: Incident Management</title><link>https://openjny.github.io/en/2024/11/15/inside-azure-aiops-02-incident-management/</link><pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/en/2024/11/15/inside-azure-aiops-02-incident-management/</guid><description>&lt;p>この記事は「Azure の運用を支える AIOps」シリーズの第２回です。今回は、Microsoft Azure のインシデント管理システムで活用されている AIOps のテクノロジーを紹介します。AIOps の概要や Microsoft と AIOps の関わり方については、第１回をご覧ください。&lt;/p>
 &lt;div class="notice info">
  &lt;div class="notice-title">
- &lt;i class="fa-solid fa-exclamation-circle" aria-hidden="true">&lt;/i>Info
+ &lt;i class="fa-solid fa-exclamation-circle" aria-hidden="true">&lt;/i>Series
  &lt;/div>
- &lt;div class="notice-content">&lt;p>&lt;strong>Azure の運用を支える AIOps シリーズ&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://openjny.github.io/en/2024/11/11/inside-azure-aiops-01-introduction/" class="external-link" target="_blank" rel="noopener">Azure の運用を支える AIOps #1【イントロ編】&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://openjny.github.io/en/2024/11/15/inside-azure-aiops-02-incident-management/" class="external-link" target="_blank" rel="noopener">Azure の運用を支える AIOps #2【インシデント管理編】&lt;/a>&lt;/li>
-&lt;li>Azure の運用を支える AIOps #3【リソース管理編】&lt;/li>
+ &lt;div class="notice-content">&lt;ul>
+&lt;li>&lt;a href="https://openjny.github.io/en/2024/11/11/inside-azure-aiops-01-introduction/" class="external-link" target="_blank" rel="noopener">Inside Azure AIOps #1: Introduction&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://openjny.github.io/en/2024/11/15/inside-azure-aiops-02-incident-management/" class="external-link" target="_blank" rel="noopener">Inside Azure AIOps #2: Incident Management&lt;/a>&lt;/li>
+&lt;li>Inside Azure AIOps #3: Resource Management&lt;/li>
 &lt;/ul>&lt;/div>
 &lt;/div>
 
@@ -17,26 +16,19 @@
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
  &lt;span class="sr-only">Link to heading&lt;/span>
  &lt;/a>
-&lt;/h2></description></item><item><title>AIOps Advancements in Microsoft Azure #1: Introduction</title><link>https://openjny.github.io/en/2024/11/11/inside-azure-aiops-01-introduction/</link><pubDate>Mon, 11 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/en/2024/11/11/inside-azure-aiops-01-introduction/</guid><description>&lt;p>As cloud services continue to grow, Ops teams face an increasing burden. The factors contributing to this burden include increasingly complex internal systems, mission-critical workloads requiring high levels of reliability, and demands for optimizing the operational costs of data centers.&lt;/p>
-&lt;p>Microsoft faces these challenges as well. With over 60 Azure regions globally, 300+ data centers, and millions of servers, Microsoft provides a multitude of services. Managing such a vast array of services while adapting to complex systems, enhancing service reliability, and reducing operational costs is a challenging task.&lt;/p>
-&lt;p>To address these challenges, Microsoft is leveraging artificial intelligence (AI) technology to optimize operations — an approach commonly known as AIOps. The operational tasks handled by AIOps are diverse, but they mainly relate to two key operational areas:&lt;/p>
-&lt;ol>
-&lt;li>&lt;strong>Incident Management&lt;/strong>: Enhancing service reliability by early detection of issues and suggesting the locations of problems and solutions.&lt;/li>
-&lt;li>&lt;strong>Resource Management&lt;/strong>: Efficient utilization of resources like servers, network, and storage to reduce costs.&lt;/li>
-&lt;/ol>
-&lt;p>In this article series, I will introduce how Microsoft uses AIOps to tackle the challenges of incident management and resource management. However, due to the volume of content, I will focus on explaining AIOps in this article, and will cover specific examples of incident management and resource management in subsequent articles.&lt;/p>
-&lt;div class="notice info">
- &lt;div class="notice-title">
- &lt;i class="fa-solid fa-exclamation-circle" aria-hidden="true">&lt;/i>Info
- &lt;/div>
- &lt;div class="notice-content">&lt;p>&lt;strong>AIOps Supporting Azure Operations Series&lt;/strong>&lt;/p>
+&lt;/h2></description></item><item><title>Inside Azure AIOps #1: Introduction</title><link>https://openjny.github.io/en/2024/11/11/inside-azure-aiops-01-introduction/</link><pubDate>Mon, 11 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/en/2024/11/11/inside-azure-aiops-01-introduction/</guid><description>&lt;p>As cloud services continue to grow, Ops (Operations) teams of those service providers face a surging burden. The factors contributing to this may include highly interwinded internal systems, mission-critical workloads requiring high levels of reliability, and demands for optimizing the operational costs of data centers.&lt;/p>
+&lt;p>This is exactly what Microsoft faces. With 60+ Azure regions globally, 300+ data centers, and millions of servers, Microsoft provides a multitude of services. Managing such a vast array of services while adapting to complex systems, enhancing service reliability, and reducing operational costs is a formidable task.&lt;/p>
+&lt;p>To address these obstacles, Microsoft has been leveraging artificial intelligence (AI) technology to streamline operations — an approach commonly known as &lt;strong>AIOps&lt;/strong>. The tasks handled by AIOps are diverse, but they can be broadly categorized into two main areas:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://openjny.github.io/en/2024/11/11/inside-azure-aiops-01-introduction/" class="external-link" target="_blank" rel="noopener">AIOps Supporting Azure Operations #1【Introduction】&lt;/a>&lt;/li>
-&lt;li>&lt;a href="" >AIOps Supporting Azure Operations #2【Incident Management Edition】&lt;/a>&lt;/li>
-&lt;li>AIOps Supporting Azure Operations #3【Resource Management Edition】&lt;/li>
-&lt;/ul>&lt;/div>
-&lt;/div>
-
+&lt;li>&lt;strong>Incident Management&lt;/strong>: Response to incidents in a timely manner, minimizing the impact on users.&lt;/li>
+&lt;li>&lt;strong>Resource Management&lt;/strong>: Efficiently managing resources to ensure optimal service availability and performance while minimizing operational costs.&lt;/li>
+&lt;/ul>
+&lt;p>In this article series titled &amp;ldquo;Inside Azure AIOps&amp;rdquo;, I will walk you through how Microsoft plays their AIOps cards right to wrestle with the challenges of incident and resource management. Due to the high volume content, I will only focus on the introductory aspects in this first article, covering the basics of AIOps. The remaining topics will be explored in subsequent articles as follows:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://openjny.github.io/en/2024/11/11/inside-azure-aiops-01-introduction/" >Inside Azure AIOps #1: Introduction&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://openjny.github.io/en/2024/11/15/inside-azure-aiops-02-incident-management/" >Inside Azure AIOps #2: Incident Management&lt;/a>&lt;/li>
+&lt;li>Inside Azure AIOps #3: Resource Management&lt;/li>
+&lt;/ul>
 &lt;h2 id="heading">
  
  &lt;a class="heading-link" href="#heading">
