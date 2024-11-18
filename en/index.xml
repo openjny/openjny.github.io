@@ -1,14 +1,45 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>/etc/openjny</title><link>https://openjny.github.io/en/</link><description>Recent content on /etc/openjny</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 28 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://openjny.github.io/en/index.xml" rel="self" type="application/rss+xml"/><item><title>About</title><link>https://openjny.github.io/en/about/</link><pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate><guid>https://openjny.github.io/en/about/</guid><description>&lt;p>Written in Go, Hugo is an open source static site generator available under the &lt;a href="https://github.com/gohugoio/hugo/blob/master/LICENSE" class="external-link" target="_blank" rel="noopener">Apache Licence 2.0.&lt;/a> Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.&lt;/p>
-&lt;p>Hugo makes use of a variety of open source projects including:&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>/etc/openjny</title><link>https://openjny.github.io/en/</link><description>Recent content on /etc/openjny</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 18 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://openjny.github.io/en/index.xml" rel="self" type="application/rss+xml"/><item><title>About Me</title><link>https://openjny.github.io/en/about/</link><pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/en/about/</guid><description>&lt;figure>&lt;img src="https://openjny.github.io/images/avatar-photo.jpg"
+ alt="A man excitedly walking through downtown Seattle, blissfully unaware that a torrential rain is coming soon." width="250">&lt;figcaption>
+ &lt;p>A man excitedly walking through downtown Seattle, blissfully unaware that a torrential rain is coming soon.&lt;/p>
+ &lt;/figcaption>
+&lt;/figure>
+
+&lt;p>I am Junya Yamaguchi (usually going by @openjny), a Japanese guy working at Microsoft as Cloud Solution Architect. While my professional speciality is Azure Infrastructure, I pretty much enjoy diverse genres such as Machine Learning and PenTesting. I currently live in Tokyo🗼, playing tourist from time to time.&lt;/p></description></item><item><title>AIOps Advancements in Microsoft Azure #1: Introduction</title><link>https://openjny.github.io/en/2024/11/11/inside-azure-aiops-01-introduction/</link><pubDate>Mon, 11 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/en/2024/11/11/inside-azure-aiops-01-introduction/</guid><description>&lt;p>As cloud services continue to grow, Ops teams face an increasing burden. The factors contributing to this burden include increasingly complex internal systems, mission-critical workloads requiring high levels of reliability, and demands for optimizing the operational costs of data centers.&lt;/p>
+&lt;p>Microsoft faces these challenges as well. With over 60 Azure regions globally, 300+ data centers, and millions of servers, Microsoft provides a multitude of services. Managing such a vast array of services while adapting to complex systems, enhancing service reliability, and reducing operational costs is a challenging task.&lt;/p>
+&lt;p>To address these challenges, Microsoft is leveraging artificial intelligence (AI) technology to optimize operations — an approach commonly known as AIOps. The operational tasks handled by AIOps are diverse, but they mainly relate to two key operational areas:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Incident Management&lt;/strong>: Enhancing service reliability by early detection of issues and suggesting the locations of problems and solutions.&lt;/li>
+&lt;li>&lt;strong>Resource Management&lt;/strong>: Efficient utilization of resources like servers, network, and storage to reduce costs.&lt;/li>
+&lt;/ol>
+&lt;p>In this article series, I will introduce how Microsoft uses AIOps to tackle the challenges of incident management and resource management. However, due to the volume of content, I will focus on explaining AIOps in this article, and will cover specific examples of incident management and resource management in subsequent articles.&lt;/p>
+&lt;div class="notice info">
+ &lt;div class="notice-title">
+ &lt;i class="fa-solid fa-exclamation-circle" aria-hidden="true">&lt;/i>Info
+ &lt;/div>
+ &lt;div class="notice-content">&lt;p>&lt;strong>AIOps Supporting Azure Operations Series&lt;/strong>&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://github.com/yuin/goldmark" class="external-link" target="_blank" rel="noopener">https://github.com/yuin/goldmark&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/alecthomas/chroma" class="external-link" target="_blank" rel="noopener">https://github.com/alecthomas/chroma&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/muesli/smartcrop" class="external-link" target="_blank" rel="noopener">https://github.com/muesli/smartcrop&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/spf13/cobra" class="external-link" target="_blank" rel="noopener">https://github.com/spf13/cobra&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/spf13/viper" class="external-link" target="_blank" rel="noopener">https://github.com/spf13/viper&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.&lt;/p></description></item><item><title>Contact</title><link>https://openjny.github.io/en/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://openjny.github.io/en/contact/</guid><description>&lt;ul>
+&lt;li>&lt;a href="https://openjny.github.io/en/2024/11/11/inside-azure-aiops-01-introduction/" class="external-link" target="_blank" rel="noopener">AIOps Supporting Azure Operations #1【Introduction】&lt;/a>&lt;/li>
+&lt;li>&lt;a href="" >AIOps Supporting Azure Operations #2【Incident Management Edition】&lt;/a>&lt;/li>
+&lt;li>AIOps Supporting Azure Operations #3【Resource Management Edition】&lt;/li>
+&lt;/ul>&lt;/div>
+&lt;/div>
+
+&lt;h2 id="heading">
+ 
+ &lt;a class="heading-link" href="#heading">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2></description></item><item><title>Contact</title><link>https://openjny.github.io/en/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://openjny.github.io/en/contact/</guid><description>&lt;ul>
 &lt;li>&lt;a href="https://x.com/openjny" class="external-link" target="_blank" rel="noopener">X (Twitter)&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/openjny" class="external-link" target="_blank" rel="noopener">GitHub&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.linkedin.com/in/ja-junya-yamaguchi/" class="external-link" target="_blank" rel="noopener">LinkedIn&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Projects</title><link>https://openjny.github.io/en/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://openjny.github.io/en/projects/</guid><description>&lt;p>Nothing to see here&amp;hellip; Move along!&lt;/p></description></item></channel></rss>
+&lt;/ul></description></item><item><title>Projects</title><link>https://openjny.github.io/en/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://openjny.github.io/en/projects/</guid><description>&lt;h2 id="book-introduction-to-azure-network-design-and-construction-2024">
+ Book: Introduction to Azure Network Design and Construction (2024)
+ &lt;a class="heading-link" href="#book-introduction-to-azure-network-design-and-construction-2024">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://openjny.github.io/projects/book-azure-networking.png">&lt;/p>
+&lt;p>This book provides a systematic overview of the knowledge and know-how necessary for designing and constructing networks on Microsoft Azure, from the basics to advanced topics. It covers essential fundamental network knowledge required for building and designing networks on Azure, differences in thinking compared to existing on-premises networks, Azure&amp;rsquo;s network services and how to use them, all explained from the perspective of specialists/architects in Azure technical support, while also highlighting possible pitfalls.&lt;/p></description></item></channel></rss>
