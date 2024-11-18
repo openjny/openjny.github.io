@@ -24,28 +24,34 @@
 <a class=heading-link href=#%e4%b9%97%e3%82%8a%e6%8f%9b%e3%81%88%e4%bd%9c%e6%a5%ad><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
 <span class=sr-only>見出しへのリンク</span></a></h2><h3 id=テーマ>テーマ
 <a class=heading-link href=#%e3%83%86%e3%83%bc%e3%83%9e><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
-<span class=sr-only>見出しへのリンク</span></a></h3><p>テーマは <code>hugo-coder</code> にしました。特にこだわりはないです。シンプルで、マルチ言語対応で、ブログとプロジェクト書けるようなテーマが欲しかったです。<code>hugo-coder</code> はその条件を満たしていたのと、更新頻度の高さや Star の多さも安心感があったので選びました。</p><p><a href=https://github.com/luizdepra/hugo-coder class=external-link target=_blank rel=noopener>https://github.com/luizdepra/hugo-coder</a></p><h3 id=url>URL
+<span class=sr-only>見出しへのリンク</span></a></h3><p>テーマは <code>hugo-coder</code> にしました。特にこだわりはないです。シンプルで、マルチ言語対応で、ブログとプロジェクト書けるようなテーマが欲しかったです。<code>hugo-coder</code> はその条件を満たしていたのと、更新頻度の高さや Star の多さも安心感があったので選びました。</p><p><a href=https://github.com/luizdepra/hugo-coder class=external-link target=_blank rel=noopener>luizdepra/hugo-coder: A minimalist blog theme for hugo.</a></p><h3 id=url>URL
 <a class=heading-link href=#url><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
 <span class=sr-only>見出しへのリンク</span></a></h3><p><code>hugo.toml</code> でパーマリンクのスタイルを設定しました。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-toml data-lang=toml><span class=line><span class=cl><span class=p>[</span><span class=nx>permalinks</span><span class=p>]</span>
 </span></span><span class=line><span class=cl><span class=nx>posts</span> <span class=p>=</span> <span class=s1>&#39;/:year/:month/:day/:slug/&#39;</span>
 </span></span></code></pre></div><h3 id=フォント>フォント
 <a class=heading-link href=#%e3%83%95%e3%82%a9%e3%83%b3%e3%83%88><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
-<span class=sr-only>見出しへのリンク</span></a></h3><p>中国語フォントを無効化するため <code>themes/hugo-coder/assets/scss/_variables.scss</code> でフォント指定を変更しました。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-scss data-lang=scss><span class=line><span class=cl><span class=nv>$font-family</span><span class=o>:</span> <span class=o>-</span><span class=n>apple-system</span><span class=o>,</span>
-</span></span><span class=line><span class=cl><span class=n>BlinkMacSystemFont</span><span class=o>,</span>
-</span></span><span class=line><span class=cl><span class=s2>&#34;Segoe UI&#34;</span><span class=o>,</span>
-</span></span><span class=line><span class=cl><span class=n>Roboto</span><span class=o>,</span>
-</span></span><span class=line><span class=cl><span class=n>Oxygen-Sans</span><span class=o>,</span>
-</span></span><span class=line><span class=cl><span class=n>Ubuntu</span><span class=o>,</span>
-</span></span><span class=line><span class=cl><span class=n>Cantarell</span><span class=o>,</span>
-</span></span><span class=line><span class=cl><span class=s2>&#34;Helvetica Neue&#34;</span><span class=o>,</span>
-</span></span><span class=line><span class=cl><span class=n>Helvetica</span><span class=o>,</span>
-</span></span><span class=line><span class=cl><span class=c1>// &#34;游ゴシック&#34;,</span>
-</span></span><span class=line><span class=cl><span class=c1>// &#34;PingFang SC&#34;,</span>
-</span></span><span class=line><span class=cl><span class=c1>// STXihei,&#34;华文细黑&#34;,</span>
-</span></span><span class=line><span class=cl><span class=c1>// &#34;Microsoft YaHei&#34;,&#34;微软雅黑&#34;,</span>
-</span></span><span class=line><span class=cl><span class=c1>// SimSun,&#34;宋体&#34;,</span>
-</span></span><span class=line><span class=cl><span class=c1>// Heiti,&#34;黑体&#34;,</span>
-</span></span><span class=line><span class=cl><span class=ni>sans-serif</span><span class=p>;</span>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>中国語フォントを無効化するため <code>themes/hugo-coder/assets/scss/_variables.scss</code> でフォント指定を変更しました。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-diff data-lang=diff><span class=line><span class=cl>$font-family: -apple-system,
+</span></span><span class=line><span class=cl>BlinkMacSystemFont,
+</span></span><span class=line><span class=cl>&#34;Segoe UI&#34;,
+</span></span><span class=line><span class=cl>Roboto,
+</span></span><span class=line><span class=cl>Oxygen-Sans,
+</span></span><span class=line><span class=cl>Ubuntu,
+</span></span><span class=line><span class=cl>Cantarell,
+</span></span><span class=line><span class=cl>&#34;Helvetica Neue&#34;,
+</span></span><span class=line><span class=cl>Helvetica,
+</span></span><span class=line><span class=cl><span class=gd>- &#34;游ゴシック&#34;,
+</span></span></span><span class=line><span class=cl><span class=gd>- &#34;PingFang SC&#34;,
+</span></span></span><span class=line><span class=cl><span class=gd>- STXihei,&#34;华文细黑&#34;,
+</span></span></span><span class=line><span class=cl><span class=gd>- &#34;Microsoft YaHei&#34;,&#34;微软雅黑&#34;,
+</span></span></span><span class=line><span class=cl><span class=gd>- SimSun,&#34;宋体&#34;,
+</span></span></span><span class=line><span class=cl><span class=gd>- Heiti,&#34;黑体&#34;,
+</span></span></span><span class=line><span class=cl><span class=gd></span><span class=gi>+ // &#34;游ゴシック&#34;,
+</span></span></span><span class=line><span class=cl><span class=gi>+ // &#34;PingFang SC&#34;,
+</span></span></span><span class=line><span class=cl><span class=gi>+ // STXihei,&#34;华文细黑&#34;,
+</span></span></span><span class=line><span class=cl><span class=gi>+ // &#34;Microsoft YaHei&#34;,&#34;微软雅黑&#34;,
+</span></span></span><span class=line><span class=cl><span class=gi>+ // SimSun,&#34;宋体&#34;,
+</span></span></span><span class=line><span class=cl><span class=gi>+ // Heiti,&#34;黑体&#34;,
+</span></span></span><span class=line><span class=cl><span class=gi></span>sans-serif;
 </span></span></code></pre></div><p>フォントを小さくするため <code>_base.scss</code> も調整しました。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-diff data-lang=diff><span class=line><span class=cl>html {
 </span></span><span class=line><span class=cl>  box-sizing: border-box;
 </span></span><span class=line><span class=cl><span class=gd>-  font-size: 62.5%;
