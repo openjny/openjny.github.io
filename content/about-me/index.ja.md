@@ -1,17 +1,19 @@
 +++
-title = "About Me"
+title = "山口 順也 (Junya Yamaguchi)"
 description = "About Me"
 date = "2024-11-18"
 aliases = ["about", "about-me", "contact"]
 +++
 
-普段は Azure インフラ（仮想マシン、ネットワーク、etc）に関係する仕事をやっていますが、いろんなジャンルが好きです。
+{{< figure src="/images/avatar.jpg" caption="妹に書いてもらったイラスト" width=250 >}}
+
+普段は Azure インフラ（仮想マシン、ネットワーク、etc）に関係する仕事をやっていますが、いろんなジャンルが好きです。SNS はだいたい @openjny でやってます。
 
 - [X (Twitter)](https://x.com/openjny)
 - [GitHub](https://github.com/openjny)
 - [LinkedIn](https://www.linkedin.com/in/ja-junya-yamaguchi/)
 - [zenn.dev](https://zenn.dev/openjny)
-- [Medium](https://medium.com/@openjny)
+- [Medium](https://medium.com/@openjny) (英語のみ)
 
 ## 趣味
 
