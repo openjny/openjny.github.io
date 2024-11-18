@@ -125,11 +125,7 @@
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
-&lt;/h2></description></item><item><title>コンタクト</title><link>https://openjny.github.io/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://openjny.github.io/contact/</guid><description>&lt;ul>
-&lt;li>&lt;a href="https://x.com/openjny" class="external-link" target="_blank" rel="noopener">X (Twitter)&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/openjny" class="external-link" target="_blank" rel="noopener">GitHub&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.linkedin.com/in/ja-junya-yamaguchi/" class="external-link" target="_blank" rel="noopener">LinkedIn&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>プロジェクト</title><link>https://openjny.github.io/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://openjny.github.io/projects/</guid><description>&lt;h2 id="書籍-azureネットワーク設計構築入門-2024">
+&lt;/h2></description></item><item><title>Azure Gateway Load Balancer (Preview) を試す</title><link>https://openjny.github.io/2021/11/11/azure-gateway-load-balancer-with-linux-vm/</link><pubDate>Thu, 11 Nov 2021 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2021/11/11/azure-gateway-load-balancer-with-linux-vm/</guid><description/></item><item><title>Azure Load Balancer の正常性関連メトリックを使いこなす</title><link>https://openjny.github.io/2020/10/03/azure-lb-health-probes-101/</link><pubDate>Sat, 03 Oct 2020 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2020/10/03/azure-lb-health-probes-101/</guid><description/></item><item><title>プロジェクト</title><link>https://openjny.github.io/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://openjny.github.io/projects/</guid><description>&lt;h2 id="書籍-azureネットワーク設計構築入門-2024">
  書籍: Azureネットワーク設計・構築入門 (2024)
  &lt;a class="heading-link" href="#%e6%9b%b8%e7%b1%8d-azure%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e8%a8%ad%e8%a8%88%e6%a7%8b%e7%af%89%e5%85%a5%e9%96%80-2024">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>

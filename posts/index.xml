@@ -50,4 +50,4 @@
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
-&lt;/h2></description></item></channel></rss>
+&lt;/h2></description></item><item><title>Azure Gateway Load Balancer (Preview) を試す</title><link>https://openjny.github.io/2021/11/11/azure-gateway-load-balancer-with-linux-vm/</link><pubDate>Thu, 11 Nov 2021 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2021/11/11/azure-gateway-load-balancer-with-linux-vm/</guid><description/></item><item><title>Azure Load Balancer の正常性関連メトリックを使いこなす</title><link>https://openjny.github.io/2020/10/03/azure-lb-health-probes-101/</link><pubDate>Sat, 03 Oct 2020 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2020/10/03/azure-lb-health-probes-101/</guid><description/></item></channel></rss>
