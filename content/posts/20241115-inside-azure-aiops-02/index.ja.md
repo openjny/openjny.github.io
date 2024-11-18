@@ -32,7 +32,7 @@ tags = [
 
 インシデント管理のフローには、以下のようなステップが含まれます。
 
-{{< figure src="https://storage.googleapis.com/zenn-user-upload/565b439fe0e9-20241107.png" caption="AIOps が取り扱う インシデント管理の流れ" >}}
+{{< figure src="icm-flow.ja.png" caption="AIOps が取り扱う インシデント管理の流れ" >}}
 
 | ステップ                                     | 説明                                                                                                                                                                                          |
 | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -80,7 +80,7 @@ AIOps でも最終的に改善する指標は同様です。MTTD や MTTM のよ
 
 Microsoft のオンラインサービス（例: Azure）のプロダクション環境でも、基本的に先程のフローと同じようなインシデント管理が行われています。インシデントの検知（予測）から解決までのライフサイクルの概要は次の通りです。
 
-{{< figure src="https://storage.googleapis.com/zenn-user-upload/5ee1a41cf25b-20241112.png" caption="Microsoft のインシデント管理ライフサイクル" >}}
+{{< figure src="icm-flow-in-microsoft.ja.png" caption="Microsoft のインシデント管理ライフサイクル" >}}
 
 ユーザーや監視システムからの報告に応じて、インシデントが作成されます。すべてのインシデントは、インシデント管理システム（IcM）によって一元管理されます。IcM では、インシデントの属性や説明などが記録されているだけでなく、エンジニア同士のディスカッションも実施されます。また、インシデントには 4 段階の緊急度が設定されていて、緊急性が高いものについてはオンコールエンジニア（OCE）が早急に対応にあたり、緩和が試みられます。その後、根本原因分析（RCA）を実施した後、改めてサービスチームからインシデントが解決されます。
 
@@ -119,18 +119,18 @@ AIOps の最適化対象になるのは、主に監視システムや IcM シス
 
 障害が発生する前に異常の予兆をキャッチすることが出来れば、ユーザー影響を大きく軽減し、信頼性を向上することが出来ます。Microsoft が数年にわたって障害予測に注力してきた理由は、まさにここにあります。
 
-Microsoft が障害を予測するターゲットとしてまず選択したのは、仮想マシンをホストする物理サーバー（ノード）と、ノードが利用する物理ディスクでした。ノードや物理ディスクの故障は、仮想マシンに致命的な影響を与える為です。
+Microsoft が障害を予測するターゲットとしてまず選択したのは、仮想マシンをホストする物理サーバー（ノード）と、ノードが利用する物理ディスクでした。ノードやディスクの故障は、仮想マシンに致命的な影響を与える為です。
 
-{{< figure src="https://storage.googleapis.com/zenn-user-upload/81a72d3b6397-20241115.png" caption="" >}}
+{{< figure src="node-disk-prediction.ja.png" caption="ノード障害予測とディスク障害予測" >}}
 
-- **ノードの障害予測**: 2018 年にノード障害予測システム「MING」が導入されました[^ming]。MING は深層ニューラルネットワークと従来型の機械学習モデルを組み合わせて、時間的なデータとトポロジカルな情報を同時に扱えることが特徴的で、MING で故障率が高いとされた上位のノードは、その 60% が翌日に故障したというデータもあります。また、2024 年には「Uptake」と呼ばれる、ノード障害予測モデルを継続的に改善するための学習手法も開発しています[^uptake]。
-- **ディスク障害予測**: 2018 年に SMART データを活用したディスク障害予測システム「CDEF」が導入され[^cdef]、これをベースに 2021 年に「NTAM」へと改良されました[^ntam]。NTAM では、ディスクごとの情報だけでなく、複数のディスクの情報をまとめて処理することで精度を向上させています。この過程で、ニューラルネットワークを使った特徴量の生成手法[^nfs]や、強化学習により不均衡な学習データを解消する手法[^pulns]も導入しています。
+- **ノード障害の予測**: 2018 年にノード障害予測システム「MING」が導入されました[^ming]。MING は深層ニューラルネットワークと従来型の機械学習モデルを組み合わせて、時間的なデータとトポロジカルな情報を同時に扱えることが特徴的で、MING で故障率が高いとされた上位のノードは、その 60% が翌日に故障したというデータもあります。また、2024 年には「Uptake」と呼ばれる、ノード障害予測モデルを継続的に改善するための学習手法も開発しています[^uptake]。
+- **ディスク障害の予測**: 2018 年に SMART データを活用したディスク障害予測システム「CDEF」が導入され[^cdef]、これをベースに 2021 年に「NTAM」へと改良されました[^ntam]。NTAM では、ディスクごとの情報だけでなく、複数のディスクの情報をまとめて処理することで精度を向上させています。この過程で、ニューラルネットワークを使った特徴量の生成手法[^nfs]や、強化学習により不均衡な学習データを解消する手法[^pulns]も導入しています。
 
 ノードやディスクの障害予測は、**予測に基づくプロアクティブな緩和アクション**を可能にします。たとえば、Azure の仮想化基盤は[ライブ マイグレーション](https://learn.microsoft.com/ja-jp/azure/virtual-machines/maintenance-and-updates#live-migration)機能を持っているので、障害が起きそうなノードの仮想マシンを他ノードに移動させ、影響を最小化できます（仮想マシンのブラックアウトは通常数秒程度）[^ml-live-migration]。
 
 そのため、予測的な緩和が出来ることを前提にした、新たな Azure 仮想化基盤の管理システム「Narya」が 2020 年に導入されました[^narya][^intro-narya]。
 
-{{< figure src="https://storage.googleapis.com/zenn-user-upload/061bc5b2bae8-20241115.png" caption="" >}}
+{{< figure src="naraya-architecture.ja.png" caption="Narya のアーキテクチャ" >}}
 
 Narya が解決する問題の一つは、アクションポリシーの学習です。様々な状況（例: 予測された故障確率、障害が起きるコンポーネント、ホストしている仮想マシンの台数）に応じて行動を変えたり、過去の行動（失敗）から学ぶような仕組みが必要とされるためです。これは、まさに強化学習の分野で研究されている問題設定で、[多腕バンディット](https://ja.wikipedia.org/wiki/%E5%A4%9A%E8%85%95%E3%83%90%E3%83%B3%E3%83%87%E3%82%A3%E3%83%83%E3%83%88%E5%95%8F%E9%A1%8C)と呼ばれる種類の問題/アルゴリズムで Narya はこの課題に対処します。
 
@@ -171,7 +171,7 @@ Narya が解決する問題の一つは、アクションポリシーの学習�
 
 そこで開発されたのが SuperBench[^superbench]です。SuperBench は、AI インフラとして本番展開する前のノードを効果的にベンチマーク検証することで、障害を防止するシステムです。
 
-{{< figure src="https://storage.googleapis.com/zenn-user-upload/37e2845475e3-20241104.png" caption="SuperBench の実行フロー" >}}
+{{< figure src="superbench-architecture.ja.png" caption="SuperBench の実行フロー" >}}
 
 オンボードしたいノードを SuperBench に入力すると、ノード状態を見て故障リスクを予測します。高リスクと判定されると、ノード障害を特定するのに最適なベンチマーク セットが選択されます。そして、機械学習モデルで得られた基準値を基に、ベンチマーク結果の異常性を判断して最終的な結果 (Go/No-go) を出力します。
 
@@ -182,7 +182,7 @@ SuperBench は Azure の本番環境で既に運用され、2 年間の運用を
 [^ocpsummit24-ai-infra]: [Exploring the Inner Workings of Azures Advanced AI Infrastructure Presented by Microsoft](https://www.youtube.com/watch?v=l6LptgXMjsY)
 [^blog-20241015-dc]: [Accelerating industry-wide innovations in datacenter infrastructure and security | Microsoft Azure Blog](https://azure.microsoft.com/en-us/blog/accelerating-industry-wide-innovations-in-datacenter-infrastructure-and-security/)
 [^2024-ms-to-invest-in-japan]: [Microsoft to invest US$2.9 billion in AI and cloud infrastructure in Japan while boosting the nation’s skills, research and cybersecurity - Microsoft Stories Asia](https://news.microsoft.com/apac/2024/04/10/microsoft-to-invest-us2-9-billion-in-ai-and-cloud-infrastructure-in-japan-while-boosting-the-nations-skills-research-and-cybersecurity/)
-[^row-remapping]: row-remapping は、Ampere アーキテクチャから導入された NVIDIA GPU メモリ (HBM) の冗長機構で、劣化したメモリセルを予備用のものと置き換えます。参考: https://docs.nvidia.com/deploy/a100-gpu-mem-error-mgmt/index.html#row-remapping
+[^row-remapping]: row-remapping は、Ampere アーキテクチャから導入された NVIDIA GPU メモリ (HBM) の冗長機構で、劣化したメモリセルを予備用のものと置き換えます。参考: [1. Overview — NVIDIA GPU Memory Error Management r555 documentation](https://docs.nvidia.com/deploy/a100-gpu-mem-error-mgmt/index.html#row-remapping)
 [^regression]: いわゆる ”デグレ" のことですが、英語の degradation は（ハードウェア故障などの原因で）性能劣化・縮退した状態を指す用語なので、混同しないようにリグレッションを使いたい派です。
 [^superbench]: [SuperBench: Improving Cloud AI Infrastructure Reliability with Proactive Validation - Microsoft Research](https://www.microsoft.com/en-us/research/publication/superbench/)
 
@@ -190,7 +190,7 @@ SuperBench は Azure の本番環境で既に運用され、2 年間の運用を
 
 障害検知は難しいタスクです。なぜなら、システムの「異常」パターンは無数にあり、**適切にアラートを定義することが難しい**ためです。
 
-Microsoft でも、長年のオンラインサービスの運用と努力にも関わらず、偽検知（検知したが対応する必要がなかったもの）と検知漏れ（影響が出る前にアラート検知できなかったもの）の両方ともに、一定の頻度で発生していることが判明していました[^esec23-parayil]。また、検知漏れの主な理由がアラートルールの不備であることも分かっていて、これも「異常」を定義することの困難さを示唆しています。
+Microsoft でも、長年のオンラインサービスの運用と努力にも関わらず、偽検知（検知したが対応する必要がなかったもの）[^alert-fatigue]と検知ミス（影響が出る前にアラート検知できなかったもの）の両方ともに、一定の頻度で発生していることが判明していました[^esec23-parayil]。また、検知漏れの主な理由がアラートルールの不備であることも分かっていて、これも「異常」を定義することの困難さを示唆しています。
 
 このような背景から、機械学習のアプローチが盛んに研究され、近年では深層学習（ニューラルネットワーク）を用いた時系列データの異常検知モデルが注目を集めています[^aiops-anomaly-detection-survey]。ところが、学術界で成功を収めているにもかかわらず、これらのモデルの実応用がさほど進んでいませんでした。その理由を、Microsoft は次の 3 点に集約しました。
 
@@ -200,15 +200,14 @@ Microsoft でも、長年のオンラインサービスの運用と努力にも�
 
 そこで、これらの課題を克服した実用的なメトリックベースの障害検知（アラート）システム「MonitorAssistant」が導入されました[^monitorassistant]。
 
-{{< figure src="https://storage.googleapis.com/zenn-user-upload/39722bd1e03d-20241101.png" caption="MonitorAssistant のアーキテクチャ（図は論文より抜粋）" >}}
+{{< figure src="monitor-assist-architecture.png" caption="MonitorAssistant のアーキテクチャ（図は論文より抜粋）" >}}
 
 MonitorAssist は、あらかじめ機械学習モデルをカタログのように登録しておくと、メトリック（時系列データ）に最適なモデルを提案してくれます。また、モデルの解釈性を高めるため、異常のカテゴリ（例: 瞬間的な値の急増）を分類する機能も備えています。さらに、フィードバックをチャットボット（LLM）で受け付けることもできます。これにより、検知の誤作動や漏れなどが発生した際、サービスチーム自らがモデルの調整を行うことが可能です。
 
-{{< figure src="https://storage.googleapis.com/zenn-user-upload/d899c8a2849d-20241102.png" caption="MonitorAssistant が生成するレポートの例（図は論文より抜粋）" >}}
+{{< figure src="monitor-assistant-example.png" caption="MonitorAssistant が生成するレポートの例（図は論文より抜粋）" >}}
 
 [^esec23-parayil]: [Detection Is Better Than Cure: A Cloud Incidents Perspective - Microsoft Research](https://www.microsoft.com/en-us/research/publication/detection-is-better-than-cure-a-cloud-incidents-perspective/)
-[^shapelet]: 時系列データの予測や分類は、局所的なパターン（時系列データの部分データ）によって実現できる前提に基づいて、そのようなパターンのことを Shapelet と呼びます。参考: https://www.aeon-toolkit.org/en/stable/examples/classification/shapelet_based.html
-[^alert-fatigue]: アラート疲れに関する洞察は、『[システム運用アンチパターン - ―エンジニアがDevOpsで解決する組織・自動化・コミュニケーション](https://www.oreilly.co.jp//books/9784873119847/)』の第6章が参考になります。
+[^alert-fatigue]: 誤検知が大量に発生することをアラート洪水（alert flood）と言ったり、工数が大量に使われてしまい疲弊する状態をアラート疲れ（alert fatigue）と言ったりします。アラート疲れに関する洞察は、『[システム運用アンチパターン - ―エンジニアがDevOpsで解決する組織・自動化・コミュニケーション](https://www.oreilly.co.jp//books/9784873119847/)』の第6章が参考になります。
 [^aiops-anomaly-detection-survey]: [[2308.00393] A Survey of Time Series Anomaly Detection Methods in the AIOps Domain](https://arxiv.org/abs/2308.00393)
 [^monitorassistant]: [MonitorAssistant: Simplifying Cloud Service Monitoring via Large Language Models - Microsoft Research](https://www.microsoft.com/en-us/research/publication/monitorassistant-simplifying-cloud-service-monitoring-via-large-language-models/)
 
@@ -216,9 +215,9 @@ MonitorAssist は、あらかじめ機械学習モデルをカタログのよう
 
 メトリックを活用する上で、観測値に付与されている**属性**（次元[^attribute]）の利用方法は重要です。属性のフィルタリング次第で、見えてくるものが変わるからです。
 
-たとえば、世界中のサーバーからインシデント報告が集まる管理システムを考えます。この報告書にはサーバー名、データセンター名、顧客、国といった様々な属性が付与されて、システムでは報告書の数を時系列データとして管理していました。ここで、インドのデータセンターに展開されている、ある顧客（教育関係）向けのサービスがダウンしたとします。
+たとえば、世界中のサーバーからインシデント報告が集まる管理システムを考えます。この報告書にはサーバー名、データセンター名、顧客、国といった様々な属性が付与されています。ここで、インドのデータセンターに展開された、顧客（教育関係）向けのサービスがダウンしたとします。
 
-{{< figure src="https://storage.googleapis.com/zenn-user-upload/a25881a1fa78-20241114.png" caption="" >}}
+{{< figure src="effective-attributes.png" caption="(国、顧客種別、データセンター) の属性でフィルタリングされたインシデント数の推移" >}}
 
 この時、上図のような属性でフィルターをかけて時系列データを確認すれば、明らかなインシデントの増加が見られるはずです。しかし、属性のフィルターをかけずに同じ時系列データをみても、世界中から送られるインシデントに "ならされて" しまい、異変の特定は困難になります。
 
@@ -226,7 +225,7 @@ MonitorAssist は、あらかじめ機械学習モデルをカタログのよう
 
 そこで、Microsoft は「属性の組み合わせをノードとする木構造上の探索問題」として有効属性の探索を捉え、最適な属性セットを提案するシステム「iDice」を開発しました[^idice]。さらに、2020 年には、メタヒューリスティックで探索空間を効率的に探索する新たな手法 (MID) にも取り組みます[^mid]。これらの成果は、AiDice として Azure で活用されることになりました[^aidice]。
 
-{{< figure src="https://storage.googleapis.com/zenn-user-upload/cf5d1e8d6c68-20241115.png" caption="" >}}
+{{< figure src="effective-attributes-fault.png" caption="属性の探索を障害の特定に使用する例" >}}
 
 目的が少し異なりますが、似たような手法として 2021 年の「HALO」があります[^halo]。HALO は、サーバーに紐づく多次元メトリック（例: API コールの失敗カウント）を対象に、同じように異変（障害）が起きている属性の集合を獲得する手法です。サーバーの物理的な配置（トポロジカルな情報）を考慮して、特徴量を設計している点が特徴的です。HALO は Azure の Safe Deployment を管理するシステム (Gandalf) にも導入されています。
 
@@ -242,7 +241,7 @@ MonitorAssist は、あらかじめ機械学習モデルをカタログのよう
 
 アウテージ対応は、まず**特定**することから始まります。もちろん、複数のユーザーから類似の報告が上がってきたらアウテージの発生を疑うことも出来ますが、その時点でかなりの時間が経過してしまっています。ユーザー報告を待たずして、システマチックに検知が出来ることを目指します。
 
-{{< figure src="https://storage.googleapis.com/zenn-user-upload/73d28e8860ae-20241115.png" caption="左図: AirAlert により構築されたベイジアンネットワーク. 右図: 最も関係があるとされるメトリックのプロットと予測されたアウテージ" >}}
+{{< figure src="airalert-outage.png" caption="左図: AirAlert により構築されたベイジアンネットワーク、右図: 関連すると判定されたメトリックの推移" >}}
 
 そこで Microsoft がまず取り組んだのは、ベイジアンネットワークを活用したアウテージの検出手法「AirAlert」です[^airalert]。アウテージに関係するシグナル（コンポーネント単位のアラート）同士は連動するという経験則に基づいて、シグナル同士の依存関係を有向非巡回グラフに落とし込みます。するとアウテージに最も関係するシグナルの集合が得られるので、これを使ってアウテージの発生（発生時刻）を推測できます。
 
@@ -250,7 +249,7 @@ MonitorAssist は、あらかじめ機械学習モデルをカタログのよう
 
 AirAlert や Warden のようなシステムでアウテージが特定された後は、エンジニアが調査するフェーズに移行しますが、ここでも Microsoft は調査を補助するツールを導入しました。それが 2023 年に発表された「Oasis」です[^oasis]。
 
-{{< figure src="https://storage.googleapis.com/zenn-user-upload/a65ad6b6910c-20241115.png" caption="Oasis がアウテージをスコーピングして要約を生成する流れ" >}}
+{{< figure src="oasis-overview.png" caption="Oasis がアウテージをスコーピングして要約を生成する流れ" >}}
 
 Oasis は、アウテージに該当するインシデントの抽出（インシデント関連付け）によって影響範囲を特定し、さらに LLM でアウテージの要約を生成するシステムです。インシデントの関連付けは AirAlert や Warden でも可能ですが、より精度を高めるために 3 つの異なる方法を総合的に活用しています。
 
@@ -285,13 +284,13 @@ Azure のインシデント トリアージの歴史を振り返ると、Azure �
 
 そして、最新の取り組みとして、2024 年に LLM を活用した新たなインシデント トリアージ システム「COMET」が提案されます[^comet]。
 
-{{< figure src="https://storage.googleapis.com/zenn-user-upload/6e2e068f07aa-20241031.png" caption="COMET のアーキテクチャ（図は論文から抜粋）" >}}
+{{< figure src="comet-overview.png" caption="COMET のアーキテクチャ（図は論文から抜粋）" >}}
 
 COMET の特徴一つは、ログを上手く取り扱ってトリアージを実行することです。インシデントが発生したコンポーネントのログにはトリアージに必要な情報が含まれていますが、それを機械学習モデルで取り扱うには、ログ特有の問題に対処する必要があります。例えば、冗長なログのトリミング、重要なキーワードの抽出、データ不均衡などです。COMET では、これを LLM (とプロンプトエンジニアリング) を活用することでクリアしています。
 
 また、インシデントのトリアージと共に、分析結果をレポートする機能も有します。実際のインシデント管理システムでは、次のような形で COMET による分析結果が提示されます。
 
-{{< figure src="https://storage.googleapis.com/zenn-user-upload/50b1cafc9ca5-20241101.png" caption="オンコールエンジニアに提示される情報" >}}
+{{< figure src="comet-example.ja.png" caption="オンコールエンジニアに提示される情報" >}}
 
 この報告書は、COMET が単なるトリアージ システムに留まらず、重要なインサイトを提供する能力を備えていることをよく表しています。性能評価でも、トリアージ精度が 30% 向上しただけでなく、TTM (Time-To-Mitigate) が最大 35% 削減できたことが示されています。COMET は、現在、仮想マシンを提供する内部サービスで実運用されています。
 
@@ -300,7 +299,7 @@ COMET の特徴一つは、ログを上手く取り扱ってトリアージを�
 [^deeptriage]: [DeepTriage | Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining](https://dl.acm.org/doi/abs/10.1145/3394486.3403380)
 [^deepip]: [How incidental are the incidents? | Proceedings of the 35th IEEE/ACM International Conference on Automated Software Engineering](https://dl.acm.org/doi/10.1145/3324884.3416624)
 [^ttmpred]: [How Long Will it Take to Mitigate this Incident for Online Service Systems? - Microsoft Research](https://www.microsoft.com/en-us/research/publication/how-long-will-it-take-to-mitigate-this-incident-for-online-service-systems/)
-[^comet]: https://www.microsoft.com/en-us/research/publication/large-language-models-can-provide-accurate-and-interpretable-incident-triage/
+[^comet]: [Large Language Models Can Provide Accurate and Interpretable Incident Triage - Microsoft Research](https://www.microsoft.com/en-us/research/publication/large-language-models-can-provide-accurate-and-interpretable-incident-triage/)
 [^lightgbm]: [Welcome to LightGBM’s documentation! — LightGBM 4.5.0 documentation](https://lightgbm.readthedocs.io/en/stable/)
 
 ### 類似インシデントの関連付け
@@ -313,17 +312,17 @@ COMET の特徴一つは、ログを上手く取り扱ってトリアージを�
 
 Microsoft では、様々なインシデント関連付け手法を考案、導入してきました。
 
-{{< figure src="https://storage.googleapis.com/zenn-user-upload/3fe4fbcd2c37-20241115.png" caption="" >}}
+{{< figure src="lidar-lincm.png" caption="" >}}
 
 まず、2020 年に、ソフトウェアのバグレポート重複を発見する手法に着想を得た、オンラインサービスのインシデント関連付けシステム「LiDAR」を発表しています[^lidar]。LiDAR はインシデントのテキスト情報とコンポーネント依存関係の両方を考慮できることが特徴的です。どちらの情報もニューラルネットワークベースの手法で特徴を抽出し、インシデント間の類似度を計算します。
 
 同年には、顧客報告のインシデント（CI）と監視システムによって自動起票されたインシデント（MI）の関連付けを行う手法「LinkCM」を提案しています[^linkcm]。というのも、77% の CI では、それに対応する MI が事前に起票されているのにも関わらず、調査の初期段階で正しく関連付けられたケースが約 2 割しか無かったためです。LinkCM では、自然言語で書かれた CI の説明文を解釈して、ディープラーニングベースの手法で MI と紐づけます。
 
-{{< figure src="https://storage.googleapis.com/zenn-user-upload/9ece4f9030d6-20241031.png" caption="" >}}
+{{< figure src="dilink-overview.png" caption="DiLink のアーキテクチャ" >}}
 
 そして、2024 年には、LiDAR を進化させたインシデント関連付けシステム「DiLink」が提案されています[^lidar]。LiDAR と DiLink はどちらも、テキスト情報とコンポーネント間の依存関係を特徴量に活用する手法を採用していますが、既存手法の LiDAR では２つの特徴量を個別のモデルで学習していました。DiLink では、テキスト情報と依存グラフ情報を単一のニューラルネットワークで取りあつかうことで、より精度の高い、マルチモーダルなインシデント関連付けを実現します。
 
-[^cascading-failure]: このような現象を「カスケード故障（cascading failure）」と呼びます。参考: https://en.wikipedia.org/wiki/Cascading_failure
+[^cascading-failure]: このような現象を「カスケード故障（cascading failure）」と呼びます。参考: [Cascading failure - Wikipedia](https://en.wikipedia.org/wiki/Cascading_failure)
 [^linkcm]: [Efficient customer incident triage via linking with system incidents | Proceedings of the 28th ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering](https://dl.acm.org/doi/10.1145/3368089.3417061)
 
 ### KQL クエリの自動生成
@@ -336,11 +335,11 @@ Microsoft の監視システムでは、[Kusto Query Language (KQL)](https://lea
 
 また、生成される KQL クエリは、「Xcore」と呼ばれる独自指標を最大化するように設計されています。Xcore は、任意の DSL に対して適用できるクエリ（コード）品質の評価指標です。構文・意味論的な正確さ、トークンとオペレーションの正確さ、調査に必要な情報の網羅性といった複数の観点で、クエリの良さを評価します。
 
-{{< figure src="https://storage.googleapis.com/zenn-user-upload/d767fb4a4594-20241104.png" caption="Xpert のアーキテクチャ（図は論文から抜粋）" >}}
+{{< figure src="xpert-overview.png" caption="Xpert のアーキテクチャ（図は論文から抜粋）" >}}
 
 Xpert は一般的な RAG に近いアーキテクチャを採用していますが、事後検証のプロセスがある点が特徴です。事後処理では、LLM の生成結果が KQL のシンタックスに従っていることを構文解析によって確認します。もし不完全なクエリが生成された場合は、再度 LLM に問い合わせることで修正が試みられます。また、インシデント情報や過去のクエリを溜め込むデータベースは逐次更新されるため、時間経過により精度向上が期待できるほか、データドリフトの問題にも対応できます。
 
-[^kusto100knocks]:KQL の書き方を勉強したければ「Kusto 100 本ノック」がおすすめです。参考: https://azure.github.io/fta-kusto100knocks/ja/
+[^kusto100knocks]:KQL の書き方を勉強したければ「Kusto 100 本ノック」がおすすめです。参考: [KUSTO 100+ knocks](https://azure.github.io/fta-kusto100knocks/ja/)
 [^xpert]: [Xpert: Empowering Incident Management with Query Recommendations via Large Language Models - Microsoft Research](https://www.microsoft.com/en-us/research/publication/xpert-empowering-incident-management-with-query-recommendations-via-large-language-models/)
 
 ### トラブルシューティングの自動化
@@ -351,7 +350,7 @@ TSG の自動化も検討されていましたが、自動化コードやスク�
 
 そこで、TSG を LLM で解釈し、実行するためのシステム「LLexus」が開発されました[^llexus]。LLexus は、自然言語で書かれた TSG をマシンコードにコンパイラするような働きをします。
 
-{{< figure src="https://storage.googleapis.com/zenn-user-upload/9a9b2b8bce21-20241101.png" caption="LLexus のアーキテクチャ（図は論文から抜粋）" >}}
+{{< figure src="llexus-overview.png" caption="LLexus のアーキテクチャ（図は論文から抜粋）" >}}
 
 LLexus の興味深い点は、**Planner** と **Executor** がそれぞれ独立している点です。Planner が TSG の更新を検知すると、Executor で実行可能なプランに変換します。この際の自然言語の解釈には LLM が使用され、精度向上のテクニックとして Chain of Thought が導入されています。そして、インシデントが発生し当該の TSG が適合する場合、Executor によってプランが実行されます（その後は、緩和措置が採られて実行が終了するか、エンジニアへエスカレーションされる）。
 
@@ -373,7 +372,7 @@ LLexus の興味深い点は、**Planner** と **Executor** がそれぞれ独�
 
 そこで、根本原因分析を AI でアシストするシステム「RCACopilot」が開発されました[^rcacopilot]。名前に Copilot が入ってるからには、処理のほとんどは LLM に投げて終わりかな？と思いきや、実態はかなりしっかり作り込まれたオートメーション システムで、LLM は最後に少し登場する程度です。
 
-{{< figure src="https://storage.googleapis.com/zenn-user-upload/5280a542dd24-20241030.png" caption="RCACopilot のアーキテクチャ（図は論文から抜粋）" >}}
+{{< figure src="rcacopilot-overview.png" caption="RCACopilot のアーキテクチャ（図は論文から抜粋）" >}}
 
 - RCACopilot がインシデントを認識すると、まずは**情報収集ステージ**を開始します。ここでは、洞察１に習い、なるべく多くのデータソースから情報を取得します。前もって有向非巡回グラフのようなロジックフローを登録しておき、そのフローに従って取得されます（例: このログを取ってから、次はこのコマンドを実行して、さらに条件分岐して…）。フローはいつでもエンジニアが修正可能です。
 - 情報収集が終わると、**根本原因予測のステージ**に移行します。このステージでは、似ている数個の過去インシデントを検索します。インシデント間の類似度を計算するため、FastText を使って得た埋め込み表現と、インシデントの発生間隔が使用されます（洞察２に基づく考慮）。
@@ -397,14 +396,14 @@ RCACopilot は、2024 年の時点で、30 を超えるサービスチームで 
 
 また、2016 年には、ログのクラスター化（クラスタリング）に基づいて類似インシデントの検索を実現する手法「LogCluster」が発表されました[^logcluster]。膨大な数のログ シーケンスが与えられた場合でも、実際は限定された数のクラスターから抽出されていると仮定すれば、ログをクラスターの代表値に集約できます。LogCluster は、このようにしてログを効率的に扱う仕組みを実現しました。
 
-{{< figure src="https://storage.googleapis.com/zenn-user-upload/a4b6e0cbfeb7-20241115.png" caption="Onion (2021) のアーキテクチャ" >}}
+{{< figure src="onion-overview.png" caption="Onion のアーキテクチャ" >}}
 
 このログをクラスター化するというアイディアは、他の手法でも多々見られます。たとえば、2018 年の Log3C[^log3c] や 2021 年の Onion[^onion] では、ログのクラスター（クリーク）を抽出した後に、相関分析や対称分析などの手法を適用して、障害検知や障害に関係のあるログデータの抽出を実現しています。
 
 また、2022 年には、ログ パーシングに関連する二つの手法が提案されています。
 
-* **UniParser**: ディープニューラルネットワークを使ったログパーシング手法です[^uniparser]。LSTM を使った Token Encoder でログの埋め込みを学習しながら、さらに似たログと似てないログを使った対照損失を組み合わせます。これにより、各トークンの意味を考慮した埋め込みの獲得と、高速な推論を可能にします。
-* **SPINE**: 分散計算機環境で並列実行することを前提に設計されたログパーシング手法です[^spine]。ジョブを実行するワーカーに均等な負荷（ログの集合）がいきわたるよう、貪欲法に基づくビンパッキング アルゴリズム「BestFit」を使っています。また、昨今の CI/CD の活用でログの多様化が進んでいることを指摘し、それを考慮したモデルの再学習ループ（フィードバックループ）のデザインもおこなっています。
+- **UniParser**: ディープニューラルネットワークを使ったログパーシング手法です[^uniparser]。LSTM を使った Token Encoder でログの埋め込みを学習しながら、さらに似たログと似てないログを使った対照損失を組み合わせます。これにより、各トークンの意味を考慮した埋め込みの獲得と、高速な推論を可能にします。
+- **SPINE**: 分散計算機環境で並列実行することを前提に設計されたログパーシング手法です[^spine]。ジョブを実行するワーカーに均等な負荷（ログの集合）がいきわたるよう、貪欲法に基づくビンパッキング アルゴリズム「BestFit」を使っています。また、昨今の CI/CD の活用でログの多様化が進んでいることを指摘し、それを考慮したモデルの再学習ループ（フィードバックループ）のデザインもおこなっています。
 
 最後に、ログだけでなくトレースを有効活用した手法も紹介します。トレースとは、複数のコンポーネントに渡って処理されたイベントに対して、流れを後から追跡できるように取られたログです。2021 年の TraceLingo は、そんなトレースがコールツリー（木構造）で表現出来ることを活用し、異常が発生した箇所（スパン）を特定するディープニューラルネットワークのモデルです[^tracelingo]。
 
@@ -426,7 +425,7 @@ RCACopilot は、2024 年の時点で、30 を超えるサービスチームで 
 | 2012   | [NetPilot](https://www.microsoft.com/en-us/research/publication/netpilot-automating-datacenter-network-failure-mitigation/)                                                    | データセンターのネットワーク障害を検知して、安全に自動緩和するシステム                                                                                                                                               |
 | 2014   | [HMRF](https://www.microsoft.com/en-us/research/publication/identifying-recurrent-unknown-performance-issues-2/)                                                               | メトリックからパフォーマンス問題を検出する手法                                                                                                                                                                       |
 | 2017   | [CorrOpt](https://www.microsoft.com/en-us/research/publication/understanding-mitigating-packet-corruption-data-center-networks/)                                               | データセンターネットワークのパケット破損を検出する監視システム                                                                                                                                                       |
-| 2017   | [GraphWeaver](https://arxiv.org/pdf/2406.01842)                                                                                                                                | [ Microsoft Defender XDR](https://learn.microsoft.com/ja-jp/defender-xdr/investigate-incidents) に実装されているインシデント関連付け手法                                                                             |
+| 2017   | [GraphWeaver](https://arxiv.org/pdf/2406.01842)                                                                                                                                | [Microsoft Defender XDR](https://learn.microsoft.com/ja-jp/defender-xdr/investigate-incidents) に実装されているインシデント関連付け手法                                                                              |
 | 2018   | [Panorama](https://www.microsoft.com/en-us/research/publication/capturing-and-enhancing-in-situ-system-observability-for-failure-detection/)                                   | グレー障害や Limplock のような、検出が難しい部分故障やパフォーマンス劣化を検出する監視システム                                                                                                                       |
 | 2019   | [ATAD](https://www.microsoft.com/en-us/research/publication/cross-dataset-time-series-anomaly-detection-for-cloud-systems/)                                                    | 学習データが乏しいテレメトリに対する異常検知を実現する、異常検知モデルの転移学習                                                                                                                                     |
 | 2019   | [BlameIt](https://www.microsoft.com/en-us/research/publication/zooming-in-on-wide-area-latencies-to-a-global-cloud-provider/)                                                  | WAN のレイテンシ問題と原因箇所（ISP or WAN）を特定する監視システム                                                                                                                                                   |
