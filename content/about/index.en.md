@@ -1,25 +1,54 @@
 +++
-title = "About"
-description = "Hugo, the world's fastest framework for building websites"
-date = "2019-02-28"
-aliases = ["about-us", "about-hugo", "contact"]
-author = "Hugo Authors"
+title = "About Me"
+description = "About Me"
+date = "2024-11-18"
+aliases = ["about-me", "contact"]
+author = "Junya Yamaguchi"
 +++
 
-Written in Go, Hugo is an open source static site generator available under the [Apache Licence 2.0.](https://github.com/gohugoio/hugo/blob/master/LICENSE) Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
+{{< figure src="/images/avatar-photo.jpg" caption="A man excitedly walking through downtown Seattle, blissfully unaware that a torrential rain is coming soon." width=250 >}}
 
-Hugo makes use of a variety of open source projects including:
+I am Junya Yamaguchi (usually going by @openjny), a Japanese guy working at Microsoft as Cloud Solution Architect. While my professional speciality is Azure Infrastructure, I pretty much enjoy diverse genres such as Machine Learning and PenTesting. I currently live in Tokyo🗼, playing tourist from time to time.
 
-* https://github.com/yuin/goldmark
-* https://github.com/alecthomas/chroma
-* https://github.com/muesli/smartcrop
-* https://github.com/spf13/cobra
-* https://github.com/spf13/viper
+- [X (Twitter)](https://x.com/openjny)
+- [GitHub](https://github.com/openjny)
+- [LinkedIn](https://www.linkedin.com/in/ja-junya-yamaguchi/?locale=en_US)
+- [zenn.dev](https://zenn.dev/openjny)
+- [Medium](https://medium.com/@openjny)
 
-Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
+## Hobbies
 
-Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.
+- Billiards 🎱
+- Workout 💪
+- Piano 🎹
+- Coffee ☕
+- Studying English
 
-Websites built with Hugo are extremely fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.
+## Areas of Interest
 
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
+- Azure
+- Performance Analysis
+- Probability and Statistics
+- Machine Learning
+- Penetration Testing
+
+## Favorite Books
+
+- Brendan Gregg. "Systems Performance: Enterprise and the Cloud, 2nd Edition"
+- Andrew S. Tanenbaum. "Computer Networks"
+- C. M. Bishop. "Pattern Recognition and Machine Learning"
+- Erich Fromm. "Escape from Freedom"
+
+## Favorite Songs
+
+- [Toe - Goodbye Feat. Toki Asako](https://www.youtube.com/watch?v=XBzoHdb1-Qw)
+- [Ryuichi Sakamoto - energy flow](https://www.youtube.com/watch?v=90zQT7FnQas)
+- [Joe Hisaishi - Summer](https://www.youtube.com/watch?v=TK1Ij_-mank)
+
+## Promotion
+
+Please check out the LINE sticker that my sister created for me! 🙂
+
+![LINE Sticker Junya-san](./line-sticker-junya-san.png)
+
+[Junya-san – LINE stickers | LINE STORE](https://store.line.me/stickershop/product/14157843/en?from=sticker)
