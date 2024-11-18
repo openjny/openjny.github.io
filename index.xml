@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>/etc/openjny</title><link>http://www.example.com/</link><description>Recent content on /etc/openjny</description><generator>Hugo</generator><language>ja</language><lastBuildDate>Mon, 18 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://www.example.com/index.xml" rel="self" type="application/rss+xml"/><item><title>About Me</title><link>http://www.example.com/about/</link><pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><guid>http://www.example.com/about/</guid><description>&lt;p>普段は Azure インフラ（仮想マシン、ネットワーク、etc）に関係する仕事をやっていますが、いろんなジャンルが好きです。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>/etc/openjny</title><link>https://openjny.github.io/</link><description>Recent content on /etc/openjny</description><generator>Hugo</generator><language>ja</language><lastBuildDate>Mon, 18 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://openjny.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>About Me</title><link>https://openjny.github.io/about/</link><pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/about/</guid><description>&lt;p>普段は Azure インフラ（仮想マシン、ネットワーク、etc）に関係する仕事をやっていますが、いろんなジャンルが好きです。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://x.com/openjny" class="external-link" target="_blank" rel="noopener">X (Twitter)&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/openjny" class="external-link" target="_blank" rel="noopener">GitHub&lt;/a>&lt;/li>
@@ -67,25 +67,25 @@
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
 &lt;/h2>
-&lt;p>妹が作ってくれた LINE スタンプ&lt;/p></description></item><item><title>ブログを Hugo に引っ越した</title><link>http://www.example.com/2024/11/18/migrate-blog-to-hugo/</link><pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><guid>http://www.example.com/2024/11/18/migrate-blog-to-hugo/</guid><description>&lt;p>数年間更新してなかった個人ブログを再度整備しようと思い、あわせて SSG を Hugo に乗り換えてみました。これはその備忘録的なポストです。&lt;/p>
+&lt;p>妹が作ってくれた LINE スタンプ&lt;/p></description></item><item><title>ブログを Hugo に引っ越した</title><link>https://openjny.github.io/2024/11/18/migrate-blog-to-hugo/</link><pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2024/11/18/migrate-blog-to-hugo/</guid><description>&lt;p>数年間更新してなかった個人ブログを再度整備しようと思い、あわせて SSG を Hugo に乗り換えてみました。これはその備忘録的なポストです。&lt;/p>
 &lt;h2 id="heading">
  
  &lt;a class="heading-link" href="#heading">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
-&lt;/h2></description></item><item><title>コンタクト</title><link>http://www.example.com/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://www.example.com/contact/</guid><description>&lt;ul>
+&lt;/h2></description></item><item><title>コンタクト</title><link>https://openjny.github.io/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://openjny.github.io/contact/</guid><description>&lt;ul>
 &lt;li>&lt;a href="https://x.com/openjny" class="external-link" target="_blank" rel="noopener">X (Twitter)&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/openjny" class="external-link" target="_blank" rel="noopener">GitHub&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.linkedin.com/in/ja-junya-yamaguchi/" class="external-link" target="_blank" rel="noopener">LinkedIn&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>プロジェクト</title><link>http://www.example.com/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://www.example.com/projects/</guid><description>&lt;h2 id="書籍-azureネットワーク設計構築入門-2024">
+&lt;/ul></description></item><item><title>プロジェクト</title><link>https://openjny.github.io/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://openjny.github.io/projects/</guid><description>&lt;h2 id="書籍-azureネットワーク設計構築入門-2024">
  書籍: Azureネットワーク設計・構築入門 (2024)
  &lt;a class="heading-link" href="#%e6%9b%b8%e7%b1%8d-azure%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e8%a8%ad%e8%a8%88%e6%a7%8b%e7%af%89%e5%85%a5%e9%96%80-2024">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
 &lt;/h2>
-&lt;p>&lt;img src="http://www.example.com/projects/book-azure-networking.png">&lt;/p>
+&lt;p>&lt;img src="https://openjny.github.io/projects/book-azure-networking.png">&lt;/p>
 &lt;p>本書は、Microsoft Azureでネットワークを設計・構築するうえで必要な知識とノウハウを、基礎から応用まで体系的にまとめた一冊です。Azureでネットワークを構築・設計する際に最低限必要なネットワークの基礎知識、既存のオンプレミスネットワークとの考え方の違い、Azureのネットワークサービスとその使い方を、ハマりがちな“落とし穴”も交えながら、Azureの技術支援を担当するスペシャリスト／アーキテクトの視点から解説します。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://book.impress.co.jp/books/1122101083" class="external-link" target="_blank" rel="noopener">Azureネットワーク設計・構築入門　基礎知識から利用シナリオ、設計・運用ベストプラクティスまで - インプレスブックス&lt;/a>&lt;/li>
@@ -98,7 +98,7 @@
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
 &lt;/h2>
-&lt;p>&lt;img src="http://www.example.com/projects/book-azure-system-design.png">&lt;/p>
+&lt;p>&lt;img src="https://openjny.github.io/projects/book-azure-system-design.png">&lt;/p>
 &lt;p>本書は2018年に発行した『Azure定番システム設計・実装・運用ガイド』を3年ぶりに改訂したものです。日本マイクロソフトのAzureサポートチームの現役のサポートエンジニアが、日常のサポート業務から得たノウハウをAzure利用者の皆さんに伝授する書籍です。既存環境をAzureに移行する実践的なシナリオに沿って、なぜそのサービスを使う必要があるのか、どのようなことに注意して構成する必要があるのかといった、ベストプラクティスを解説します。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.amazon.co.jp/dp/4296080121" class="external-link" target="_blank" rel="noopener">Azure定番システム設計・実装・運用ガイド 改訂新版 | 日本マイクロソフト株式会社 (著) |本 | 通販 | Amazon&lt;/a>&lt;/li>
