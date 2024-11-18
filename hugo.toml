@@ -175,9 +175,9 @@ url = "https://medium.com/@openjny"
 languageName = ":us:"
 
 [[languages.en.menu.main]]
-name = "About"
+name = "About Me"
 weight = 1
-url = "about/"
+url = "about-me/"
 
 [[languages.en.menu.main]]
 name = "Blog"
@@ -208,7 +208,7 @@ dateFormat = "2006年1月2日"
 [[languages.ja.menu.main]]
 name = "About Me"
 weight = 1
-url = "about/"
+url = "about-me/"
 
 [[languages.ja.menu.main]]
 name = "ブログ"
