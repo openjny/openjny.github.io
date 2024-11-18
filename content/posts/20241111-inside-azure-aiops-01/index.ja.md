@@ -72,9 +72,9 @@ AIOps という用語は、2016 年に出版された Gartner のレポートで
 
 このように、同じ概念であっても、時代や背景に応じて異なる役割を求められることがあります。AIOps も同様です。過去の取り組みと比べて、AIOps に多く見られる特徴があります。たとえば、次のようなものです。
 
-* **大規模環境/ビッグデータへの適応**: 時代とともに IT システムの複雑度は増していくばかりです。そのため、運用自動化の文脈でも、複雑なモデリングが必要な事象を対象としたり、大規模なデータを取り扱ったりすることが多くなりました。Gartner が AIOps を「ビッグデータと機械学習の組み合わせ」と定義している[^aiops-gartner]ように、この点は過去のものと一線を画すものと言えます。AIOps には、こうした大規模環境における運用改善のニーズに対応することが求められています。
-* **深層ニューラル ネットワークの活用**: 深層ニューラルネットワーク（DNN）や大規模言語モデル (LLM) の登場によって、人工知能の世界では多くのパラダイムシフトが発生しました。AIOps の名の下で発表されている研究・成果の多くはこうした最新の手法を取り込む傾向があり、よもやすると "DNN/LLM for IT Operations" のほうが名前として相応しいんじゃないかという節すらあります。AIOps には、こうした最新の AI 技術の応用可能性を試験しているという側面も感じられます。
-* **ユーザビリティの設計**: LLM の登場により、機械と人間のコミュニケーション方法に新たなツール（自然言語）が加わりました。そのうえ、ハルシネーションへの対応として Human-in-the-Loop を組み込んだデザインが良いプラクティスとされています。つまり、従来以上にシステムと人間との間のインタラクションが意識されるようになったということです。そのため、AIOps ではヒューマン コンピューター インタラクション（HCI）の要素がシステムデザインの一部として考慮されることが多いです。
+- **大規模環境/ビッグデータへの適応**: 時代とともに IT システムの複雑度は増していくばかりです。そのため、運用自動化の文脈でも、複雑なモデリングが必要な事象を対象としたり、大規模なデータを取り扱ったりすることが多くなりました。Gartner が AIOps を「ビッグデータと機械学習の組み合わせ」と定義している[^aiops-gartner]ように、この点は過去のものと一線を画すものと言えます。AIOps には、こうした大規模環境における運用改善のニーズに対応することが求められています。
+- **深層ニューラル ネットワークの活用**: 深層ニューラルネットワーク（DNN）や大規模言語モデル (LLM) の登場によって、人工知能の世界では多くのパラダイムシフトが発生しました。AIOps の名の下で発表されている研究・成果の多くはこうした最新の手法を取り込む傾向があり、よもやすると "DNN/LLM for IT Operations" のほうが名前として相応しいんじゃないかという節すらあります。AIOps には、こうした最新の AI 技術の応用可能性を試験しているという側面も感じられます。
+- **ユーザビリティの設計**: LLM の登場により、機械と人間のコミュニケーション方法に新たなツール（自然言語）が加わりました。そのうえ、ハルシネーションへの対応として Human-in-the-Loop を組み込んだデザインが良いプラクティスとされています。つまり、従来以上にシステムと人間との間のインタラクションが意識されるようになったということです。そのため、AIOps ではヒューマン コンピューター インタラクション（HCI）の要素がシステムデザインの一部として考慮されることが多いです。
 
 ## Microsoft と AIOps
 
@@ -104,7 +104,7 @@ Microsoft が自社サービスの中でどのように AIOps を位置づけ、
 
 たとえば、障害検知の文脈であれば、Azure Monitor に備わるマネージドの AIOps 機能を使うか、基本的な Azure Monitor のサービス（例: Log Analytics ワークスペース）を Azure ML と組み合わせて独自の AIOps パイプラインを構築するという 2 種類の方法が取れます。
 
-https://learn.microsoft.com/ja-jp/azure/azure-monitor/logs/aiops-machine-learning
+[Azure Monitor での AIOps と機械学習 - Azure Monitor | Microsoft Learn](https://learn.microsoft.com/ja-jp/azure/azure-monitor/logs/aiops-machine-learning)
 
 マネージドの方法に関しては、[動的なしきい値によるアラート](https://learn.microsoft.com/ja-jp/azure/azure-monitor/alerts/alerts-dynamic-thresholds)や [Application Insights のスマート検出](https://learn.microsoft.com/ja-jp/azure/azure-monitor/alerts/proactive-diagnostics)が手っ取り早く簡単に試せる機能です。また、最近、仮想マシンの [VM watch](https://learn.microsoft.com/en-us/azure/virtual-machines/azure-vm-watch) と呼ばれる機能が Public Preview で登場しました。これは、VM 内の状況をシステムメトリックから適応的に判断して、正常性を判断してくれる監視ツールです。
 
@@ -168,7 +168,7 @@ Microsoft は、この点をよく理解しているように思えます。そ�
 [^what-is-devops]: [DevOpsとは | IBM](https://www.ibm.com/jp-ja/topics/devops)
 [^srecon14]: [Program | USENIX](https://www.usenix.org/conference/srecon14/program)
 [^2006svm]: [Fuqing, Yuan. "Failure diagnostics using support vector machine](https://www.diva-portal.org/smash/get/diva2:1824418/FULLTEXT01.pdf)
-[^combining05]: [Combining Visualization and Statistical Analysis to Improve Operator Confidence and Efficiency for Failure Detection and Localization - Microsoft Research](https://www.microsoft.com/en-us/research/publication/combining-visualization-and-statistical-analysis-to-improve-operator-confidence-and-efficiency-for-failure-detection-and-localization/) 
+[^combining05]: [Combining Visualization and Statistical Analysis to Improve Operator Confidence and Efficiency for Failure Detection and Localization - Microsoft Research](https://www.microsoft.com/en-us/research/publication/combining-visualization-and-statistical-analysis-to-improve-operator-confidence-and-efficiency-for-failure-detection-and-localization/)
 [^protector10]: [Protector: A Probabilistic Failure Detector for Cost-effective Peer-to-peer Storage - Microsoft Research](https://www.microsoft.com/en-us/research/publication/protector-probabilistic-failure-detector-cost-effective-peer-peer-storage/)
 [^rebucket12]: [ReBucket - A Method for Clustering Duplicate Crash Reports based on Call Stack Similarity - Microsoft Research](https://www.microsoft.com/en-us/research/publication/rebucket-a-method-for-clustering-duplicate-crash-reports-based-on-call-stack-similarity/)
 [^pike]: [Rob Pike's 5 Rules of Programming](https://users.ece.utexas.edu/~adnan/pike.html)
