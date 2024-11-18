@@ -1,5 +1,5 @@
 +++
-title = "山口 順也 (Junya Yamaguchi)"
+title = "About Me"
 description = "About Me"
 date = "2024-11-18"
 aliases = ["about", "about-me", "contact"]
