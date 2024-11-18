@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Shortcodes on /etc/openjny</title><link>http://www.example.com/tags/shortcodes/</link><description>Recent content in Shortcodes on /etc/openjny</description><generator>Hugo</generator><language>ja</language><lastBuildDate>Mon, 18 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://www.example.com/tags/shortcodes/index.xml" rel="self" type="application/rss+xml"/><item><title>ブログを Hugo に引っ越した</title><link>http://www.example.com/2024/11/18/migrate-blog-to-hugo/</link><pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><guid>http://www.example.com/2024/11/18/migrate-blog-to-hugo/</guid><description>&lt;p>数年間更新してなかった個人ブログを再度整備しようと思い、あわせて SSG を Hugo に乗り換えてみました。これはその備忘録的なポストです。&lt;/p>
+&lt;h2 id="heading">
+ 
+ &lt;a class="heading-link" href="#heading">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
+ &lt;span class="sr-only">見出しへのリンク&lt;/span>
+ &lt;/a>
+&lt;/h2></description></item></channel></rss>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>/etc/openjny</title><link>http://www.example.com/</link><description>Recent content on /etc/openjny</description><generator>Hugo</generator><language>ja</language><lastBuildDate>Mon, 18 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://www.example.com/index.xml" rel="self" type="application/rss+xml"/><item><title>About Me</title><link>http://www.example.com/about/</link><pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><guid>http://www.example.com/about/</guid><description>&lt;p>普段は Azure インフラ（仮想マシン、ネットワーク、etc）に関係する仕事をやっていますが、いろんなジャンルが好きです。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://x.com/openjny" class="external-link" target="_blank" rel="noopener">X (Twitter)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/openjny" class="external-link" target="_blank" rel="noopener">GitHub&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.linkedin.com/in/ja-junya-yamaguchi/" class="external-link" target="_blank" rel="noopener">LinkedIn&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://zenn.dev/openjny" class="external-link" target="_blank" rel="noopener">zenn.dev&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://medium.com/@openjny" class="external-link" target="_blank" rel="noopener">Medium&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="趣味">
+ 趣味
+ &lt;a class="heading-link" href="#%e8%b6%a3%e5%91%b3">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
+ &lt;span class="sr-only">見出しへのリンク&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>ビリヤード 🎱&lt;/li>
+&lt;li>筋トレ 💪&lt;/li>
+&lt;li>ピアノ 🎹&lt;/li>
+&lt;li>英語の勉強&lt;/li>
+&lt;/ul>
+&lt;h2 id="興味のある領域">
+ 興味のある領域
+ &lt;a class="heading-link" href="#%e8%88%88%e5%91%b3%e3%81%ae%e3%81%82%e3%82%8b%e9%a0%98%e5%9f%9f">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
+ &lt;span class="sr-only">見出しへのリンク&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Azure&lt;/li>
+&lt;li>パフォーマンス分析&lt;/li>
+&lt;li>確率統計&lt;/li>
+&lt;li>機械学習&lt;/li>
+&lt;li>ペネトレーションテスト&lt;/li>
+&lt;/ul>
+&lt;h2 id="好きな本">
+ 好きな本
+ &lt;a class="heading-link" href="#%e5%a5%bd%e3%81%8d%e3%81%aa%e6%9c%ac">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
+ &lt;span class="sr-only">見出しへのリンク&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.oreilly.co.jp/books/9784814400072/" class="external-link" target="_blank" rel="noopener">Brendan Gregg. &amp;ldquo;詳解 システム・パフォーマンス 第2版&amp;rdquo;&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://bookplus.nikkei.com/atcl/catalog/23/03/16/00728/" class="external-link" target="_blank" rel="noopener">Andrew S. Tanenbaum. &amp;ldquo;コンピュータネットワーク&amp;rdquo;&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.maruzen-publishing.co.jp/item/b294524.html" class="external-link" target="_blank" rel="noopener">C. M. Bishop. &amp;ldquo;パターン認識と機械学習&amp;rdquo;&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.amazon.co.jp/dp/4004200369/" class="external-link" target="_blank" rel="noopener">渡辺 慧. &amp;ldquo;認識とパタン&amp;rdquo;&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.amazon.co.jp/dp/4488006515/" class="external-link" target="_blank" rel="noopener">エーリッヒ・フロム. &amp;ldquo;自由からの逃走&amp;rdquo;&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.ehonnavi.net/ehon00.asp?no=94&amp;amp;srsltid=AfmBOoqZIuOkXx4EwhaqbrbcDNoTL-6No6FA-zjgT0-sWKgK4ed02K65" class="external-link" target="_blank" rel="noopener">佐野 洋子. &amp;ldquo;100万回生きたねこ&amp;rdquo;&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="好きな曲">
+ 好きな曲
+ &lt;a class="heading-link" href="#%e5%a5%bd%e3%81%8d%e3%81%aa%e6%9b%b2">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
+ &lt;span class="sr-only">見出しへのリンク&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.youtube.com/watch?v=XBzoHdb1-Qw" class="external-link" target="_blank" rel="noopener">Toe - グッドバイ Goodbye Feat. Toki Asako&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.youtube.com/watch?v=90zQT7FnQas" class="external-link" target="_blank" rel="noopener">坂本龍一 - energy flow&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.youtube.com/watch?v=TK1Ij_-mank" class="external-link" target="_blank" rel="noopener">久石譲 - あの夏へ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="宣伝">
+ 宣伝
+ &lt;a class="heading-link" href="#%e5%ae%a3%e4%bc%9d">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
+ &lt;span class="sr-only">見出しへのリンク&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>妹が作ってくれた LINE スタンプ&lt;/p></description></item><item><title>ブログを Hugo に引っ越した</title><link>http://www.example.com/2024/11/18/migrate-blog-to-hugo/</link><pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><guid>http://www.example.com/2024/11/18/migrate-blog-to-hugo/</guid><description>&lt;p>数年間更新してなかった個人ブログを再度整備しようと思い、あわせて SSG を Hugo に乗り換えてみました。これはその備忘録的なポストです。&lt;/p>
+&lt;h2 id="heading">
+ 
+ &lt;a class="heading-link" href="#heading">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
+ &lt;span class="sr-only">見出しへのリンク&lt;/span>
+ &lt;/a>
+&lt;/h2></description></item><item><title>コンタクト</title><link>http://www.example.com/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://www.example.com/contact/</guid><description>&lt;ul>
+&lt;li>&lt;a href="https://x.com/openjny" class="external-link" target="_blank" rel="noopener">X (Twitter)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/openjny" class="external-link" target="_blank" rel="noopener">GitHub&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.linkedin.com/in/ja-junya-yamaguchi/" class="external-link" target="_blank" rel="noopener">LinkedIn&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>プロジェクト</title><link>http://www.example.com/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://www.example.com/projects/</guid><description>&lt;h2 id="書籍-azureネットワーク設計構築入門-2024">
+ 書籍: Azureネットワーク設計・構築入門 (2024)
+ &lt;a class="heading-link" href="#%e6%9b%b8%e7%b1%8d-azure%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e8%a8%ad%e8%a8%88%e6%a7%8b%e7%af%89%e5%85%a5%e9%96%80-2024">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
+ &lt;span class="sr-only">見出しへのリンク&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="http://www.example.com/projects/book-azure-networking.png">&lt;/p>
+&lt;p>本書は、Microsoft Azureでネットワークを設計・構築するうえで必要な知識とノウハウを、基礎から応用まで体系的にまとめた一冊です。Azureでネットワークを構築・設計する際に最低限必要なネットワークの基礎知識、既存のオンプレミスネットワークとの考え方の違い、Azureのネットワークサービスとその使い方を、ハマりがちな“落とし穴”も交えながら、Azureの技術支援を担当するスペシャリスト／アーキテクトの視点から解説します。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://book.impress.co.jp/books/1122101083" class="external-link" target="_blank" rel="noopener">Azureネットワーク設計・構築入門　基礎知識から利用シナリオ、設計・運用ベストプラクティスまで - インプレスブックス&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.amazon.co.jp/dp/4295020109/" class="external-link" target="_blank" rel="noopener">Amazon.co.jp: Azureネットワーク設計・構築入門　基礎知識から利用シナリオ、設計・運用ベストプラクティスまで : 山本 学, 山田 浩也, 山口 順也: 本&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="書籍-azure定番システム設計実装運用ガイド-改訂新版-2021">
+ 書籍: Azure定番システム設計・実装・運用ガイド 改訂新版 (2021)
+ &lt;a class="heading-link" href="#%e6%9b%b8%e7%b1%8d-azure%e5%ae%9a%e7%95%aa%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e8%a8%ad%e8%a8%88%e5%ae%9f%e8%a3%85%e9%81%8b%e7%94%a8%e3%82%ac%e3%82%a4%e3%83%89-%e6%94%b9%e8%a8%82%e6%96%b0%e7%89%88-2021">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
+ &lt;span class="sr-only">見出しへのリンク&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="http://www.example.com/projects/book-azure-system-design.png">&lt;/p>
+&lt;p>本書は2018年に発行した『Azure定番システム設計・実装・運用ガイド』を3年ぶりに改訂したものです。日本マイクロソフトのAzureサポートチームの現役のサポートエンジニアが、日常のサポート業務から得たノウハウをAzure利用者の皆さんに伝授する書籍です。既存環境をAzureに移行する実践的なシナリオに沿って、なぜそのサービスを使う必要があるのか、どのようなことに注意して構成する必要があるのかといった、ベストプラクティスを解説します。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.amazon.co.jp/dp/4296080121" class="external-link" target="_blank" rel="noopener">Azure定番システム設計・実装・運用ガイド 改訂新版 | 日本マイクロソフト株式会社 (著) |本 | 通販 | Amazon&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
