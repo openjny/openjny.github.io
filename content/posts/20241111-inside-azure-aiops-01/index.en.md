@@ -1,5 +1,5 @@
 +++
-title = "AIOps Advancements in Microsoft Azure #1: Introduction"
+title = "Inside Azure AIOps #1: Introduction"
 slug = "inside-azure-aiops-01-introduction"
 date = "2024-11-11"
 categories = [
@@ -10,45 +10,41 @@ tags = [
     "SRE",
     "DevOps"
 ]
-series = ["AIOps advancements in Microsoft Azure"]
+series = ["Inside Azure AIOps"]
 +++
 
-As cloud services continue to grow, Ops teams face an increasing burden. The factors contributing to this burden include increasingly complex internal systems, mission-critical workloads requiring high levels of reliability, and demands for optimizing the operational costs of data centers.
+As cloud services continue to grow, Ops (Operations) teams of those service providers face a surging burden. The factors contributing to this may include highly interwinded internal systems, mission-critical workloads requiring high levels of reliability, and demands for optimizing the operational costs of data centers.
 
-Microsoft faces these challenges as well. With over 60 Azure regions globally, 300+ data centers, and millions of servers, Microsoft provides a multitude of services. Managing such a vast array of services while adapting to complex systems, enhancing service reliability, and reducing operational costs is a challenging task.
+This is exactly what Microsoft faces. With 60+ Azure regions globally, 300+ data centers, and millions of servers, Microsoft provides a multitude of services. Managing such a vast array of services while adapting to complex systems, enhancing service reliability, and reducing operational costs is a formidable task.
 
-To address these challenges, Microsoft is leveraging artificial intelligence (AI) technology to optimize operations — an approach commonly known as AIOps. The operational tasks handled by AIOps are diverse, but they mainly relate to two key operational areas:
+To address these obstacles, Microsoft has been leveraging artificial intelligence (AI) technology to streamline operations — an approach commonly known as **AIOps**. The tasks handled by AIOps are diverse, but they can be broadly categorized into two main areas:
 
-1. **Incident Management**: Enhancing service reliability by early detection of issues and suggesting the locations of problems and solutions.
-2. **Resource Management**: Efficient utilization of resources like servers, network, and storage to reduce costs.
+- **Incident Management**: Response to incidents in a timely manner, minimizing the impact on users.
+- **Resource Management**: Efficiently managing resources to ensure optimal service availability and performance while minimizing operational costs.
 
-In this article series, I will introduce how Microsoft uses AIOps to tackle the challenges of incident management and resource management. However, due to the volume of content, I will focus on explaining AIOps in this article, and will cover specific examples of incident management and resource management in subsequent articles.
+In this article series titled "Inside Azure AIOps", I will walk you through how Microsoft plays their AIOps cards right to wrestle with the challenges of incident and resource management. Due to the high volume content, I will only focus on the introductory aspects in this first article, covering the basics of AIOps. The remaining topics will be explored in subsequent articles as follows:
 
-{{< notice info >}}
-**AIOps Supporting Azure Operations Series**
-
-- [AIOps Supporting Azure Operations #1【Introduction】]({{<ref "posts/20241111-inside-azure-aiops-01/index.en.md">}})
-- [AIOps Supporting Azure Operations #2【Incident Management Edition】]()
-- AIOps Supporting Azure Operations #3【Resource Management Edition】
-{{< /notice >}}
+- [Inside Azure AIOps #1: Introduction]({{<ref "posts/20241111-inside-azure-aiops-01/index.en.md">}})
+- [Inside Azure AIOps #2: Incident Management]({{<ref "posts/20241115-inside-azure-aiops-02/index.en.md">}})
+- Inside Azure AIOps #3: Resource Management
 
 ## <!--more-->
 
 ## What is AIOps?
 
-AIOps, short for Artificial Intelligence for IT Operations, refers to the practice of leveraging artificial intelligence technologies, notably machine learning algorithms, to improve IT operations. The term combines AI (Artificial Intelligence) and Ops (Operations).
+Artificial Intelligence for IT Operations (AIOps) refers to the practice of leveraging AI technologies, notably Machine Learning (ML) algorithms and statistical testing, to improve IT operations.
 
-The goal of AIOps is to maximize system availability and performance while minimizing operational costs (financial, human, and temporal). To achieve this goal, AIOps focuses on improving operations from the following perspectives:
+The goal of AIOps is to maximize system availability and performance while minimizing operational costs. To achieve this, AIOps focuses on improving operations from a number of perspectives including:
 
-- **Automated Operations**: Well-trained machine learning models can handle not only simple rules and policies that humans find intuitively understandable but also complex patterns of events. This helps reduce issues caused by human errors (such as outages and delays) and lessens the reliance on individual expertise.
-- **Proactive Operations**: By leveraging machine learning, future issues can be predicted based on historical data, allowing preemptive measures to be taken. This prevents incidents from occurring in the first place.
-- **Interpretable Operations**: Mathematical models can be applied to data visualization and analysis. For instance, the behavior of components within a microservices system can be represented in a graph, which can then be analyzed using algorithms and machine learning models. Organized data makes it easier to understand the operational state and enables rapid and appropriate decision-making.
+- **Automated Operations**: Eliminating manual, repetitive, and error-prone tasks by automating them with data engineering and ML models. This allows Ops teams to focus on more valuable tasks.
+- **Proactive Operations**: Leveraging AI techniques to predict potential issues before they occur, enabling proactive measures to be taken. This approach helps to minimize the impact of incidents on users.
+- **Observable Operations**: Enhancing the observability of systems by collecting and analyzing data from various sources. This allows Ops teams to gain insights into system behavior and performance, facilitating informed decision-making.
 
 ## The Journey of Ops
 
-The term AIOps was first introduced in a Gartner report published in 2016[^aiops-gartner]. 2016 was also the year when DeepMind's AlphaGo defeated Lee Sedol, a world-renowned Go player[^alphago], marking a pivotal moment when the effectiveness of AI technologies, particularly deep neural networks, was proven, and their societal implementation began to advance significantly.
+It is said that the term AIOps was first coined in a Gartner report published in 2016[^aiops-gartner], when the effectiveness of AI technologies (specifically DNNs) had been gradually gaining recognition, marked by the historical win of AlphaGo against a world-renowned Go player[^alphago], and their industurial implementation began to advance significantly.
 
-Meanwhile, the late 2010s were marked by the widespread adoption of DevOps[^what-is-devops], particularly among western enterprises. The following illustration shows the trajectory of DevOps on Gartner's Hype Cycle[^2018-devops-hype-cycle]. By 2016, when the concept of AIOps was born, DevOps had already passed the peak of inflated expectations and had entered a phase of steady implementation.
+Meanwhile, the late 2010s were marked by the widespread adoption of DevOps[^what-is-devops]. The following illustration shows the trajectory of DevOps on Gartner's Hype Cycle[^2018-devops-hype-cycle]. By 2016, when the concept of AIOps was born, DevOps had already passed the peak of inflated expectations and had entered a phase of steady implementation.
 
 {{< figure src="gartner-devops-hype-cycle.png" caption="Transition of DevOps on the Hype Cycle (2009 - 2018)" >}}
 
@@ -62,7 +58,7 @@ The critical insight from this perspective is that AIOps is neither a dramatic p
 
 One more point that needs to be clarified is that the improvement of Ops using AI technology is not a recent endeavor.
 
-For instance, Support Vector Machines (SVMs), machine learning models that gained significant attention before the deep neural networks (DNNs) era, have been studied for fault detection since long ago[^2006svm].
+For instance, Support Vector Machines (SVMs), ML models that gained significant attention before the deep neural networks (DNNs) era, have been studied for fault detection since long ago[^2006svm].
 
 So, what differentiates earlier efforts from AIOps?
 
@@ -70,13 +66,13 @@ The phenomenon of rediscovering concepts is universal. In Japanese elementary sc
 
 As such, the same concept can serve different roles depending on its label and and context. AIOps is no exception, in the sense that we expect different settings and outcomes for AIOps as compared to the prior initiatives, such as:
 
-- **Adaptation to Large-Scale Environments / Big Data**: As IT systems grow increasingly complex over time, automation in operations now often involves handling large-scale data. As Gartner defines AIOps as a combination of big data and machine learning[^aiops-gartner], this clearly sets AIOps apart from past methods. AIOps is designed to meet the needs for operational improvements in such complex and huge environments.
+- **Adaptation to Large-Scale Environments / Big Data**: As IT systems grow increasingly complex over time, automation in operations now often involves handling large-scale data. As Gartner defines AIOps as a combination of big data and ML[^aiops-gartner], this clearly sets AIOps apart from past methods. AIOps is designed to meet the needs for operational improvements in such complex and huge environments.
 - **Use of Deep Neural Networks**: The advent of Deep Neural Networks (DNNs) and Large Language Models (LLMs) has spurred numerous paradigm shifts in the realm of AI. Many studies and outcomes under the AIOps banner incorporate these latest methods, suggesting that "DNN/LLM for IT Operations" might even be a more fitting moniker. AIOps often explores the applicability of these cutting-edge AI technologies.
 - **User-Centered Design**: The emergence of LLMs has introduced natural language as a new tool for machine-human communication. Furthermore, incorporating Human-in-the-Loop design to address hallucinations has become a best practice. This shift implies increased focus on the interaction between systems and humans. Consequently, elements of Human-Computer Interaction (HCI) are frequently considered in the system design of AIOps.
 
 ## Microsoft and AIOps
 
-Microsoft is one of the leading organizations in the AIOps field, both academically and within the industry, having worked on machine learning-based operational improvements even before the birth of "AIOps". Here are a few examples:
+Microsoft is one of the leading organizations in the AIOps field, both academically and within the industry, having worked on ML-based operational improvements even before the birth of "AIOps". Here are a few examples:
 
 - **In 2005**: A method using a naive Bayes classifier to detect faults in web applications and identify the locations of these faults[^combining05].
 - **In 2010**: A method that probabilistically classifies failures in peer-to-peer online storage systems to decrease network throughput across the system[^protector10].
@@ -100,7 +96,7 @@ While the focus of this article is on AIOps from the perspective of operating Az
 
 For instance, in the context of fault detection, users can either opt in the managed offerings in Azure Monitor or harness Azure ML services to build their own AIOps pipeline with the help of Azure Monitor log ingestion capabilities.
 
-[Azure Monitor AIOps and Machine Learning - Azure Monitor | Microsoft Learn](https://learn.microsoft.com/ja-jp/azure/azure-monitor/logs/aiops-machine-learning)
+[Azure Monitor AIOps and ML - Azure Monitor | Microsoft Learn](https://learn.microsoft.com/ja-jp/azure/azure-monitor/logs/aiops-machine-learning)
 
 For the managed approach, features such as [Metric Alerts with Dynamic Thresholds](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-dynamic-thresholds) and [Smart Detection in Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/proactive-diagnostics) are quick and easy to try out. Recently, a new monitoring feature called [VM watch](https://learn.microsoft.com/en-us/azure/virtual-machines/azure-vm-watch) has been introduced in Public Preview, which allows to adaptively assess VM health based on various system metrics.
 
@@ -112,7 +108,7 @@ Finally, I would like to share a few thoughts after skimming through numerous pa
 
 ### Leveraging Existing Assets
 
-Implementing AIOps requires setting up monitoring systems, data processing pipelines (data infrastructure), platforms for training and inferring machine learning models, incident management systems, and an overall framework to seamlessly integrate these components. Microsoft effectively utilizes its extensive digital assets, accumulated over years of service and data center operations, to facilitate the adoption of AIOps.
+Implementing AIOps requires setting up monitoring systems, data processing pipelines (data infrastructure), platforms for training and inferring ML models, incident management systems, and an overall framework to seamlessly integrate these components. Microsoft effectively utilizes its extensive digital assets, accumulated over years of service and data center operations, to facilitate the adoption of AIOps.
 
 ### Thorough Preliminary Research
 
@@ -160,9 +156,12 @@ In this article, we focused on what AIOps is and gave an overview. If you take a
 
 In the following articles, we will delve into specific examples of how Microsoft/Azure are addressing incident management and resource management. I hope you will read those as well.
 
-[^pike]: Rob Pike's note on performance tuning: [Measure. Don’t tune without measuring first.](https://web.stanford.edu/class/cs140e/readings/measure.pdf)
-[^cbum]: Chris Bumstead is a renowned bodybuilder known for his impressive physique.
-[^air-as-a-kpi]: Microsoft Research paper on Annual Interruption Rate (AIR) for Azure VM reliability.
+{{< notice info "Series" >}}
+
+- [Inside Azure AIOps #1: Introduction]({{<ref "posts/20241111-inside-azure-aiops-01/index.en.md">}})
+- [Inside Azure AIOps #2: Incident Management]({{<ref "posts/20241115-inside-azure-aiops-02/index.en.md">}})
+- Inside Azure AIOps #3: Resource Management
+{{< /notice >}}
 
 [^aiops-gartner]: [Definition of AIOps (Artificial Intelligence for IT Operations) - IT Glossary | Gartner](https://www.gartner.com/en/information-technology/glossary/aiops-artificial-intelligence-operations)
 [^alphago]: [AlphaGo - Google DeepMind](https://deepmind.google/research/breakthroughs/alphago/)
