@@ -1,11 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>/etc/openjny</title><link>https://openjny.github.io/</link><description>Recent content on /etc/openjny</description><generator>Hugo</generator><language>ja</language><lastBuildDate>Mon, 18 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://openjny.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>ブログを Hugo に引っ越した</title><link>https://openjny.github.io/2024/11/18/migrate-blog-to-hugo/</link><pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2024/11/18/migrate-blog-to-hugo/</guid><description>&lt;p>数年間更新してなかった個人ブログを再度整備しようと思い、あわせて SSG を Hugo に乗り換えてみました。これはその備忘録的なポストです。&lt;/p>
-&lt;h2 id="heading">
- 
- &lt;a class="heading-link" href="#heading">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
- &lt;span class="sr-only">見出しへのリンク&lt;/span>
- &lt;/a>
-&lt;/h2></description></item><item><title>山口 順也 (Junya Yamaguchi)</title><link>https://openjny.github.io/about-me/</link><pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/about-me/</guid><description>&lt;figure>&lt;img src="https://openjny.github.io/images/avatar.jpg"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>/etc/openjny</title><link>https://openjny.github.io/</link><description>Recent content on /etc/openjny</description><generator>Hugo</generator><language>ja</language><lastBuildDate>Mon, 18 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://openjny.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>About Me</title><link>https://openjny.github.io/about-me/</link><pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/about-me/</guid><description>&lt;figure>&lt;img src="https://openjny.github.io/images/avatar.jpg"
  alt="妹に書いてもらったイラスト" width="250">&lt;figcaption>
  &lt;p>妹に書いてもらったイラスト&lt;/p>
  &lt;/figcaption>
@@ -80,7 +73,14 @@
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
 &lt;/h2>
-&lt;p>妹が作ってくれた LINE スタンプ&lt;/p></description></item><item><title>Azure の運用を支える AIOps #2【インシデント管理編】</title><link>https://openjny.github.io/2024/11/15/inside-azure-aiops-02-incident-management/</link><pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2024/11/15/inside-azure-aiops-02-incident-management/</guid><description>&lt;p>この記事は「Azure の運用を支える AIOps」シリーズの第２回です。今回は、Microsoft Azure のインシデント管理システムで活用されている AIOps のテクノロジーを紹介します。AIOps の概要や Microsoft と AIOps の関わり方については、第１回をご覧ください。&lt;/p>
+&lt;p>妹が作ってくれた LINE スタンプ&lt;/p></description></item><item><title>ブログを Hugo に引っ越した</title><link>https://openjny.github.io/2024/11/18/migrate-blog-to-hugo/</link><pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2024/11/18/migrate-blog-to-hugo/</guid><description>&lt;p>数年間更新してなかった個人ブログを再度整備しようと思い、あわせて SSG を Hugo に乗り換えてみました。これはその備忘録的なポストです。&lt;/p>
+&lt;h2 id="heading">
+ 
+ &lt;a class="heading-link" href="#heading">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
+ &lt;span class="sr-only">見出しへのリンク&lt;/span>
+ &lt;/a>
+&lt;/h2></description></item><item><title>Azure の運用を支える AIOps #2【インシデント管理編】</title><link>https://openjny.github.io/2024/11/15/inside-azure-aiops-02-incident-management/</link><pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2024/11/15/inside-azure-aiops-02-incident-management/</guid><description>&lt;p>この記事は「Azure の運用を支える AIOps」シリーズの第２回です。今回は、Microsoft Azure のインシデント管理システムで活用されている AIOps のテクノロジーを紹介します。AIOps の概要や Microsoft と AIOps の関わり方については、第１回をご覧ください。&lt;/p>
 &lt;div class="notice info">
  &lt;div class="notice-title">
  &lt;i class="fa-solid fa-exclamation-circle" aria-hidden="true">&lt;/i>Info
