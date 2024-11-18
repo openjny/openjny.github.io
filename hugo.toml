@@ -15,7 +15,8 @@ posts = '/:year/:month/:day/:slug/'
 # shortname = "yourdiscussshortname"
 
 [markup.highlight]
-noClasses = false
+# noClasses = false
+style = "onedark"
 
 [params]
 author = "Junya Yamaguchi (@openjny)"
@@ -36,7 +37,7 @@ rtl = false
 # "auto" (use preference set by browser)
 # "dark" (dark background, light foreground)
 # "light" (light background, dark foreground) (default)
-colorScheme = "light"
+colorScheme = "auto"
 # Hide the toggle button, along with the associated vertical divider
 hideColorSchemeToggle = false
 # Series see also post count

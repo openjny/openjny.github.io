@@ -11,6 +11,7 @@ tags = [
     "DevOps"
 ]
 series = ["AI の運用を支える AIOps"]
+isCJKLanguage = true
 +++
 この記事は「Azure の運用を支える AIOps」シリーズの第２回です。今回は、Microsoft Azure のインシデント管理システムで活用されている AIOps のテクノロジーを紹介します。AIOps の概要や Microsoft と AIOps の関わり方については、第１回をご覧ください。
 
