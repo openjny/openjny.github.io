@@ -21,7 +21,7 @@ style = "onedark"
 [params]
 author = "Junya Yamaguchi (@openjny)"
 # license = '<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA-4.0</a>'
-description = "J's personal website"
+description = "Junya's personal website"
 keywords = "blog,azure,cloud computing,personal"
 info = ["Cloud Solution Architect", "at Microsoft"]
 avatarURL = "images/avatar.jpg"
@@ -46,12 +46,12 @@ maxSeeAlsoItems = 5
 customCSS = []
 # Custom SCSS, file path is relative to Hugo's asset folder (default: {your project root}/assets)
 customSCSS = []
-
 # Custom JS
 customJS = []
-
 # Custom remote JS files
 customRemoteJS = []
+# math = true
+# katex = true
 
 # If you want to use fathom(https://usefathom.com) for analytics, add this section
 # [params.fathomAnalytics]
