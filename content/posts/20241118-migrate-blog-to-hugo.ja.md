@@ -30,7 +30,7 @@ categories = [
 
 テーマは `hugo-coder` にしました。特にこだわりはないです。シンプルで、マルチ言語対応で、ブログとプロジェクト書けるようなテーマが欲しかったです。`hugo-coder` はその条件を満たしていたのと、更新頻度の高さや Star の多さも安心感があったので選びました。
 
-https://github.com/luizdepra/hugo-coder
+[luizdepra/hugo-coder: A minimalist blog theme for hugo.](https://github.com/luizdepra/hugo-coder)
 
 ### URL
 
@@ -45,7 +45,7 @@ posts = '/:year/:month/:day/:slug/'
 
 中国語フォントを無効化するため `themes/hugo-coder/assets/scss/_variables.scss` でフォント指定を変更しました。
 
-```scss
+```diff
 $font-family: -apple-system,
 BlinkMacSystemFont,
 "Segoe UI",
@@ -55,12 +55,18 @@ Ubuntu,
 Cantarell,
 "Helvetica Neue",
 Helvetica,
-// "游ゴシック",
-// "PingFang SC",
-// STXihei,"华文细黑",
-// "Microsoft YaHei","微软雅黑",
-// SimSun,"宋体",
-// Heiti,"黑体",
+- "游ゴシック",
+- "PingFang SC",
+- STXihei,"华文细黑",
+- "Microsoft YaHei","微软雅黑",
+- SimSun,"宋体",
+- Heiti,"黑体",
++ // "游ゴシック",
++ // "PingFang SC",
++ // STXihei,"华文细黑",
++ // "Microsoft YaHei","微软雅黑",
++ // SimSun,"宋体",
++ // Heiti,"黑体",
 sans-serif;
 ```
 
