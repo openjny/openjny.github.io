@@ -66,7 +66,7 @@ For instance, Support Vector Machines (SVMs), machine learning models that gaine
 
 So, what differentiates earlier efforts from AIOps?
 
-The phenomenon of rediscovering concepts is universal. In Japanese elementary schools, for example, we study a subject called "Koku-go (国語)", which means the national language in the literal sense. While the Japanese language have been used among people for centuries, the term 'Kokugo' was actually coined in the late 1800s, when Japan was emerging from its period of isolation and aiming for modernization. The leaders at the time conceptualized 'Koku-go' with the purpose of unifying the entire nation. They believed that explicitly naming the language that people were speaking as a term related to national identity and teaching it would enhance national cohesion.
+The phenomenon of rediscovering concepts is universal. In Japanese elementary schools, for example, we study a subject called "Koku-go (国語)", which means the national language in the literal sense. While the Japanese language has been used among people for centuries, the term 'Kokugo' was actually coined in the late 1800s, when Japan was emerging from its period of isolation and aiming for modernization. The leaders at the time conceptualized 'Koku-go' with the purpose of unifying the entire nation. They believed that explicitly naming the language that people were speaking as a term related to national identity and teaching it would enhance national cohesion.
 
 As such, the same concept can serve different roles depending on its label and and context. AIOps is no exception, in the sense that we expect different settings and outcomes for AIOps as compared to the prior initiatives, such as:
 
