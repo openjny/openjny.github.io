@@ -70,7 +70,7 @@ customRemoteJS = []
 
 # If you want to use Cloudflare Web Analytics(https://cloudflare.com) for analytics, add this section
 [params.cloudflare]
-token = "$CLOUDFLARE_TOKEN"
+token = "0a99e4ebb1e342beb03db419a6eea4a6"
 
 # If you want to use Matomo(https://matomo.org) for analytics, add this section
 # [params.matomo]
