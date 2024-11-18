@@ -172,7 +172,7 @@ url = "https://medium.com/@openjny"
 # type = "application/rss+xml"
 
 [languages.en]
-languageName = ":uk:"
+languageName = ":us:"
 
 [[languages.en.menu.main]]
 name = "About"
