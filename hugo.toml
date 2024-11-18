@@ -1,4 +1,4 @@
-baseURL = "http://www.example.com"
+baseURL = "https://openjny.github.io"
 title = "/etc/openjny"
 theme = "hugo-coder"
 languageCode = "ja"
