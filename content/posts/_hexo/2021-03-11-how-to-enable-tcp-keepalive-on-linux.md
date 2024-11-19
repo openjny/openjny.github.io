@@ -126,7 +126,7 @@ users:(("curl",pid=30213,fd=3)) timer:(keepalive,1min,0) uid:1000 ino:311003 sk:
 
 ちなみに、timer のセマンティクスは以下の通りです。
 
-```
+```text
 timer:(<timer_name>,<expire_time>,<retrans>)
 
 <timer_name>
@@ -145,8 +145,6 @@ timer:(<timer_name>,<expire_time>,<retrans>)
 ```
 
 - ref: [man 8 ss](https://man7.org/linux/man-pages/man8/ss.8.html)
-
-
 
 ### strace による TCP KeepAlive 判定
 
