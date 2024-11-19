@@ -1,16 +1,16 @@
-+++
-title = "ブログを Hugo に引っ越した"
-slug = "migrate-blog-to-hugo"
-date = "2024-11-18"
-featuredImage = "images/featured/season-automn-01.webp"
-tags = [
-    "hugo",
-    "shortcodes"
-]
-categories = [
-    "その他",
-]
-+++
+---
+title: "ブログを Hugo に引っ越した"
+slug: migrate-blog-to-hugo
+date: 2024-11-18
+categories:
+  - その他
+tags:
+  - Hugo
+  - SSG
+  - Blog
+isCJKLanguage: true
+featuredImage: "images/featured/season-automn-01.webp"
+---
 
 数年間更新してなかった個人ブログを再度整備しようと思い、あわせて SSG を Hugo に乗り換えてみました。これはその備忘録的なポストです。
 

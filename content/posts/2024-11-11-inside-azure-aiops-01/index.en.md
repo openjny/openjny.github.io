@@ -24,8 +24,8 @@ To address these obstacles, Microsoft has been leveraging artificial intelligenc
 
 In this article series titled "Inside Azure AIOps", I will walk you through how Microsoft plays their AIOps cards right to wrestle with the challenges of incident and resource management. Due to the high volume content, I will only focus on the introductory aspects in this first article, covering the basics of AIOps. The remaining topics will be explored in subsequent articles as follows:
 
-- [Inside Azure AIOps #1: Introduction]({{<ref "posts/20241111-inside-azure-aiops-01/index.en.md">}})
-- [Inside Azure AIOps #2: Incident Management]({{<ref "posts/20241115-inside-azure-aiops-02/index.en.md">}})
+- [Inside Azure AIOps #1: Introduction]({{<ref "posts/2024-11-11-inside-azure-aiops-01/index.en.md">}})
+- [Inside Azure AIOps #2: Incident Management]({{<ref "posts/2024-11-15-inside-azure-aiops-02/index.en.md">}})
 - Inside Azure AIOps #3: Resource Management
 
 ## <!--more-->
@@ -158,8 +158,8 @@ In the following articles, we will delve into specific examples of how Microsoft
 
 {{< notice info "Series" >}}
 
-- [Inside Azure AIOps #1: Introduction]({{<ref "posts/20241111-inside-azure-aiops-01/index.en.md">}})
-- [Inside Azure AIOps #2: Incident Management]({{<ref "posts/20241115-inside-azure-aiops-02/index.en.md">}})
+- [Inside Azure AIOps #1: Introduction]({{<ref "posts/2024-11-11-inside-azure-aiops-01/index.en.md">}})
+- [Inside Azure AIOps #2: Incident Management]({{<ref "posts/2024-11-15-inside-azure-aiops-02/index.en.md">}})
 - Inside Azure AIOps #3: Resource Management
 {{< /notice >}}
 

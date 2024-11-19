@@ -3,7 +3,7 @@ title = "/etc/openjny"
 theme = "hugo-coder"
 languageCode = "ja"
 defaultContentLanguage = "ja"
-paginate = 6
+paginate = 10
 enableEmoji = true
 
 [permalinks]

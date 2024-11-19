@@ -28,8 +28,8 @@ isCJKLanguage = true
 {{< notice info >}}
 **Azure の運用を支える AIOps シリーズ**
 
-- [Azure の運用を支える AIOps #1【イントロ編】]({{<ref "posts/20241111-inside-azure-aiops-01/index.ja.md">}})
-- [Azure の運用を支える AIOps #2【インシデント管理編】]({{<ref "posts/20241115-inside-azure-aiops-02/index.ja.md">}})
+- [Azure の運用を支える AIOps #1【イントロ編】]({{<ref "posts/2024-11-11-inside-azure-aiops-01/index.ja.md">}})
+- [Azure の運用を支える AIOps #2【インシデント管理編】]({{<ref "posts/2024-11-15-inside-azure-aiops-02/index.ja.md">}})
 - Azure の運用を支える AIOps #3【リソース管理編】
 {{< /notice >}}
 

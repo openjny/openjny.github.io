@@ -1,5 +1,5 @@
 +++
-title = "Azure の運用を支える AIOps #2【インシデント管理編】"
+title = "Inside Azure AIOps #2: Incident Management"
 slug = "inside-azure-aiops-02-incident-management"
 date = "2024-11-15"
 categories = [
@@ -10,17 +10,15 @@ tags = [
     "SRE",
     "DevOps"
 ]
-series = ["AI の運用を支える AIOps"]
-isCJKLanguage = true
+series = ["Inside Azure AIOps"]
 +++
 この記事は「Azure の運用を支える AIOps」シリーズの第２回です。今回は、Microsoft Azure のインシデント管理システムで活用されている AIOps のテクノロジーを紹介します。AIOps の概要や Microsoft と AIOps の関わり方については、第１回をご覧ください。
 
-{{< notice info >}}
-**Azure の運用を支える AIOps シリーズ**
+{{< notice info "Series" >}}
 
-- [Azure の運用を支える AIOps #1【イントロ編】]({{<ref "posts/20241111-inside-azure-aiops-01/index.ja.md">}})
-- [Azure の運用を支える AIOps #2【インシデント管理編】]({{<ref "posts/20241115-inside-azure-aiops-02/index.ja.md">}})
-- Azure の運用を支える AIOps #3【リソース管理編】
+- [Inside Azure AIOps #1: Introduction]({{<ref "posts/2024-11-11-inside-azure-aiops-01/index.en.md">}})
+- [Inside Azure AIOps #2: Incident Management]({{<ref "posts/2024-11-15-inside-azure-aiops-02/index.en.md">}})
+- Inside Azure AIOps #3: Resource Management
 {{< /notice >}}
 
 ## <!--more-->
