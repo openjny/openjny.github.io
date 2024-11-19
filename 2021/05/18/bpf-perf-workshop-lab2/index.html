@@ -1,0 +1,235 @@
+<!doctype html><html lang=ja><head><title>[bpf-perf-workshop] lab2: SSH ログイン パフォーマンス · /etc/openjny
+</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Junya Yamaguchi (@openjny)"><meta name=description content="Brendan Gregg 氏のハンズオン ワークショップ &ldquo;bpf-perf-workshop&rdquo; より、SSH 経由のコマンドのパフォーマンスに関する課題 &ldquo;lab2&rdquo; をやってみました。
+
+  
+  
+    
+    見出しへのリンク
+  
+"><meta name=keywords content="blog,azure,cloud computing,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="[bpf-perf-workshop] lab2: SSH ログイン パフォーマンス"><meta name=twitter:description content="Brendan Gregg 氏のハンズオン ワークショップ “bpf-perf-workshop” より、SSH 経由のコマンドのパフォーマンスに関する課題 “lab2” をやってみました。
+見出しへのリンク"><meta property="og:url" content="https://openjny.github.io/2021/05/18/bpf-perf-workshop-lab2/"><meta property="og:site_name" content="/etc/openjny"><meta property="og:title" content="[bpf-perf-workshop] lab2: SSH ログイン パフォーマンス"><meta property="og:description" content="Brendan Gregg 氏のハンズオン ワークショップ “bpf-perf-workshop” より、SSH 経由のコマンドのパフォーマンスに関する課題 “lab2” をやってみました。
+見出しへのリンク"><meta property="og:locale" content="ja"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-05-18T00:00:00+00:00"><meta property="article:modified_time" content="2021-05-18T00:00:00+00:00"><meta property="article:tag" content="Linux"><meta property="article:tag" content="Brendan Gregg"><meta property="article:tag" content="パフォーマンスチューニング"><meta property="article:tag" content="eBPF"><link rel=canonical href=https://openjny.github.io/2021/05/18/bpf-perf-workshop-lab2/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.140953f60ced76bc313e5d112c66fd4eb9df859f9cbc71a559db3d781dadcc70.css integrity="sha256-FAlT9gztdrwxPl0RLGb9TrnfhZ+cvHGlWds9eB2tzHA=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://openjny.github.io/>/etc/openjny
+</a><input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/posts/>ブログ</a></li><li class=navigation-item><a class=navigation-link href=/tags/>タグ</a></li><li class=navigation-item><a class=navigation-link href=/categories/>カテゴリ</a></li><li class=navigation-item><a class=navigation-link href=/projects/>プロジェクト</a></li><li class=navigation-item><a class=navigation-link href=/about-me/>About Me</a></li><li class="navigation-item menu-separator"><span>|</span></li><li class=navigation-item><a href=/en/>🇺🇸</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://openjny.github.io/2021/05/18/bpf-perf-workshop-lab2/>[bpf-perf-workshop] lab2: SSH ログイン パフォーマンス</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
+<time datetime=2021-05-18T00:00:00Z>2021年5月18日
+</time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
+9分で読めます</span></div><div class=categories><i class="fa-solid fa-folder" aria-hidden=true></i>
+<a href=/categories/linux/>Linux</a></div><div class=tags><i class="fa-solid fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/linux/>Linux</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/brendan-gregg/>Brendan Gregg</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E3%83%81%E3%83%A5%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0/>パフォーマンスチューニング</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/ebpf/>eBPF</a></span></div></div></header><div class=post-content><p>Brendan Gregg 氏のハンズオン ワークショップ &ldquo;bpf-perf-workshop&rdquo; より、SSH 経由のコマンドのパフォーマンスに関する課題 &ldquo;lab2&rdquo; をやってみました。</p><h2 id=heading><a class=heading-link href=#heading><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><h2 id=課題>課題
+<a class=heading-link href=#%e8%aa%b2%e9%a1%8c><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><p>今回の問題はこちら。</p><p><a href=https://github.com/brendangregg/bpf-perf-workshop/blob/master/lab2.md class=external-link target=_blank rel=noopener>bpf-perf-workshop/lab2.md at master · brendangregg/bpf-perf-workshop</a></p><blockquote><p>Problem Statement
+Under load, it can take a few seconds to login to your lab system via SSH. Even when idle, it can take 1-2 seconds. Why does it take this long on an idle system, and how can this login time be reduced?</p></blockquote><p>負荷の高いシステムに SSH ログインするとき、ログインに時間がかかる (数秒要することもある) のはなぜ? という課題。</p><h2 id=ラボ環境のセットアップ>ラボ環境のセットアップ
+<a class=heading-link href=#%e3%83%a9%e3%83%9c%e7%92%b0%e5%a2%83%e3%81%ae%e3%82%bb%e3%83%83%e3%83%88%e3%82%a2%e3%83%83%e3%83%97><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><p>この課題は、負荷の高い (under load と表現される) ラボ環境を用意するところから始めなければならない。</p><p>&ldquo;負荷&rdquo; が意味するところがわからず戸惑ったが、ワークショップのスライドの文脈を読み解くに、おそらく <code>lab001</code> を実行させた状態を under load を言っているに違いない。ということで、I/O 負荷を発生させる。なんとなく、<code>lab001</code> を 2 つ起動させてみた。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>root@vm-ubuntu: ~# ./bpf-perf-workshop/lab001 &amp;
+</span></span><span style=display:flex><span>root@vm-ubuntu: ~# ./bpf-perf-workshop/lab001 &amp;
+</span></span></code></pre></div><p>いい感じに負荷みを感じている。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>root@vm-ubuntu:~# uptime
+</span></span><span style=display:flex><span> 13:37:40 up  4:23,  <span style=color:#d19a66>6</span> users,  load average: 3.00, 2.98, 2.68
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>root@vm-ubuntu:~# cat /proc/pressure/io
+</span></span><span style=display:flex><span>some <span style=color:#e06c75>avg10</span><span style=color:#56b6c2>=</span>73.11 <span style=color:#e06c75>avg60</span><span style=color:#56b6c2>=</span>70.48 <span style=color:#e06c75>avg300</span><span style=color:#56b6c2>=</span>72.26 <span style=color:#e06c75>total</span><span style=color:#56b6c2>=</span><span style=color:#d19a66>11215650634</span>
+</span></span><span style=display:flex><span>full <span style=color:#e06c75>avg10</span><span style=color:#56b6c2>=</span>73.10 <span style=color:#e06c75>avg60</span><span style=color:#56b6c2>=</span>70.40 <span style=color:#e06c75>avg300</span><span style=color:#56b6c2>=</span>72.17 <span style=color:#e06c75>total</span><span style=color:#56b6c2>=</span><span style=color:#d19a66>11194499828</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>root@vm-ubuntu:~# vmstat -S M <span style=color:#d19a66>1</span>
+</span></span><span style=display:flex><span>procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+</span></span><span style=display:flex><span> r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+</span></span><span style=display:flex><span> <span style=color:#d19a66>2</span>  <span style=color:#d19a66>1</span>      <span style=color:#d19a66>0</span>  <span style=color:#d19a66>14816</span>    <span style=color:#d19a66>100</span>    <span style=color:#d19a66>791</span>    <span style=color:#d19a66>0</span>    <span style=color:#d19a66>0</span>    <span style=color:#d19a66>10</span>   <span style=color:#d19a66>680</span>  <span style=color:#d19a66>124</span>  <span style=color:#d19a66>404</span>  <span style=color:#d19a66>0</span>  <span style=color:#d19a66>1</span> <span style=color:#d19a66>93</span>  <span style=color:#d19a66>6</span>  <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span> <span style=color:#d19a66>0</span>  <span style=color:#d19a66>1</span>      <span style=color:#d19a66>0</span>  <span style=color:#d19a66>14816</span>    <span style=color:#d19a66>100</span>    <span style=color:#d19a66>791</span>    <span style=color:#d19a66>0</span>    <span style=color:#d19a66>0</span>     <span style=color:#d19a66>0</span>  <span style=color:#d19a66>3824</span>  <span style=color:#d19a66>579</span> <span style=color:#d19a66>1960</span>  <span style=color:#d19a66>0</span>  <span style=color:#d19a66>1</span> <span style=color:#d19a66>97</span>  <span style=color:#d19a66>2</span>  <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span> <span style=color:#d19a66>0</span>  <span style=color:#d19a66>1</span>      <span style=color:#d19a66>0</span>  <span style=color:#d19a66>14816</span>    <span style=color:#d19a66>100</span>    <span style=color:#d19a66>791</span>    <span style=color:#d19a66>0</span>    <span style=color:#d19a66>0</span>     <span style=color:#d19a66>0</span>  <span style=color:#d19a66>3920</span>  <span style=color:#d19a66>619</span> <span style=color:#d19a66>2020</span>  <span style=color:#d19a66>0</span>  <span style=color:#d19a66>0</span> <span style=color:#d19a66>98</span>  <span style=color:#d19a66>2</span>  <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span> <span style=color:#d19a66>0</span>  <span style=color:#d19a66>1</span>      <span style=color:#d19a66>0</span>  <span style=color:#d19a66>14816</span>    <span style=color:#d19a66>100</span>    <span style=color:#d19a66>791</span>    <span style=color:#d19a66>0</span>    <span style=color:#d19a66>0</span>     <span style=color:#d19a66>0</span>  <span style=color:#d19a66>1920</span>  <span style=color:#d19a66>741</span> <span style=color:#d19a66>2059</span>  <span style=color:#d19a66>0</span>  <span style=color:#d19a66>1</span> <span style=color:#d19a66>97</span>  <span style=color:#d19a66>2</span>  <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span> <span style=color:#d19a66>0</span>  <span style=color:#d19a66>1</span>      <span style=color:#d19a66>0</span>  <span style=color:#d19a66>14816</span>    <span style=color:#d19a66>100</span>    <span style=color:#d19a66>791</span>    <span style=color:#d19a66>0</span>    <span style=color:#d19a66>0</span>     <span style=color:#d19a66>0</span>  <span style=color:#d19a66>1756</span>  <span style=color:#d19a66>645</span> <span style=color:#d19a66>1909</span>  <span style=color:#d19a66>1</span>  <span style=color:#d19a66>1</span> <span style=color:#d19a66>93</span>  <span style=color:#d19a66>6</span>  <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>root@vm-ubuntu:~# iostat -xz <span style=color:#d19a66>1</span>
+</span></span><span style=display:flex><span> avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+</span></span><span style=display:flex><span>           0.00    0.00    0.50   13.35    0.00   86.15
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Device            r/s     w/s     rkB/s     wkB/s   rrqm/s   wrqm/s  %rrqm  %wrqm r_await w_await aqu-sz rareq-sz wareq-sz  svctm  %util
+</span></span><span style=display:flex><span>sda              0.00  376.00      0.00   4032.00     0.00   124.00   0.00  24.80    0.00    2.70   0.63     0.00    10.72   2.66 100.00
+</span></span></code></pre></div><h2 id=before-ssh-経由コマンドのレイテンシ計測>Before: ssh 経由コマンドのレイテンシ計測
+<a class=heading-link href=#before-ssh-%e7%b5%8c%e7%94%b1%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%83%ac%e3%82%a4%e3%83%86%e3%83%b3%e3%82%b7%e8%a8%88%e6%b8%ac><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><p>手元のマシンから、ssh 経由の <code>echo hello</code> にかかる時間を計測してみる。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>openjny@local-machine:~$ <span style=color:#e5c07b>time</span> ssh openjny@&lt;lab-machine&gt; -i id_rsa <span style=color:#e5c07b>echo</span> hello
+</span></span><span style=display:flex><span>hello
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>real    0m1.489s
+</span></span><span style=display:flex><span>user    0m0.057s
+</span></span><span style=display:flex><span>sys     0m0.002s
+</span></span></code></pre></div><p>何回か計測してみたけど、たしかに <code>echo hello</code> するだけで 1 ~ 数秒の時間がかかっていることがわかる。速いのか遅いのかよくわからないけど、eBPF を使ってボトルネックの特定と高速化を試みるとしましょう。</p><h2 id=調査方針>調査方針
+<a class=heading-link href=#%e8%aa%bf%e6%9f%bb%e6%96%b9%e9%87%9d><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><p>今回の分析対象は「生存期間の短いプロセスであり、事前に調査対象の PID がわかっていない」というのが最大の特徴。そのため、数秒おきに stats を出すツール (e.g. vmstat) よりも、<strong>イベント ドリブンな</strong>分析ツールが原因究明の鍵を握りそう。まずは、各コンポーネントで次の確認を進めたい。</p><ul><li>CPU: プロセス/スレッドの誕生と終了、生存期間</li><li>メモリ: ページキャッシュの開放有無</li><li>ファイルシステム、I/O: 新たに <code>open</code> された file の有無、ブロックデバイスへの(物理) I/O 発生状況</li><li>ネットワーク: ESTABLISH に要した時間、パケットドロップ/再送の量、トラフィックの発生状況</li></ul><p>使えそうな bcc のツールは以下の通り。</p><ul><li>(cpu) execsnoop, exitsnoop</li><li>(memory) drsnoop, shmsnoop</li><li>(filesystem/io) filelife, biosnoop</li><li>(network) sofdsnoop, tcplife, tcpstates, tcpretrans</li></ul><h2 id=ログの収集>ログの収集
+<a class=heading-link href=#%e3%83%ad%e3%82%b0%e3%81%ae%e5%8f%8e%e9%9b%86><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><p>収集には以下の bash script を利用した。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#7f848e>#!/bin/bash
+</span></span></span><span style=display:flex><span><span style=color:#7f848e></span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>BCC_TOOLS</span><span style=color:#56b6c2>=</span><span style=color:#98c379>&#34;/home/openjny/bcc/tools&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>PREFIX</span><span style=color:#56b6c2>=</span><span style=color:#98c379>&#34;timeout 15s python3 -u&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#7f848e># pid</span>
+</span></span><span style=display:flex><span>ps -aux | grep ssh<span style=color:#56b6c2>[</span>d<span style=color:#56b6c2>]</span> &gt; pid_sshd.log
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#7f848e># cpu</span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>$PREFIX</span> <span style=color:#e06c75>$BCC_TOOLS</span>/execsnoop.py -xTU &gt; execsnoop.log &amp;
+</span></span><span style=display:flex><span><span style=color:#e06c75>$PREFIX</span> <span style=color:#e06c75>$BCC_TOOLS</span>/exitsnoop.py --utc &gt; exitsnoop.log &amp;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#7f848e># memory</span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>$PREFIX</span> <span style=color:#e06c75>$BCC_TOOLS</span>/drsnoop.py &gt; drsnoop.log &amp;
+</span></span><span style=display:flex><span><span style=color:#e06c75>$PREFIX</span> <span style=color:#e06c75>$BCC_TOOLS</span>/shmsnoop.py &gt; shmsnoop.log &amp;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#7f848e># fs/io</span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>$PREFIX</span> <span style=color:#e06c75>$BCC_TOOLS</span>/filelife.py &gt; filelife.log &amp;
+</span></span><span style=display:flex><span><span style=color:#e06c75>$PREFIX</span> <span style=color:#e06c75>$BCC_TOOLS</span>/biosnoop.py &gt; biosnoop.log &amp;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#7f848e># network</span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>$PREFIX</span> <span style=color:#e06c75>$BCC_TOOLS</span>/sofdsnoop.py &gt; sofdsnoop.log &amp;
+</span></span><span style=display:flex><span><span style=color:#e06c75>$PREFIX</span> <span style=color:#e06c75>$BCC_TOOLS</span>/tcplife.py &gt; tcplife.log &amp;
+</span></span><span style=display:flex><span><span style=color:#e06c75>$PREFIX</span> <span style=color:#e06c75>$BCC_TOOLS</span>/tcpstates.py &gt; tcpstates.log &amp;
+</span></span><span style=display:flex><span><span style=color:#e06c75>$PREFIX</span> <span style=color:#e06c75>$BCC_TOOLS</span>/tcpretrans.py &gt; tcpretrans.log &amp;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#c678dd>while</span> <span style=color:#56b6c2>[</span> <span style=color:#c678dd>$(</span>cat tcpretrans.log | wc -l<span style=color:#c678dd>)</span> -lt <span style=color:#d19a66>1</span> <span style=color:#56b6c2>]</span>; <span style=color:#c678dd>do</span>
+</span></span><span style=display:flex><span>       sleep <span style=color:#d19a66>1</span>
+</span></span><span style=display:flex><span><span style=color:#c678dd>done</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e5c07b>echo</span> <span style=color:#98c379>&#34;Start...&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e5c07b>wait</span>
+</span></span></code></pre></div><p>このスクリプトを作成している間に、bcc tools は既定で出力バッフを使うものが多く、リダイレクト時に正常に出力をパイプできない問題に遭遇。バッファが関係していそうなのはすぐわかったのだが、自分の環境では何故か <code>stdbuf</code> が効かず、python 側のオプションを利用する方法を発見するまでに時間がかかってしまった…。そして、解決方法は issue ページにあったという &#x1f622;</p><p><a href=https://github.com/iovisor/bcc/issues/905 class=external-link target=_blank rel=noopener>Stream Redirection Disables All Output · Issue #905 · iovisor/bcc</a></p><p>採取方法は簡単で、採取スクリプトを <code>sudo</code> で実行して &ldquo;Start&mldr;&rdquo; が表示されてから、<code>ssh</code> 経由のコマンド (遅い! と問題になっているやつ) をローカルから実行するだけ。</p><h3 id=採取後の整形>採取後の整形
+<a class=heading-link href=#%e6%8e%a1%e5%8f%96%e5%be%8c%e3%81%ae%e6%95%b4%e5%bd%a2><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>採取した (イベント ドリブンな) ログはシステム全体を対象として計測されている。このままではログが多すぎるので、対象 <code>ssh</code> コマンドの実行に関係のあるプロセスのログだけを抽出したい。まずは、<code>execsnoop</code> の結果から、今回の事象によって <code>sshd</code> から生成されたすべての (子孫) プロセスをリストアップする。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#7f848e># extract.py</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#c678dd>import</span> <span style=color:#e06c75>pandas</span> <span style=color:#c678dd>as</span> <span style=color:#e06c75>pd</span>
+</span></span><span style=display:flex><span><span style=color:#c678dd>from</span> <span style=color:#e06c75>queue</span> <span style=color:#c678dd>import</span> <span style=color:#e06c75>Queue</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>EXECSNOOP_LOG</span> <span style=color:#56b6c2>=</span> <span style=color:#98c379>&#39;./execsnoop.log&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>ROOT_PID</span> <span style=color:#56b6c2>=</span> <span style=color:#d19a66>1442</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#c678dd>def</span> <span style=color:#61afef;font-weight:700>canonical_columns</span>(<span style=color:#e06c75>cols</span>):
+</span></span><span style=display:flex><span>    <span style=color:#c678dd>return</span> [<span style=color:#e06c75>c</span> <span style=color:#c678dd>for</span> <span style=color:#e06c75>c</span> <span style=color:#56b6c2>in</span> <span style=color:#e06c75>cols</span> <span style=color:#c678dd>if</span> <span style=color:#56b6c2>not</span> <span style=color:#e06c75>c</span><span style=color:#56b6c2>.</span><span style=color:#e06c75>startswith</span>(<span style=color:#98c379>&#39;Unnamed:&#39;</span>)]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>df_exec</span> <span style=color:#56b6c2>=</span> <span style=color:#e06c75>pd</span><span style=color:#56b6c2>.</span><span style=color:#e06c75>read_fwf</span>(<span style=color:#e06c75>EXECSNOOP_LOG</span>)
+</span></span><span style=display:flex><span><span style=color:#e06c75>df_exec</span> <span style=color:#56b6c2>=</span> <span style=color:#e06c75>df_exec</span>[<span style=color:#e06c75>canonical_columns</span>(<span style=color:#e06c75>df_exec</span><span style=color:#56b6c2>.</span><span style=color:#e06c75>columns</span>)]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#c678dd>def</span> <span style=color:#61afef;font-weight:700>get_child_pids</span>(<span style=color:#e06c75>df</span>, <span style=color:#e06c75>root_pid</span>):
+</span></span><span style=display:flex><span>    <span style=color:#e06c75>q</span> <span style=color:#56b6c2>=</span> <span style=color:#e06c75>Queue</span>()
+</span></span><span style=display:flex><span>    <span style=color:#e06c75>q</span><span style=color:#56b6c2>.</span><span style=color:#e06c75>put</span>(<span style=color:#e06c75>root_pid</span>)
+</span></span><span style=display:flex><span>    <span style=color:#e06c75>child_pids</span> <span style=color:#56b6c2>=</span> <span style=color:#e5c07b>list</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#c678dd>while</span> <span style=color:#56b6c2>not</span> <span style=color:#e06c75>q</span><span style=color:#56b6c2>.</span><span style=color:#e06c75>empty</span>():
+</span></span><span style=display:flex><span>        <span style=color:#e06c75>pid</span> <span style=color:#56b6c2>=</span> <span style=color:#e06c75>q</span><span style=color:#56b6c2>.</span><span style=color:#e06c75>get</span>()
+</span></span><span style=display:flex><span>        <span style=color:#e06c75>child_pids</span><span style=color:#56b6c2>.</span><span style=color:#e06c75>append</span>(<span style=color:#e06c75>pid</span>)
+</span></span><span style=display:flex><span>        <span style=color:#e06c75>childs</span> <span style=color:#56b6c2>=</span> <span style=color:#e5c07b>set</span>(<span style=color:#e06c75>df</span>[<span style=color:#e06c75>df</span>[<span style=color:#98c379>&#39;PPID&#39;</span>] <span style=color:#56b6c2>==</span> <span style=color:#e06c75>pid</span>][<span style=color:#98c379>&#39;PID&#39;</span>])
+</span></span><span style=display:flex><span>        <span style=color:#c678dd>for</span> <span style=color:#e06c75>c</span> <span style=color:#56b6c2>in</span> <span style=color:#e06c75>childs</span>:
+</span></span><span style=display:flex><span>            <span style=color:#e06c75>q</span><span style=color:#56b6c2>.</span><span style=color:#e06c75>put</span>(<span style=color:#e06c75>c</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#c678dd>return</span> <span style=color:#e06c75>child_pids</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>pid_list</span> <span style=color:#56b6c2>=</span> <span style=color:#e06c75>get_child_pids</span>(<span style=color:#e06c75>df_exec</span>, <span style=color:#e06c75>ROOT_PID</span>)
+</span></span><span style=display:flex><span><span style=color:#e5c07b>print</span>(<span style=color:#98c379>&#39;|&#39;</span><span style=color:#56b6c2>.</span><span style=color:#e06c75>join</span>([<span style=color:#e5c07b>str</span>(<span style=color:#e06c75>p</span>) <span style=color:#c678dd>for</span> <span style=color:#e06c75>p</span> <span style=color:#56b6c2>in</span> <span style=color:#e06c75>pid_list</span>]))
+</span></span></code></pre></div><p>こいつを使って、フィルターが必要そうなログはフィルタリングをしておく。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#7f848e>#!/bin/bash
+</span></span></span><span style=display:flex><span><span style=color:#7f848e></span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>pids</span><span style=color:#56b6c2>=</span><span style=color:#c678dd>$(</span>python3 extract.py<span style=color:#c678dd>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>mkdir filtered
+</span></span><span style=display:flex><span>cat execsnoop.log | awk <span style=color:#98c379>&#39;{ if ($4 ~ /&#39;</span><span style=color:#e06c75>$pids</span><span style=color:#98c379>&#39;/) { print } }&#39;</span> &gt; filtered/execsnoop.log
+</span></span><span style=display:flex><span>cat exitsnoop.log | awk <span style=color:#98c379>&#39;{ if ($3 ~ /&#39;</span><span style=color:#e06c75>$pids</span><span style=color:#98c379>&#39;/) { print } }&#39;</span> &gt; filtered/exitsnoop.log
+</span></span><span style=display:flex><span>cat drsnoop.log | awk <span style=color:#98c379>&#39;{ if ($2 ~ /&#39;</span><span style=color:#e06c75>$pids</span><span style=color:#98c379>&#39;/) { print } }&#39;</span> &gt; filtered/drsnoop.log
+</span></span><span style=display:flex><span>cat shmsnoop.log | awk <span style=color:#98c379>&#39;{ if ($1 ~ /&#39;</span><span style=color:#e06c75>$pids</span><span style=color:#98c379>&#39;/) { print } }&#39;</span> &gt; filtered/shmsnoop.log
+</span></span><span style=display:flex><span>cat filelife.log | awk <span style=color:#98c379>&#39;{ if ($2 ~ /&#39;</span><span style=color:#e06c75>$pids</span><span style=color:#98c379>&#39;/) { print } }&#39;</span> &gt; filtered/filelife.log
+</span></span><span style=display:flex><span>cat biosnoop.log | awk <span style=color:#98c379>&#39;{ if ($3 ~ /&#39;</span><span style=color:#e06c75>$pids</span><span style=color:#98c379>&#39;/) { print } }&#39;</span> &gt; filtered/biosnoop.log
+</span></span></code></pre></div><h2 id=分析>分析
+<a class=heading-link href=#%e5%88%86%e6%9e%90><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><h3 id=cpu-観点での調査>CPU 観点での調査
+<a class=heading-link href=#cpu-%e8%a6%b3%e7%82%b9%e3%81%a7%e3%81%ae%e8%aa%bf%e6%9f%bb><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>と、ここまで来て初めて気づいたが、フィルタリングが完全でないことが発覚。というのも、<code>execsnoop</code> で検知できていないプロセスの複製/実行があることで、<code>sshd</code> の子孫プロセスの列挙が不完全なものになってしまっていた。ただ、それでもいくつか重要なことがわかった。</p><p>まず、問題のコマンドが実行されたのは 14:28:58 であり、コマンド処理を担当するプロセスの PID は 27805 として生成されたことがわかる。時刻は大事な情報。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ cat execsnoop.log | grep /usr/sbin/sshd
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>0</span>     sshd             <span style=color:#d19a66>27805</span>  <span style=color:#d19a66>1442</span>     <span style=color:#d19a66>0</span> /usr/sbin/sshd -D -R
+</span></span></code></pre></div><p>次に、多数の (少なくとも 60 以上の) プロセスが生成されている。そしてここには <code>/etc/update-motd.d/*</code> のプロセスが多く含まれる。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ cat filtered/execsnoop.log | wc -l
+</span></span><span style=display:flex><span><span style=color:#d19a66>60</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>$ cat filtered/execsnoop.log | grep <span style=color:#98c379>&#39;update-motd.d&#39;</span>
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>0</span>     run-parts        <span style=color:#d19a66>27820</span>  <span style=color:#d19a66>27819</span>    <span style=color:#d19a66>0</span> /bin/run-parts --lsbsysinit /etc/update-motd.d
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>0</span>     00-header        <span style=color:#d19a66>27821</span>  <span style=color:#d19a66>27820</span>    <span style=color:#d19a66>0</span> /etc/update-motd.d/00-header
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>0</span>     10-help-text     <span style=color:#d19a66>27825</span>  <span style=color:#d19a66>27820</span>    <span style=color:#d19a66>0</span> /etc/update-motd.d/10-help-text
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>0</span>     50-landscape-sy  <span style=color:#d19a66>27826</span>  <span style=color:#d19a66>27820</span>    <span style=color:#d19a66>0</span> /etc/update-motd.d/50-landscape-sysinfo
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>0</span>     50-motd-news     <span style=color:#d19a66>27832</span>  <span style=color:#d19a66>27820</span>    <span style=color:#d19a66>0</span> /etc/update-motd.d/50-motd-news
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>0</span>     88-esm-announce  <span style=color:#d19a66>27837</span>  <span style=color:#d19a66>27820</span>    <span style=color:#d19a66>0</span> /etc/update-motd.d/88-esm-announce
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>0</span>     90-updates-avai  <span style=color:#d19a66>27838</span>  <span style=color:#d19a66>27820</span>    <span style=color:#d19a66>0</span> /etc/update-motd.d/90-updates-available
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>0</span>     91-contract-ua-  <span style=color:#d19a66>27840</span>  <span style=color:#d19a66>27820</span>    <span style=color:#d19a66>0</span> /etc/update-motd.d/91-contract-ua-esm-status
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>0</span>     91-release-upgr  <span style=color:#d19a66>27841</span>  <span style=color:#d19a66>27820</span>    <span style=color:#d19a66>0</span> /etc/update-motd.d/91-release-upgrade
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>0</span>     92-unattended-u  <span style=color:#d19a66>27849</span>  <span style=color:#d19a66>27820</span>    <span style=color:#d19a66>0</span> /etc/update-motd.d/92-unattended-upgrades
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>0</span>     95-hwe-eol       <span style=color:#d19a66>27850</span>  <span style=color:#d19a66>27820</span>    <span style=color:#d19a66>0</span> /etc/update-motd.d/95-hwe-eol
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>0</span>     97-overlayroot   <span style=color:#d19a66>27866</span>  <span style=color:#d19a66>27820</span>    <span style=color:#d19a66>0</span> /etc/update-motd.d/97-overlayroot
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>0</span>     98-fsck-at-rebo  <span style=color:#d19a66>27870</span>  <span style=color:#d19a66>27820</span>    <span style=color:#d19a66>0</span> /etc/update-motd.d/98-fsck-at-reboot
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>0</span>     98-reboot-requi  <span style=color:#d19a66>27876</span>  <span style=color:#d19a66>27820</span>    <span style=color:#d19a66>0</span> /etc/update-motd.d/98-reboot-required
+</span></span></code></pre></div><p><code>/etc/update-motd.d</code> は Ubuntu での MOTD (message of the day) 用スクリプトが格納されているパスなので、ssh との関連性は確かに高い。ここでわかった重要な事実は、ssh 経由でコマンドを実行した場合でも、(表示はされないのにも関わらず) MOTD が実行されるということだ。これは無駄な処理だと考えられる。</p><p>生存期間の観点では特記すべき点は見られなかった。最も生存期間が長いプロセスは以下 3 つで、0.04 秒程度。ただ、それ以外は特に生存期間が長いプロセスはなく、まんべんなく短い実行時間のプロセスが多数発生していたと考えるのが良さそう。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ cat filtered/exitsnoop.log
+</span></span><span style=display:flex><span>TIME-UTC     PCOMM            PID    PPID   TID    AGE<span style=color:#56b6c2>(</span>s<span style=color:#56b6c2>)</span>  EXIT_CODE
+</span></span><span style=display:flex><span>...
+</span></span><span style=display:flex><span>14:28:58.722 lsb_release      <span style=color:#d19a66>27843</span>  <span style=color:#d19a66>27842</span>  <span style=color:#d19a66>27843</span>  0.04    <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span>14:28:58.722 cut              <span style=color:#d19a66>27844</span>  <span style=color:#d19a66>27842</span>  <span style=color:#d19a66>27844</span>  0.04    <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span>14:28:58.722 91-release-upgr  <span style=color:#d19a66>27842</span>  <span style=color:#d19a66>27841</span>  <span style=color:#d19a66>27842</span>  0.04    <span style=color:#d19a66>0</span>
+</span></span></code></pre></div><h3 id=メモリ観点の調査>メモリ観点の調査
+<a class=heading-link href=#%e3%83%a1%e3%83%a2%e3%83%aa%e8%a6%b3%e7%82%b9%e3%81%ae%e8%aa%bf%e6%9f%bb><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>特に仮想メモリの飽和は観測されていないので、一旦問題ないと見なしてよいと思う。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ cat drsnoop.log
+</span></span><span style=display:flex><span>COMM           PID     LAT<span style=color:#56b6c2>(</span>ms<span style=color:#56b6c2>)</span> PAGES
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>$ cat shmsnoop.log
+</span></span><span style=display:flex><span>PID    COMM                SYS              RET AR
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>$ dmesg -T | egrep <span style=color:#98c379>&#39;oom|Out of memory&#39;</span>
+</span></span></code></pre></div><h3 id=ファイルシステムio-観点の調査>ファイルシステム、I/O 観点の調査
+<a class=heading-link href=#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0io-%e8%a6%b3%e7%82%b9%e3%81%ae%e8%aa%bf%e6%9f%bb><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>まずは VFS で作成され削除された file 一覧を見てみる。<code>systemd</code> でログイン時に生成されるものくらいしかなさそう。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ cat filelife.log
+</span></span><span style=display:flex><span>TIME     PID    COMM             AGE<span style=color:#56b6c2>(</span>s<span style=color:#56b6c2>)</span>  FILE
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>27865</span>  rm               0.00    tmp.2mxHTbBPCU
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>1</span>      systemd          0.29    session-1245.scope
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>1352</span>   systemd-logind   0.00    <span style=color:#d19a66>1245</span>
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>469</span>    systemd-journal  0.00    9:339183
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>469</span>    systemd-journal  0.29    9:339144
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>1</span>      systemd          0.30    user-1001.slice
+</span></span><span style=display:flex><span>14:28:58 <span style=color:#d19a66>1352</span>   systemd-logind   0.00    <span style=color:#d19a66>1001</span>
+</span></span></code></pre></div><p>物理デバイスへの I/O も存在しない。ファイルの read や write で時間がかかってるのではないと考えられる。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ cat filtered/biosnoop.log
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#7f848e># 念の為、目 grep で非対象 PID を除外して調査も実施</span>
+</span></span><span style=display:flex><span>$ cat biosnoop.log | awk <span style=color:#98c379>&#39;{ if ($3 !~ /0|385|17836|17841|17829/) { print } }&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#7f848e># 定常的に物理 I/O を発生させている PID を列挙するには以下を実行</span>
+</span></span><span style=display:flex><span><span style=color:#7f848e># tmp=$(mktemp)</span>
+</span></span><span style=display:flex><span><span style=color:#7f848e># timeout 5s biosnoop.py &gt; $tmp</span>
+</span></span><span style=display:flex><span><span style=color:#7f848e># cat $tmp | awk &#39;{print $3}&#39; | sed &#39;1d&#39; | sort | uniq | paste -sd&#39;|&#39;</span>
+</span></span></code></pre></div><h3 id=ネットワーク観点の調査>ネットワーク観点の調査
+<a class=heading-link href=#%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e8%a6%b3%e7%82%b9%e3%81%ae%e8%aa%bf%e6%9f%bb><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>tcplife で TCP コネクション確立/終了のライフサイクルを見てみる。22 ポートとの通信が一つ存在した。送受信バイト数もそれぞれ 2 KB と少なめ。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ cat tcplife.log
+</span></span><span style=display:flex><span>PID   COMM       LADDR           LPORT RADDR           RPORT TX_KB RX_KB MS
+</span></span><span style=display:flex><span><span style=color:#d19a66>0</span>     swapper/3  10.0.0.4        <span style=color:#d19a66>22</span>    &lt;local-ip-addr&gt; <span style=color:#d19a66>4146</span>      <span style=color:#d19a66>2</span>     <span style=color:#d19a66>2</span> 659.94
+</span></span></code></pre></div><p>ここで、生成されているプロセス数がここまで多いと、他にも通信を発生させてるプロセスはあるのでは? という疑問が発生。このログからだけだとなんとも言えないが、何度か <code>tcplife</code> のログをとってると、当該コマンドを実行して発生する TCP コネクションは 1 本だけであることがわかった。安心して、この TCP コネクションについて調査を進めるとする。</p><p>SYN を送ってから ESTAB になるまでの時間 (3-way handshake latency) は 0.012 秒。全く問題ない。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>cat tcpstates.log | grep ffff8cf3ab844ec0 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>SKADDR           C-PID C-COMM     LADDR           LPORT RADDR           RPORT OLDSTATE    -&gt; NEWSTATE
+</span></span><span style=display:flex><span>ffff8cf3ab844ec0 <span style=color:#d19a66>0</span>     swapper/3  0.0.0.0         <span style=color:#d19a66>22</span>    0.0.0.0         <span style=color:#d19a66>0</span>     LISTEN      -&gt; SYN_RECV    0.000
+</span></span><span style=display:flex><span>ffff8cf3ab844ec0 <span style=color:#d19a66>0</span>     swapper/3  10.0.0.4        <span style=color:#d19a66>22</span>    126.149.198.88  <span style=color:#d19a66>4146</span>  SYN_RECV    -&gt; ESTABLISHED 0.012
+</span></span><span style=display:flex><span>ffff8cf3ab844ec0 <span style=color:#d19a66>27805</span> sshd       10.0.0.4        <span style=color:#d19a66>22</span>    126.149.198.88  <span style=color:#d19a66>4146</span>  ESTABLISHED -&gt; FIN_WAIT1   613.626
+</span></span><span style=display:flex><span>ffff8cf3ab844ec0 <span style=color:#d19a66>0</span>     swapper/3  10.0.0.4        <span style=color:#d19a66>22</span>    126.149.198.88  <span style=color:#d19a66>4146</span>  FIN_WAIT1   -&gt; CLOSING     11.181
+</span></span><span style=display:flex><span>ffff8cf3ab844ec0 <span style=color:#d19a66>0</span>     swapper/3  10.0.0.4        <span style=color:#d19a66>22</span>    126.149.198.88  <span style=color:#d19a66>4146</span>  CLOSING     -&gt; CLOSE       35.128
+</span></span></code></pre></div><p>再送も存在していないので、ネットワーク観点でボトルネックの兆候は見られない。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ cat tcpretrans.log
+</span></span><span style=display:flex><span>Tracing retransmits ... Hit Ctrl-C to end
+</span></span><span style=display:flex><span>TIME     PID    IP LADDR:LPORT          T&gt; RADDR:RPORT          STATE
+</span></span></code></pre></div><h3 id=一次見解>一次見解
+<a class=heading-link href=#%e4%b8%80%e6%ac%a1%e8%a6%8b%e8%a7%a3><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>当該コマンドは、仮想メモリ、ファイルシステム、I/O、ネットワークの観点ではボトルネックとなる程の処理を観測していない。最も可能性があるのは、大量にプロセスが生成されていることで、特に motd によって無駄なログイン処理が発生していることが示唆された。</p><h2 id=対応策>対応策
+<a class=heading-link href=#%e5%af%be%e5%bf%9c%e7%ad%96><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><p><code>systemd</code> の動作を調べるのは時間がかかりそうだったので、<code>/etc/update-motd.d</code> 自体を削除するという単純な方法で対応をしてみる。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>root@vm-ubuntu:/etc# mv /etc/update-motd.d/ /etc/update-motd.d.old
+</span></span></code></pre></div><h3 id=after-ssh-経由コマンドのレイテンシ計測>After: ssh 経由コマンドのレイテンシ計測
+<a class=heading-link href=#after-ssh-%e7%b5%8c%e7%94%b1%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%ae%e3%83%ac%e3%82%a4%e3%83%86%e3%83%b3%e3%82%b7%e8%a8%88%e6%b8%ac><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>対応後のコマンド実行レイテンシを何度か計測してみた。確かに 1 秒以上時間がかかるようなことはなくなり、改善が見られた。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>openjny@local-machine:~$ <span style=color:#e5c07b>time</span> ssh openjny@&lt;lab-machine&gt; -i id_rsa <span style=color:#e5c07b>echo</span> hello
+</span></span><span style=display:flex><span>hello
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>real    0m0.598s
+</span></span><span style=display:flex><span>user    0m0.034s
+</span></span><span style=display:flex><span>sys     0m0.012s
+</span></span></code></pre></div><p>また、<code>execsnoop</code> で実行されるプロセス数をカウントしてみると、対応前 60 以上あった子孫プロセスが、10 程度に抑えられていることも確認できた。</p><h2 id=まとめ>まとめ
+<a class=heading-link href=#%e3%81%be%e3%81%a8%e3%82%81><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><p>今回の課題では、非常に生存時間が短く、かつ事前にわかっているのは <code>fork</code> 元のプロセス ID だけ、というアプリケーションのレイテンシを増加させている原因を調査しました。WEB アプリケーションへの GET 要求等、ネットワーク越しの処理はおそらくこのようなシナリオに該当するのだろう。</p><p>そして、<code>strace</code> や <code>tcpdump</code> 等が使えないセンシティブなサーバー環境でも、コンポーネントごとにワークロード計測ができることを確認できました。十分とは言えないかもしれないけど、実際にレイテンシを削減することのできる対応を考えつくことが出来たので、最低限のところまでは対応できたと思います。</p><p>ただ、<code>systemd</code> の動作がわかっていればよりプロセス間の関係、生成されたプロセスの意味が解釈しやすかったのだろうと思うと、やはり内部アーキテクチャを知っていることは重要であることを改めて感じた。また、今回は bcc だけで乗り切ったけど、<code>bpftrace</code> でだけ提供されているネットワーク系ツール等も発見したので、今後活用していきたい。</p></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+2024
+Junya Yamaguchi (@openjny)
+·
+Powered by <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/ target=_blank rel=noopener>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script><script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "0a99e4ebb1e342beb03db419a6eea4a6"}'></script></body></html>

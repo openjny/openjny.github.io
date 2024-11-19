@@ -1,0 +1,192 @@
+<!doctype html><html lang=ja><head><title>Linux での TCP KeepAlive 有効化方法 · /etc/openjny
+</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Junya Yamaguchi (@openjny)"><meta name=description content="Linux の TCP KeepAlive について調べたので、その備忘録です。
+
+  
+  
+    
+    見出しへのリンク
+  
+"><meta name=keywords content="blog,azure,cloud computing,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Linux での TCP KeepAlive 有効化方法"><meta name=twitter:description content="Linux の TCP KeepAlive について調べたので、その備忘録です。
+見出しへのリンク"><meta property="og:url" content="https://openjny.github.io/2021/03/11/how-to-enable-tcp-keepalive-on-linux/"><meta property="og:site_name" content="/etc/openjny"><meta property="og:title" content="Linux での TCP KeepAlive 有効化方法"><meta property="og:description" content="Linux の TCP KeepAlive について調べたので、その備忘録です。
+見出しへのリンク"><meta property="og:locale" content="ja"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-03-11T00:00:00+00:00"><meta property="article:modified_time" content="2021-03-11T00:00:00+00:00"><meta property="article:tag" content="Linux"><meta property="article:tag" content="Networking"><meta property="article:tag" content="KeepAlive"><meta property="article:tag" content="TCP"><link rel=canonical href=https://openjny.github.io/2021/03/11/how-to-enable-tcp-keepalive-on-linux/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.140953f60ced76bc313e5d112c66fd4eb9df859f9cbc71a559db3d781dadcc70.css integrity="sha256-FAlT9gztdrwxPl0RLGb9TrnfhZ+cvHGlWds9eB2tzHA=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://openjny.github.io/>/etc/openjny
+</a><input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/posts/>ブログ</a></li><li class=navigation-item><a class=navigation-link href=/tags/>タグ</a></li><li class=navigation-item><a class=navigation-link href=/categories/>カテゴリ</a></li><li class=navigation-item><a class=navigation-link href=/projects/>プロジェクト</a></li><li class=navigation-item><a class=navigation-link href=/about-me/>About Me</a></li><li class="navigation-item menu-separator"><span>|</span></li><li class=navigation-item><a href=/en/>🇺🇸</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://openjny.github.io/2021/03/11/how-to-enable-tcp-keepalive-on-linux/>Linux での TCP KeepAlive 有効化方法</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
+<time datetime=2021-03-11T00:00:00Z>2021年3月11日
+</time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
+9分で読めます</span></div><div class=categories><i class="fa-solid fa-folder" aria-hidden=true></i>
+<a href=/categories/linux/>Linux</a></div><div class=tags><i class="fa-solid fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/linux/>Linux</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/networking/>Networking</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/keepalive/>KeepAlive</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/tcp/>TCP</a></span></div></div></header><div class=post-content><p>Linux の TCP KeepAlive について調べたので、その備忘録です。</p><h2 id=heading><a class=heading-link href=#heading><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><h2 id=tldr>TL;DR
+<a class=heading-link href=#tldr><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><p>Linux は TCP KeepAlive に対応していますが、普通に <code>socket</code> を開くだけだと有効化されません。既定では無効の状態です。アプリケーションが <code>setsockopt</code> システムコールを (第 3 引数 = 1 で) 呼び出して、初めて TCP KeepAlive が有効化されます (ちなみに既定で TCP KeepAlive が無効なのは、Windows でも同様です)。</p><p>アプリケーションで TCP KeepAlive を有効化するには、2 つの方法がとれます。</p><ul><li>アプリケーションで <code>setsockopt</code> を実装する。ただし、ソースコードの編集やコンパイル/ビルドが出来る必要があります。</li><li><code>LD_PRELOAD=libkeepalive.so</code> を環境変数に宣言してからアプリケーションを実行する。ソースコードに手を加えなくて良いのが利点である一方、<code>libkeepalive.so</code> をシステムに導入する必要があるのと、アプリ上の任意の TCP コネクションで TCP KeepAlive が効いてしまうのが欠点。</li></ul><p>こんな記事を読まなくても、必要なことは <a href=https://tldp.org/HOWTO/html_single/TCP-Keepalive-HOWTO/ class=external-link target=_blank rel=noopener>TCP Keepalive HOWTO</a> に全部書いてあります。</p><h2 id=tcp-keepalive-とはなにか>TCP KeepAlive とはなにか
+<a class=heading-link href=#tcp-keepalive-%e3%81%a8%e3%81%af%e3%81%aa%e3%81%ab%e3%81%8b><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><p>TCP KeepAlive とは、TCP コネクションがアクティブな状態なのか (対向側やその間のネットワークが死んでないか) を検知する為の正常性監視の仕組みです。TCP のレイヤーで実装されているので、基本的にカーネルで制御する義務があります。HTTP KeepAlive とは全くの別物であることに注意しましょう。</p><p>主たる目的は正常性監視ですが、定期的にパケットを送信する仕組みとして TCP KeepAlive が使われることもあります。ネットワーク データパス上に存在する L4 のネットワーク アプライアンス機器には、しばしばタイムアウトが実装されています。このような機器ではフローテーブル等で通信の状態を保持しておかなければならず、タイムアウトがなければリソース枯渇を招く為です。</p><p>例えば、30 分間ずっと無通信状態の TCP コネクションがあれば、それ以降のパケットはフォワーディングしないアプライアンスがあったとします。ここに、TCP KeepAlive を導入する動機があります。TCP KeepAlive で 10 分毎に死活監視を行えば、長時間 TCP コネクションが非活性になるのを予防できます。</p><p>まとめると、TCP KeepAlive の目的は大まかに 2 つです。これらの目的を達成するために、TCP KeepAlive はコネクション単位で有効/無効が設定できるようになっています。</p><ul><li>対向の正常性を監視すること</li><li>非活性なネットワークを活性化させて、コネクション切断を防ぐこと</li></ul><h2 id=どうすれば-tcp-keepalive-を有効化できるのか>どうすれば TCP KeepAlive を有効化できるのか
+<a class=heading-link href=#%e3%81%a9%e3%81%86%e3%81%99%e3%82%8c%e3%81%b0-tcp-keepalive-%e3%82%92%e6%9c%89%e5%8a%b9%e5%8c%96%e3%81%a7%e3%81%8d%e3%82%8b%e3%81%ae%e3%81%8b><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><p>結論から言えば、Linux で TCP KeepAlive を有効化するには <code>setsockopt</code> システムコールを使う必要があります。以下のようなシステムコールが <code>strace</code> で確認できれば、その TCP コネクションで TCP KeepAlive が有効になります (そうでない限り無効です)。</p><pre tabindex=0><code>setsockopt(&lt;sockfd&gt;, SOL_SOCKET, SO_KEEPALIVE, [1], 4)
+</code></pre><p>※ 第 3 引数が <code>[0]</code> の場合、明示的な無効化を意味します。</p><h3 id=socket-とシステムコール>socket とシステムコール
+<a class=heading-link href=#socket-%e3%81%a8%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%82%b3%e3%83%bc%e3%83%ab><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>そもそもの話として、Linux や Windows 等の標準的な OS では、TCP コネクションを活用したいアプリケーションは socket と呼ばれる特殊なファイルを開きます。例えば、Python3 で (socket を開いて) サーバーに接続するクライアントを作る時は、以下のようなコードを書くでしょう。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#c678dd>import</span> <span style=color:#e06c75>socket</span>
+</span></span><span style=display:flex><span><span style=color:#c678dd>import</span> <span style=color:#e06c75>time</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#c678dd>with</span> <span style=color:#e06c75>socket</span><span style=color:#56b6c2>.</span><span style=color:#e06c75>socket</span>(<span style=color:#e06c75>socket</span><span style=color:#56b6c2>.</span><span style=color:#e06c75>AF_INET</span>, <span style=color:#e06c75>socket</span><span style=color:#56b6c2>.</span><span style=color:#e06c75>SOCK_STREAM</span>) <span style=color:#c678dd>as</span> <span style=color:#e06c75>s</span>:
+</span></span><span style=display:flex><span>    <span style=color:#e06c75>s</span><span style=color:#56b6c2>.</span><span style=color:#e06c75>connect</span>((<span style=color:#98c379>&#39;8.8.8.8&#39;</span>, <span style=color:#d19a66>53</span>))
+</span></span><span style=display:flex><span>    <span style=color:#e06c75>time</span><span style=color:#56b6c2>.</span><span style=color:#e06c75>sleep</span>(<span style=color:#d19a66>5</span>)
+</span></span></code></pre></div><p>このプログラムを動かしてみると、<code>socket.sendall</code> や <code>socket.recv</code> がないので何もクライアントから送受信することは無い (e.g. HTTP のプロトコルに則っていない) のですが、TCP の 3way handshake やクローズの処理は正常に行えていることが確認できます。これだけで TCP コネクションの確立はできてしまうんですね。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ sudo tcpdump host 8.8.8.8 port <span style=color:#d19a66>53</span> -ni any
+</span></span><span style=display:flex><span>tcpdump: verbose output suppressed, use -v or -vv <span style=color:#c678dd>for</span> full protocol decode
+</span></span><span style=display:flex><span>listening on any, link-type LINUX_SLL <span style=color:#56b6c2>(</span>Linux cooked<span style=color:#56b6c2>)</span>, capture size <span style=color:#d19a66>262144</span> bytes
+</span></span><span style=display:flex><span>16:12:47.319493 IP 10.3.0.5.50528 &gt; 8.8.8.8.53: Flags <span style=color:#56b6c2>[</span>S<span style=color:#56b6c2>]</span>, seq 464911782, win 64240, options <span style=color:#56b6c2>[</span>mss 1460,sackOK,TS val <span style=color:#d19a66>3113655258</span> ecr 0,nop,wscale 7<span style=color:#56b6c2>]</span>, length <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span>16:12:47.321744 IP 8.8.8.8.53 &gt; 10.3.0.5.50528: Flags <span style=color:#56b6c2>[</span>S.<span style=color:#56b6c2>]</span>, seq 2773628164, ack 464911783, win 65535,
+</span></span><span style=display:flex><span>options <span style=color:#56b6c2>[</span>mss 1430,sackOK,TS val <span style=color:#d19a66>1138427843</span> ecr 3113655258,nop,wscale 8<span style=color:#56b6c2>]</span>, length <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span>16:12:47.321781 IP 10.3.0.5.50528 &gt; 8.8.8.8.53: Flags <span style=color:#56b6c2>[</span>.<span style=color:#56b6c2>]</span>, ack 1, win 502, options <span style=color:#56b6c2>[</span>nop,nop,TS val <span style=color:#d19a66>3113655261</span> ecr 1138427843<span style=color:#56b6c2>]</span>, length <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span>16:12:47.321963 IP 10.3.0.5.50528 &gt; 8.8.8.8.53: Flags <span style=color:#56b6c2>[</span>F.<span style=color:#56b6c2>]</span>, seq 1, ack 1, win 502, options <span style=color:#56b6c2>[</span>nop,nop,TS val <span style=color:#d19a66>3113655261</span> ecr 1138427843<span style=color:#56b6c2>]</span>, length <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span>16:12:47.323556 IP 8.8.8.8.53 &gt; 10.3.0.5.50528: Flags <span style=color:#56b6c2>[</span>F.<span style=color:#56b6c2>]</span>, seq 1, ack 2, win 256, options <span style=color:#56b6c2>[</span>nop,nop,TS val <span style=color:#d19a66>1138427846</span> ecr 3113655261<span style=color:#56b6c2>]</span>, length <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span>16:12:47.323571 IP 10.3.0.5.50528 &gt; 8.8.8.8.53: Flags <span style=color:#56b6c2>[</span>.<span style=color:#56b6c2>]</span>, ack 2, win 502, options <span style=color:#56b6c2>[</span>nop,nop,TS val <span style=color:#d19a66>3113655262</span> ecr 1138427846<span style=color:#56b6c2>]</span>, length <span style=color:#d19a66>0</span>
+</span></span></code></pre></div><p>アプリの実装を紐解く上では、どのようなシステムコールを発行しているか、という点も抑えておきましょう。なぜなら、システムコールはアプリケーションからの要求をカーネルが受け取る唯一の方法であり、後に見るように、<strong>システムコール次第で TCP KeepAlive の有効/無効が決定される</strong> 為です。TCP を管理するのは Kernel のネットワーク スタックなので、TCP KeepAlive に関する調節命令をアプリケーションからカーネルに出さないといけないのも納得ですね。</p><p>プログラムが発行するシステムコールを調べるには <code>strace</code> を使います。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ strace -ff -e <span style=color:#e06c75>trace</span><span style=color:#56b6c2>=</span>network python3 client.py 2&gt;&amp;<span style=color:#d19a66>1</span>
+</span></span><span style=display:flex><span>socket<span style=color:#56b6c2>(</span>AF_INET, SOCK_STREAM|SOCK_CLOEXEC, IPPROTO_IP<span style=color:#56b6c2>)</span> <span style=color:#56b6c2>=</span> <span style=color:#d19a66>3</span>
+</span></span><span style=display:flex><span>connect<span style=color:#56b6c2>(</span>3, <span style=color:#56b6c2>{</span><span style=color:#e06c75>sa_family</span><span style=color:#56b6c2>=</span>AF_INET, <span style=color:#e06c75>sin_port</span><span style=color:#56b6c2>=</span>htons<span style=color:#56b6c2>(</span>53<span style=color:#56b6c2>)</span>, <span style=color:#e06c75>sin_addr</span><span style=color:#56b6c2>=</span>inet_addr<span style=color:#56b6c2>(</span><span style=color:#98c379>&#34;8.8.8.8&#34;</span><span style=color:#56b6c2>)}</span>, 16<span style=color:#56b6c2>)</span> <span style=color:#56b6c2>=</span> <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span>+++ exited with <span style=color:#d19a66>0</span> +++
+</span></span></code></pre></div><p>さて、これらのシステムコールによって確立された TCP コネクションは、TCP KeepAlive が有効化されているのでしょうか？</p><p>初見で判定するのはなかなか難しいところなので、いくつかの既知の知識を使って読み解いて行きましょう。これから使うのは、以下の 2 つのツールです。</p><ul><li><code>ss</code>: ソケットに関する統計量を取得する観測ツール。<code>-o (--options)</code> を指定すると、TCP KeepAlive の有無やそのタイマーを表示してくれる。</li><li><code>curl</code>: 様々なプロトコルに対応したクライアント。<code>--no-keepalive</code> を指定すると TCP KeepAlive を無効化、デフォルトのままだと TCP KeepAlive を有効化する。</li></ul><h3 id=ss-による-tcp-keepalive-判定>ss による TCP KeepAlive 判定
+<a class=heading-link href=#ss-%e3%81%ab%e3%82%88%e3%82%8b-tcp-keepalive-%e5%88%a4%e5%ae%9a><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>試しに先程の Python プログラムと、(TCP KeepAlive を有効化した) curl の結果を見比べてみましょう。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ python3 client.py
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>$ ss -tanoe <span style=color:#98c379>&#39;dst 8.8.8.8&#39;</span>
+</span></span><span style=display:flex><span>State   Recv-Q   Send-Q   Local Address:Port    Peer Address:Port
+</span></span><span style=display:flex><span>ESTAB   <span style=color:#d19a66>0</span>        <span style=color:#d19a66>0</span>             10.3.0.5:52686        8.8.8.8:53  
+</span></span><span style=display:flex><span>users:<span style=color:#56b6c2>((</span><span style=color:#98c379>&#34;python3&#34;</span>,pid<span style=color:#56b6c2>=</span>29357,fd<span style=color:#56b6c2>=</span>3<span style=color:#56b6c2>))</span> uid:1000 ino:305411 sk:196 &lt;-&gt;
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ curl http://8.8.8.8:53 <span style=color:#7f848e># --no-keepalive を指定していない (TCP KeepAlive 有効化)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>$ ss -tanoe <span style=color:#98c379>&#39;dst 8.8.8.8&#39;</span>
+</span></span><span style=display:flex><span>State   Recv-Q   Send-Q   Local Address:Port    Peer Address:Port
+</span></span><span style=display:flex><span>ESTAB   <span style=color:#d19a66>0</span>        <span style=color:#d19a66>0</span>             10.3.0.5:53326        8.8.8.8:53   <span style=color:#98c379>\
+</span></span></span><span style=display:flex><span><span style=color:#98c379></span>users:<span style=color:#56b6c2>((</span><span style=color:#98c379>&#34;curl&#34;</span>,pid<span style=color:#56b6c2>=</span>30213,fd<span style=color:#56b6c2>=</span>3<span style=color:#56b6c2>))</span> timer:<span style=color:#56b6c2>(</span>keepalive,1min,0<span style=color:#56b6c2>)</span> uid:1000 ino:311003 sk:19a &lt;-&gt;
+</span></span></code></pre></div><p><code>curl</code> の方には、timer フィールドがあるのがわかりますね。詳細は <code>ss(8)</code> の man に載っていますが、実際、timer フィールドの有無で TCP KeepAlive の有効/無効を判定することが出来ます。具体的には、ESTABLISHED な TCP コネクションを <code>ss -o</code> で確認した時：</p><ul><li><code>timer:(keepalive, ...)</code> が存在する場合、TCP KeepAlive は有効です。</li><li><code>timer:(keepalive, ...)</code> が存在しない場合、TCP KeepAlive は無効です。</li></ul><p>ちなみに、timer のセマンティクスは以下の通りです。</p><pre tabindex=0><code>timer:(&lt;timer_name&gt;,&lt;expire_time&gt;,&lt;retrans&gt;)
+
+&lt;timer_name&gt;
+        the name of the timer, there are five kind of timer names:
+        on : means one of these timers: TCP retrans timer, TCP early retrans timer and tail loss probe timer
+        keepalive: tcp keep alive timer
+        timewait: timewait stage timer
+        persist: zero window probe timer
+        unknown: none of the above timers
+
+&lt;expire_time&gt;
+        how long time the timer will expire
+
+&lt;retrans&gt;
+        how many times the retransmission occurred
+</code></pre><ul><li>ref: <a href=https://man7.org/linux/man-pages/man8/ss.8.html class=external-link target=_blank rel=noopener>man 8 ss</a></li></ul><h3 id=strace-による-tcp-keepalive-判定>strace による TCP KeepAlive 判定
+<a class=heading-link href=#strace-%e3%81%ab%e3%82%88%e3%82%8b-tcp-keepalive-%e5%88%a4%e5%ae%9a><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>最初の Python プログラムでは TCP KeepAlive が有効になっていなかったことがわかりました。ここまでくればあともう一息。最後に <code>curl</code> が発行しているシステムコールを見るだけです。具体的には、TCP KeepAlive オプションによるシステムコールの差分を見てみます。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-diff data-lang=diff><span style=display:flex><span>$ strace -e trace=network -o on.log curl http://8.8.8.8:53
+</span></span><span style=display:flex><span>$ strace -e trace=network -o off.log curl http://8.8.8.8:53 --no-keepalive
+</span></span><span style=display:flex><span>$ diff on.log off.log
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>&lt; setsockopt(3, SOL_SOCKET, SO_KEEPALIVE, [1], 4) = 0
+</span></span></span><span style=display:flex><span><span style=color:#e06c75>&lt; setsockopt(3, SOL_TCP, TCP_KEEPIDLE, [60], 4) = 0
+</span></span></span><span style=display:flex><span><span style=color:#e06c75>&lt; setsockopt(3, SOL_TCP, TCP_KEEPINTVL, [60], 4) = 0
+</span></span></span><span style=display:flex><span><span style=color:#e06c75>&lt; getsockname(3, {sa_family=AF_INET, sin_port=htons(57040), sin_addr=inet_addr(&#34;10.3.0.5&#34;)}, [128-&gt;16]) = 0
+</span></span></span><span style=display:flex><span><span style=color:#e06c75></span><span style=color:#98c379;font-weight:700>&gt; getsockname(3, {sa_family=AF_INET, sin_port=htons(57012), sin_addr=inet_addr(&#34;10.3.0.5&#34;)}, [128-&gt;16]) = 0
+</span></span></span></code></pre></div><p>TCP KeepAlive が有効化されている時は <code>setsockopt</code> で指定されていますね。strace で見た時に <code>setsockopt(&lt;sockfd>, SOL_SOCKET, SO_KEEPALIVE, [1], 4)</code> が存在すれば有効になってそうな匂いを感じます (<code>TCP_KEEPIDLE</code> とか <code>TCP_KEEPINTVL</code> はデフォルト インターバル値の上書きと予想できます)。</p><p>Linux 関連のドキュメントを検索したところ、下記のセクション 4.2 にまさに探していた情報が載っていました。嗅覚は当たっていました &#x1f44f;</p><blockquote><p>All you need to enable keepalive for a specific socket is to set the specific socket option on the socket itself. The prototype of the function is as follows:</p><p>int setsockopt(int s, int level, int optname,
+const void *optval, socklen_t optlen)</p><p>The first parameter is the socket, previously created with the socket(2); the second one must be SOL_SOCKET, and the third must be SO_KEEPALIVE . The fourth parameter must be a boolean integer value, indicating that we want to enable the option, while the last is the size of the value passed before.</p></blockquote><p><a href=https://tldp.org/HOWTO/html_single/TCP-Keepalive-HOWTO/ class=external-link target=_blank rel=noopener>TCP Keepalive HOWTO</a></p><p>第 3 引数に <code>1</code> (の値を格納した 4 byte のメモリスペースへのポインタ) を指定すれば、第 1 引数に指定した <code>sockfd</code> の TCP KeepAlive が有効になるそうです。</p><h2 id=os-の仕組みでなんとかならない>OS の仕組みでなんとかならない？
+<a class=heading-link href=#os-%e3%81%ae%e4%bb%95%e7%b5%84%e3%81%bf%e3%81%a7%e3%81%aa%e3%82%93%e3%81%a8%e3%81%8b%e3%81%aa%e3%82%89%e3%81%aa%e3%81%84><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><p><code>setsockopt</code> でごにょごにょすれば TCP KeepAlive を有効化できるのはわかった。でもそれだとソースコードをいじらないといけなくて、めんどくさい。後は自分がアプリケーションのソースコードを保有してる/改修できるとは限らないので、なんとか OS の仕組みで TCP KeepAlive 有効化できないの？と思いますよね。</p><p>しっかりありました。<code>LD_PRELOAD</code> というものだそうです。</p><p><code>LD_PRELOAD</code> は Linux の特別な環境変数で、動的ライブラリ/共有ライブラリへのパスを値として設定すると、任意の動的ライブラリよりもそのライブラリが優先的にリンクされてプログラムが実行されます。この機能に着目したのが、<code>libkeepalive.so</code> です。これは、<code>socket</code> を開いた時に一緒に TCP KeepAlive も有効化するように、TCP KeepAlive にチューニングされたソケット機能を提供するライブラリです。</p><p><a href=http://libkeepalive.sourceforge.net/ class=external-link target=_blank rel=noopener>http://libkeepalive.sourceforge.net/</a></p><p>実際に使ってみるとその効果がわかるので、テストプログラムを動かしてみることをおすすめします。</p><h3 id=テストプログラム>テストプログラム
+<a class=heading-link href=#%e3%83%86%e3%82%b9%e3%83%88%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%a0><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p><a href=https://tldp.org/HOWTO/html_single/TCP-Keepalive-HOWTO/ class=external-link target=_blank rel=noopener>TCP Keepalive HOWTO</a> のセクション 4.3 にあるプログラム <code>test</code> を動かしてみます。</p><ul><li><code>test</code> は、単に socket をひとつ新たにオープンします。</li><li>その直後、socket の TCP KeepAlive 設定 (SO_KEEPALIVE) 値を出力します。通常であれば無効化 (<code>0</code>) となっているはずの値ですね。</li><li>その後、<code>setsockopt</code> を使って、明示的に TCP KeepAlive を有効化します。</li><li>再度 SO_KEEPALIVE の現在値を出力します。最後には有効 (<code>1</code>) となっているはずです。</li></ul><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>cat <span style=color:#98c379>&lt;&lt;EOF &gt;test.c
+</span></span></span><span style=display:flex><span><span style=color:#98c379>#include &lt;stdio.h&gt;
+</span></span></span><span style=display:flex><span><span style=color:#98c379>#include &lt;stdlib.h&gt;
+</span></span></span><span style=display:flex><span><span style=color:#98c379>#include &lt;unistd.h&gt;
+</span></span></span><span style=display:flex><span><span style=color:#98c379>#include &lt;sys/types.h&gt;
+</span></span></span><span style=display:flex><span><span style=color:#98c379>#include &lt;sys/socket.h&gt;
+</span></span></span><span style=display:flex><span><span style=color:#98c379>#include &lt;netinet/in.h&gt;
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>int main()
+</span></span></span><span style=display:flex><span><span style=color:#98c379>{
+</span></span></span><span style=display:flex><span><span style=color:#98c379>   int s;
+</span></span></span><span style=display:flex><span><span style=color:#98c379>   int optval;
+</span></span></span><span style=display:flex><span><span style=color:#98c379>   socklen_t optlen = sizeof(optval);
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>   if((s = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP)) &lt; 0) {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>      perror(&#34;socket()&#34;);
+</span></span></span><span style=display:flex><span><span style=color:#98c379>      exit(EXIT_FAILURE);
+</span></span></span><span style=display:flex><span><span style=color:#98c379>   }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>   if(getsockopt(s, SOL_SOCKET, SO_KEEPALIVE, &amp;optval, &amp;optlen) &lt; 0) {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>      perror(&#34;getsockopt()&#34;);
+</span></span></span><span style=display:flex><span><span style=color:#98c379>      close(s);
+</span></span></span><span style=display:flex><span><span style=color:#98c379>      exit(EXIT_FAILURE);
+</span></span></span><span style=display:flex><span><span style=color:#98c379>   }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>   printf(&#34;SO_KEEPALIVE is %s\n&#34;, (optval ? &#34;ON&#34; : &#34;OFF&#34;));
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>   optval = 1;
+</span></span></span><span style=display:flex><span><span style=color:#98c379>   optlen = sizeof(optval);
+</span></span></span><span style=display:flex><span><span style=color:#98c379>   if(setsockopt(s, SOL_SOCKET, SO_KEEPALIVE, &amp;optval, optlen) &lt; 0) {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>      perror(&#34;setsockopt()&#34;);
+</span></span></span><span style=display:flex><span><span style=color:#98c379>      close(s);
+</span></span></span><span style=display:flex><span><span style=color:#98c379>      exit(EXIT_FAILURE);
+</span></span></span><span style=display:flex><span><span style=color:#98c379>   }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>   printf(&#34;SO_KEEPALIVE set on socket\n&#34;);
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>   if(getsockopt(s, SOL_SOCKET, SO_KEEPALIVE, &amp;optval, &amp;optlen) &lt; 0) {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>      perror(&#34;getsockopt()&#34;);
+</span></span></span><span style=display:flex><span><span style=color:#98c379>      close(s);
+</span></span></span><span style=display:flex><span><span style=color:#98c379>      exit(EXIT_FAILURE);
+</span></span></span><span style=display:flex><span><span style=color:#98c379>   }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>   printf(&#34;SO_KEEPALIVE is %s\n&#34;, (optval ? &#34;ON&#34; : &#34;OFF&#34;));
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>   close(s);
+</span></span></span><span style=display:flex><span><span style=color:#98c379>   exit(EXIT_SUCCESS);
+</span></span></span><span style=display:flex><span><span style=color:#98c379>}
+</span></span></span><span style=display:flex><span><span style=color:#98c379>EOF</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>$ gcc -o <span style=color:#e5c07b>test</span> test.c
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>$ ./test
+</span></span><span style=display:flex><span>SO_KEEPALIVE is OFF
+</span></span><span style=display:flex><span>SO_KEEPALIVE <span style=color:#e5c07b>set</span> on socket
+</span></span><span style=display:flex><span>SO_KEEPALIVE is ON
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>$ strace -e <span style=color:#e06c75>trace</span><span style=color:#56b6c2>=</span>network ./test
+</span></span><span style=display:flex><span>socket<span style=color:#56b6c2>(</span>AF_INET, SOCK_STREAM, IPPROTO_TCP<span style=color:#56b6c2>)</span> <span style=color:#56b6c2>=</span> <span style=color:#d19a66>3</span>
+</span></span><span style=display:flex><span>getsockopt<span style=color:#56b6c2>(</span>3, SOL_SOCKET, SO_KEEPALIVE, <span style=color:#56b6c2>[</span>0<span style=color:#56b6c2>]</span>, <span style=color:#56b6c2>[</span>4<span style=color:#56b6c2>])</span> <span style=color:#56b6c2>=</span> <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span>SO_KEEPALIVE is OFF
+</span></span><span style=display:flex><span>setsockopt<span style=color:#56b6c2>(</span>3, SOL_SOCKET, SO_KEEPALIVE, <span style=color:#56b6c2>[</span>1<span style=color:#56b6c2>]</span>, 4<span style=color:#56b6c2>)</span> <span style=color:#56b6c2>=</span> <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span>SO_KEEPALIVE <span style=color:#e5c07b>set</span> on socket
+</span></span><span style=display:flex><span>getsockopt<span style=color:#56b6c2>(</span>3, SOL_SOCKET, SO_KEEPALIVE, <span style=color:#56b6c2>[</span>1<span style=color:#56b6c2>]</span>, <span style=color:#56b6c2>[</span>4<span style=color:#56b6c2>])</span> <span style=color:#56b6c2>=</span> <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span>SO_KEEPALIVE is ON
+</span></span></code></pre></div><p>何の変哲もない期待通りの動作です。繰り返しになりますが、<code>setsockopt</code> で <code>SO_KEEPALIVE</code> を 1 にセットしない限り、デフォルトでは TCP KeepAlive は無効のままです。</p><h3 id=libkeepalive-ありのテストプログラム>libkeepalive ありのテストプログラム
+<a class=heading-link href=#libkeepalive-%e3%81%82%e3%82%8a%e3%81%ae%e3%83%86%e3%82%b9%e3%83%88%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%a0><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>続いて <code>libkeepalive.so</code> をかましてみるとどうなるか。以下の通り、デフォルトの動作が変化します。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ wget  https://excellmedia.dl.sourceforge.net/project/libkeepalive/libkeepalive/0.3/libkeepalive-0.3.tar.gz
+</span></span><span style=display:flex><span>$ tar -xzvf libkeepalive-0.3.tar.gz
+</span></span><span style=display:flex><span>$ <span style=color:#e5c07b>cd</span> libkeepalive-0.3
+</span></span><span style=display:flex><span>$ make
+</span></span><span style=display:flex><span>$ sudo cp libkeepalive.so /usr/lib/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>$ <span style=color:#e06c75>LD_PRELOAD</span><span style=color:#56b6c2>=</span>/usr/lib/libkeepalive.so ./test
+</span></span><span style=display:flex><span>SO_KEEPALIVE is ON
+</span></span><span style=display:flex><span>SO_KEEPALIVE <span style=color:#e5c07b>set</span> on socket
+</span></span><span style=display:flex><span>SO_KEEPALIVE is ON
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>$ $ <span style=color:#e06c75>LD_PRELOAD</span><span style=color:#56b6c2>=</span>/usr/lib/libkeepalive.so strace -e <span style=color:#e06c75>trace</span><span style=color:#56b6c2>=</span>network ./test
+</span></span><span style=display:flex><span>socket<span style=color:#56b6c2>(</span>AF_INET, SOCK_STREAM, IPPROTO_TCP<span style=color:#56b6c2>)</span> <span style=color:#56b6c2>=</span> <span style=color:#d19a66>3</span>
+</span></span><span style=display:flex><span>setsockopt<span style=color:#56b6c2>(</span>3, SOL_SOCKET, SO_KEEPALIVE, <span style=color:#56b6c2>[</span>1<span style=color:#56b6c2>]</span>, 4<span style=color:#56b6c2>)</span> <span style=color:#56b6c2>=</span> <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span>getsockopt<span style=color:#56b6c2>(</span>3, SOL_SOCKET, SO_KEEPALIVE, <span style=color:#56b6c2>[</span>1<span style=color:#56b6c2>]</span>, <span style=color:#56b6c2>[</span>4<span style=color:#56b6c2>])</span> <span style=color:#56b6c2>=</span> <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span>SO_KEEPALIVE is ON
+</span></span><span style=display:flex><span>setsockopt<span style=color:#56b6c2>(</span>3, SOL_SOCKET, SO_KEEPALIVE, <span style=color:#56b6c2>[</span>1<span style=color:#56b6c2>]</span>, 4<span style=color:#56b6c2>)</span> <span style=color:#56b6c2>=</span> <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span>SO_KEEPALIVE <span style=color:#e5c07b>set</span> on socket
+</span></span><span style=display:flex><span>getsockopt<span style=color:#56b6c2>(</span>3, SOL_SOCKET, SO_KEEPALIVE, <span style=color:#56b6c2>[</span>1<span style=color:#56b6c2>]</span>, <span style=color:#56b6c2>[</span>4<span style=color:#56b6c2>])</span> <span style=color:#56b6c2>=</span> <span style=color:#d19a66>0</span>
+</span></span><span style=display:flex><span>SO_KEEPALIVE is ON
+</span></span><span style=display:flex><span>+++ exited with <span style=color:#d19a66>0</span> +++
+</span></span></code></pre></div><p>先程と違い <code>setsockopt(3, SOL_SOCKET, SO_KEEPALIVE, [1], 4) = 0</code> が (知らない間に) 挿入されていることがわかります。これが共有ライブラリの差し替えによる効果です。ただし、<code>LD_PRELOAD</code> を使うと、アプリ上で開いた全ての socket で TCP KeepAlive が有効化されるので、その点は配慮しなくてはなりません。</p><h2 id=まとめ>まとめ
+<a class=heading-link href=#%e3%81%be%e3%81%a8%e3%82%81><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><p>TCP コネクション確立時に発行されるシステムコールが、プログラムの作り方やコマンドの指定方法によって異なることを確認し、<code>setsockopt</code> が TCP KeepAlive に関わる重要なシステムコールであることを見てきました。最終的に <code>setsockopt</code> をカーネルに送らなければならないことに変わりはありませんが、共有ライブラリの差し替えテクニック (<code>libkeepalive</code>) によって、任意のプログラムで強制的に TCP KeepAlive を有効化する技術についても紹介しました。<code>nc</code> のような TCP KeepAlive に対応していないアプリをカスタマイズするのに使えそうです。</p><h2 id=参考>参考
+<a class=heading-link href=#%e5%8f%82%e8%80%83><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><ul><li><a href=https://tldp.org/HOWTO/html_single/TCP-Keepalive-HOWTO/ class=external-link target=_blank rel=noopener>TCP Keepalive HOWTO</a></li><li><a href=https://docs.microsoft.com/ja-jp/windows-hardware/drivers/network/so-keepalive class=external-link target=_blank rel=noopener>SO_KEEPALIVE - Windows drivers | Microsoft Docs</a></li><li><a href=https://medium.com/@rajivsharma.2205/enable-tcp-keepalive-on-redis-cluster-bus-153128e412fa class=external-link target=_blank rel=noopener>Enable TCP keepalive on Redis cluster bus (gossip inside cluster) | by Rajivsharma | Medium</a></li><li><a href=https://kazuhira-r.hatenablog.com/entry/2020/02/27/002840 class=external-link target=_blank rel=noopener>LinuxのTCP Keep-Aliveを確認する - CLOVER🍀</a></li><li><a href=https://man7.org/linux/man-pages/man8/ss.8.html class=external-link target=_blank rel=noopener>ss(8) - Linux manual page</a></li><li><a href=https://tech.tier4.jp/entry/2021/03/10/160000 class=external-link target=_blank rel=noopener>eBPFやLD_PRELOADを利用した共有ライブラリの関数フック - Tier IV Tech Blog</a></li><li><a href=http://quickhack.net/nom/blog/2018-01-19-enable-tcp-keepalive-of-macos-and-linux-in-ruby.html class=external-link target=_blank rel=noopener>Enable TCP keepalive of macOS and Linux in Ruby</a></li><li><a href=https://qiita.com/developer-kikikaikai/items/f6f87b2d1d7c3e14fb52 class=external-link target=_blank rel=noopener>既存プログラムの関数を書き換える、強力で危険なLinux環境変数LD_PRELOAD - Qiita</a></li></ul></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+2024
+Junya Yamaguchi (@openjny)
+·
+Powered by <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/ target=_blank rel=noopener>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script><script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "0a99e4ebb1e342beb03db419a6eea4a6"}'></script></body></html>

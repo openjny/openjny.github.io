@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SNAT on /etc/openjny</title><link>https://openjny.github.io/tags/snat/</link><description>Recent content in SNAT on /etc/openjny</description><generator>Hugo</generator><language>ja</language><lastBuildDate>Wed, 25 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://openjny.github.io/tags/snat/index.xml" rel="self" type="application/rss+xml"/><item><title>Azure Load Balancer の SNAT がさっぱりわからん</title><link>https://openjny.github.io/2019/12/25/alb-snat/</link><pubDate>Wed, 25 Dec 2019 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2019/12/25/alb-snat/</guid><description>&lt;p>この記事では、Azure Load Balancer の配下にある VM から、インターネットと通信したい時の話を取りあげます。
+具体的には、いわゆる SNAT と呼ばれる仕組みで、Outbound 通信ができるパターンが LB の構成に依存していくつか存在するので、それを紹介します。&lt;/p>
+&lt;h2 id="heading">
+ 
+ &lt;a class="heading-link" href="#heading">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
+ &lt;span class="sr-only">見出しへのリンク&lt;/span>
+ &lt;/a>
+&lt;/h2></description></item></channel></rss>

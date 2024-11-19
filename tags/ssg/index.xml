@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SSG on /etc/openjny</title><link>https://openjny.github.io/tags/ssg/</link><description>Recent content in SSG on /etc/openjny</description><generator>Hugo</generator><language>ja</language><lastBuildDate>Mon, 18 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://openjny.github.io/tags/ssg/index.xml" rel="self" type="application/rss+xml"/><item><title>ブログを Hugo に引っ越した</title><link>https://openjny.github.io/2024/11/18/migrate-blog-to-hugo/</link><pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2024/11/18/migrate-blog-to-hugo/</guid><description>&lt;p>数年間更新してなかった個人ブログを再度整備しようと思い、あわせて SSG を Hugo に乗り換えてみました。これはその備忘録的なポストです。&lt;/p>
+&lt;h2 id="heading">
+ 
+ &lt;a class="heading-link" href="#heading">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
+ &lt;span class="sr-only">見出しへのリンク&lt;/span>
+ &lt;/a>
+&lt;/h2></description></item><item><title>VuePress で始める静的サイトブログ</title><link>https://openjny.github.io/2019/12/28/hello-vuepress/</link><pubDate>Sat, 28 Dec 2019 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2019/12/28/hello-vuepress/</guid><description>&lt;p>VuePress でのブログ環境を整えたのでその備忘録です。&lt;/p>
+&lt;h2 id="heading">
+ 
+ &lt;a class="heading-link" href="#heading">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
+ &lt;span class="sr-only">見出しへのリンク&lt;/span>
+ &lt;/a>
+&lt;/h2></description></item><item><title>Hexo によるブログ執筆環境の構築</title><link>https://openjny.github.io/2019/02/24/hexo-blog/</link><pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2019/02/24/hexo-blog/</guid><description>&lt;p>静的サイトジェネレータ Hexo で生成したブログを github pages で公開するまでの手順のメモ&lt;/p>
+&lt;h2 id="heading">
+ 
+ &lt;a class="heading-link" href="#heading">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
+ &lt;span class="sr-only">見出しへのリンク&lt;/span>
+ &lt;/a>
+&lt;/h2></description></item></channel></rss>
