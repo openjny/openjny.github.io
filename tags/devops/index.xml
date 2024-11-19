@@ -43,4 +43,4 @@
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
-&lt;/h2></description></item></channel></rss>
+&lt;/h2></description></item><item><title>Azure で IaC (ARM Template/Bicep) するなら PSRule for Azure！#2 [CI パイプライン編]</title><link>https://openjny.github.io/2022/09/08/psrule-for-azure-02/</link><pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2022/09/08/psrule-for-azure-02/</guid><description/></item><item><title>Azure で IaC (ARM Template/Bicep) するなら PSRule for Azure！#1 [導入編]</title><link>https://openjny.github.io/2022/09/07/psrule-for-azure-01/</link><pubDate>Wed, 07 Sep 2022 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2022/09/07/psrule-for-azure-01/</guid><description/></item></channel></rss>
