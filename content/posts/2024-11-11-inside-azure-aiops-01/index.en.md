@@ -44,7 +44,7 @@ The goal of AIOps is to maximize system availability and performance while minim
 
 It is said that the term AIOps was first coined in a Gartner report published in 2016[^aiops-gartner], when the effectiveness of AI technologies (specifically DNNs) had been gradually gaining recognition, marked by the historical win of AlphaGo against a world-renowned Go player[^alphago], and their industurial implementation began to advance significantly.
 
-Meanwhile, the late 2010s were marked by the widespread adoption of DevOps[^what-is-devops]. The following illustration shows the trajectory of DevOps on Gartner's Hype Cycle[^2018-devops-hype-cycle]. By 2016, when the concept of AIOps was born, DevOps had already passed the peak of inflated expectations and had entered a phase of steady implementation.
+Meanwhile, the late 2010s were marked by the widespread adoption of DevOps. The following illustration shows the trajectory of DevOps on Gartner's Hype Cycle[^2018-devops-hype-cycle]. By 2016, when the concept of AIOps was born, DevOps had already passed the peak of inflated expectations and had entered a phase of steady implementation.
 
 {{< figure src="gartner-devops-hype-cycle.png" caption="Transition of DevOps on the Hype Cycle (2009 - 2018)" >}}
 
@@ -85,8 +85,8 @@ Folloing this legacy, Azure's service teams and Microsoft Research (MSR) have be
 The following resources provide insights into how Microsoft integrates AIOps within its services and wrestles with various challenges:
 
 - [Cloud Intelligence/AIOps – Infusing AI into Cloud Computing Systems - Microsoft Research](https://www.microsoft.com/en-us/research/blog/cloud-intelligence-aiops-infusing-ai-into-cloud-computing-systems/)
-- [Advancing Azure service quality with artificial intelligence: AIOps - Azure のブログ - Microsoft Azure](https://azure.microsoft.com/ja-jp/blog/advancing-azure-service-quality-with-artificial-intelligence-aiops/)
 - [Research talk: Cloud Intelligence/AIOps – Infusing AI into cloud computing - YouTube](https://www.youtube.com/watch?v=63DyUvbPVMY)
+- [Advancing Azure service quality with artificial intelligence: AIOps | Microsoft Azure Blog](https://azure.microsoft.com/en-us/blog/advancing-azure-service-quality-with-artificial-intelligence-aiops/)
 - [AIOps: Real-World Challenges and Research Innovations - Microsoft Research](https://www.microsoft.com/en-us/research/publication/aiops-real-world-challenges-and-research-innovations/)
 - [AIOps - Microsoft Research](https://www.microsoft.com/en-us/research/project/aiops/)
 
@@ -96,7 +96,7 @@ While the focus of this article is on AIOps from the perspective of operating Az
 
 For instance, in the context of fault detection, users can either opt in the managed offerings in Azure Monitor or harness Azure ML services to build their own AIOps pipeline with the help of Azure Monitor log ingestion capabilities.
 
-[Azure Monitor AIOps and ML - Azure Monitor | Microsoft Learn](https://learn.microsoft.com/ja-jp/azure/azure-monitor/logs/aiops-machine-learning)
+[AIOps and machine learning in Azure Monitor - Azure Monitor | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/aiops-machine-learning)
 
 For the managed approach, features such as [Metric Alerts with Dynamic Thresholds](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-dynamic-thresholds) and [Smart Detection in Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/proactive-diagnostics) are quick and easy to try out. Recently, a new monitoring feature called [VM watch](https://learn.microsoft.com/en-us/azure/virtual-machines/azure-vm-watch) has been introduced in Public Preview, which allows to adaptively assess VM health based on various system metrics.
 
@@ -166,7 +166,6 @@ In the following articles, we will delve into specific examples of how Microsoft
 [^aiops-gartner]: [Definition of AIOps (Artificial Intelligence for IT Operations) - IT Glossary | Gartner](https://www.gartner.com/en/information-technology/glossary/aiops-artificial-intelligence-operations)
 [^alphago]: [AlphaGo - Google DeepMind](https://deepmind.google/research/breakthroughs/alphago/)
 [^2018-devops-hype-cycle]: [ESC30 - TH106 - Hype Cycle For DevOps](https://www.scribd.com/document/656452666/ESC30-TH106-Hype-Cycle-for-DevOps-375222-pdf-617858da44b075fdf465dfeb57706ecf)
-[^what-is-devops]: [DevOpsとは | IBM](https://www.ibm.com/jp-ja/topics/devops)
 [^srecon14]: [Program | USENIX](https://www.usenix.org/conference/srecon14/program)
 [^2006svm]: [Fuqing, Yuan. "Failure diagnostics using support vector machine](https://www.diva-portal.org/smash/get/diva2:1824418/FULLTEXT01.pdf)
 [^combining05]: [Combining Visualization and Statistical Analysis to Improve Operator Confidence and Efficiency for Failure Detection and Localization - Microsoft Research](https://www.microsoft.com/en-us/research/publication/combining-visualization-and-statistical-analysis-to-improve-operator-confidence-and-efficiency-for-failure-detection-and-localization/)
