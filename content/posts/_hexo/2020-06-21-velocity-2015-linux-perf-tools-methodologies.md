@@ -13,9 +13,7 @@ isCJKLanguage: true
 
 Gregg 先生が 2015 年の Velocity Conference で公演した "Linux Performance Tools, Brendan Gregg" を YouTube で見つけたので、今日ははじめのトラブルシューティングの方法論についてまとめました。
 
-## <!--more-->
-
-## 公演について
+## 公演について <!--more-->
 
 - [Linux Performance Tools, Brendan Gregg, part 1 of 2 - YouTube](https://www.youtube.com/watch?v=FJW8nGV4jxY)
 - [Linux Performance Tools, Brendan Gregg, part 2 of 2 - YouTube](https://www.youtube.com/watch?v=zrr2nUln9Kk)

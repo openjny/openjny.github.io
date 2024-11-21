@@ -15,9 +15,7 @@ isCJKLanguage: true
 
 Brendan Gregg 氏のハンズオン ワークショップ "bpf-perf-workshop" より、最初の課題 (アプリケーション レイテンシの調査課題) "lab2" をやってみました。
 
-## <!--more-->
-
-## 課題
+## 課題 <!--more-->
 
 今回の問題はこちら。
 

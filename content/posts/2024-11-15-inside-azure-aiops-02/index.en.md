@@ -22,9 +22,7 @@ This article is the second installment in the "Inside Azure AIOps" series. This 
 - Inside Azure AIOps #3: Resource Management
 {{< /notice >}}
 
-## <!--more-->
-
-## Incident Management and AIOps
+## Incident Management and AIOps <!--more-->
 
 ### What is Incident Management?
 

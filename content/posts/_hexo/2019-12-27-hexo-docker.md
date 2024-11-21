@@ -14,9 +14,7 @@ isCJKLanguage: true
 
 hexo を使うための `nodejs, pandoc` 入りの Ubuntu 環境を作りました。
 
-## <!--more-->
-
-## Dockerfile
+## Dockerfile <!--more-->
 
 自分の馴染みの深い Ubuntu をベースに、hexo での作業環境を構築していきます。
 要件としては次のような環境を目指します。

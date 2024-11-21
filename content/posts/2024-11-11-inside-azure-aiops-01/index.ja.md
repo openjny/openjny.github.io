@@ -33,9 +33,7 @@ isCJKLanguage = true
 - Azure の運用を支える AIOps #3【リソース管理編】
 {{< /notice >}}
 
-## <!--more-->
-
-## AIOps とは
+## AIOps とは <!--more-->
 
 改めて、AIOps (Artificial Intelligence for IT Operations) とは、機械学習アルゴリズムを代表とする人工知能の技術を使用して、運用オペレーションを改善するプラクティスを指します。人工知能（Artificial Intelligence; AI）と運用（Operations; Ops）を組み合わせた造語です。
 

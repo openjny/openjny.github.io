@@ -14,8 +14,6 @@ Azure にアクセスするユーザーが低レイテンシで快適にサー�
 
 [Who’s to blame? Debugging Internet performance for Azure users with BlameIt - Microsoft Research](https://www.microsoft.com/en-us/research/blog/whos-to-blame-debugging-internet-performance-for-azure-users-with-blameit/)
 
-## <!--more-->
-
 Microsoft の Azure は、様々な種類のサービスをホストするために、世界 6 大陸に渡って数千ものエッジ サイトを保有しています。それらのサイトでは、検索・コミュニケーション・ストレージといった幅広い製品を利用するお客様やエンタープラズの顧客に応えるべく、多くの対話的な (レイテンシーにシビアな) サービスをホストしています。エッジ ロケーションは、ユーザーからの通信が Microsoft のネットワークに入る最初の窓口となることから、世界中に広がるエッジのおかげで、ユーザーは非常に低いレイテンシーで Microsoft のサービスに到達することが出来ます。
 
 従来の研究成果から、レイテンシーの増加に伴ってユーザーの定着度合いが急激に低くなることが知られています。レイテンシが低いことの重要性を知るために、何も論文を読む必要はなく、必要なのは単にスマホやパソコンから誰かにビデオ通話をかけることだけです。低レイテンシやラウンド トリップ タイム (Round Trip Time; RTT) の大切さは、特にレイテンシが高い時に顕著に現れます。ビデオ通話の音声や映像がラグだらけで、自然な会話が阻害されてしまうのです。実際、[Skype を使った過去の調査](https://www.microsoft.com/en-us/research/publication/via-improving-internet-telephony-call-quality-using-predictive-relay-selection/) からも、良い UX にはネットワークの重要性が明らかになっています。

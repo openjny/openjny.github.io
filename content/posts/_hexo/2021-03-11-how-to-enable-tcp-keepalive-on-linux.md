@@ -14,9 +14,7 @@ isCJKLanguage: true
 
 Linux の TCP KeepAlive について調べたので、その備忘録です。
 
-## <!--more-->
-
-## TL;DR
+## TL;DR <!--more-->
 
 Linux は TCP KeepAlive に対応していますが、普通に `socket` を開くだけだと有効化されません。既定では無効の状態です。アプリケーションが `setsockopt` システムコールを (第 3 引数 = 1 で) 呼び出して、初めて TCP KeepAlive が有効化されます (ちなみに既定で TCP KeepAlive が無効なのは、Windows でも同様です)。
 

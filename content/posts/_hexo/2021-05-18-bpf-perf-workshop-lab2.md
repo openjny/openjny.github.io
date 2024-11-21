@@ -14,9 +14,7 @@ isCJKLanguage: true
 
 Brendan Gregg 氏のハンズオン ワークショップ "bpf-perf-workshop" より、SSH 経由のコマンドのパフォーマンスに関する課題 "lab2" をやってみました。
 
-## <!--more-->
-
-## 課題
+## 課題 <!--more-->
 
 今回の問題はこちら。
 

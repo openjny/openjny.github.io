@@ -14,9 +14,7 @@ featuredImage: "images/featured/season-automn-01.webp"
 
 数年間更新してなかった個人ブログを再度整備しようと思い、あわせて SSG を Hugo に乗り換えてみました。これはその備忘録的なポストです。
 
-## <!--more-->
-
-## なぜ Hugo なのか
+## なぜ Hugo なのか <!--more-->
 
 深い理由はないです。いままで Hexo の vuepress テーマを使っていて、特に使いづらいと感じたことはなかったものの、次のような点は少し気になっていました。
 
@@ -38,7 +36,7 @@ featuredImage: "images/featured/season-automn-01.webp"
 
 ```toml
 [permalinks]
-posts = '/:year/:month/:day/:slug/'
+posts = '/posts/:year/:month/:day/:slug/'
 ```
 
 ### フォント

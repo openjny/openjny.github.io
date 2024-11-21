@@ -12,9 +12,7 @@ isCJKLanguage: true
 
 [Open-source library provides explanation for machine learning through diverse counterfactuals](https://www.microsoft.com/en-us/research/blog/open-source-library-provides-explanation-for-machine-learning-through-diverse-counterfactuals/) を読んだのでそのまとめです。
 
-## <!--more-->
-
-## はじめに
+## はじめに <!--more-->
 
 この記事を一言で要約すると、反実仮想的な説明に基づく機械学習モデル解釈手法に対する Microsoft Research の取り組みと、その成果 (アルゴリズム) を実装した Python ライブラリ **DiCE** の紹介記事です。
 

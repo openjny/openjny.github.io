@@ -28,9 +28,7 @@ In this article series titled "Inside Azure AIOps", I will walk you through how 
 - [Inside Azure AIOps #2: Incident Management]({{<ref "posts/2024-11-15-inside-azure-aiops-02/index.en.md">}})
 - Inside Azure AIOps #3: Resource Management
 
-## <!--more-->
-
-## What is AIOps?
+## What is AIOps? <!--more-->
 
 Artificial Intelligence for IT Operations (AIOps) refers to the practice of leveraging AI technologies, notably Machine Learning (ML) algorithms and statistical testing, to improve IT operations.
 
