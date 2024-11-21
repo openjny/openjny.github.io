@@ -7,7 +7,7 @@ paginate = 10
 enableEmoji = true
 
 [permalinks]
-posts = '/:year/:month/:day/:slug/'
+posts = '/posts/:year/:month/:day/:slug/'
 
 [services]
 [services.disqus]
