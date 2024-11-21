@@ -1,5 +1,6 @@
 +++
 title = "Azure の運用を支える AIOps #2【インシデント管理編】"
+description = "Microsoft Azure のインシデント管理システムで活用されている AIOps のテクノロジーを紹介します。"
 slug = "inside-azure-aiops-02-incident-management"
 date = "2024-11-15"
 categories = [
@@ -11,6 +12,7 @@ tags = [
     "DevOps"
 ]
 series = ["AI の運用を支える AIOps"]
+keywords = ["Azure", "AIOps", "SRE", "DevOps", "インシデント管理", "AI"]
 isCJKLanguage = true
 +++
 

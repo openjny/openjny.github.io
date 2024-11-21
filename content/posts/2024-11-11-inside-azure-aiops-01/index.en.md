@@ -1,5 +1,6 @@
 +++
 title = "Inside Azure AIOps #1: Introduction"
+description = "This article series titled 'Inside Azure AIOps' will walk you through how Microsoft plays their AIOps cards right to wrestle with the challenges of incident and resource management. In this first article, I will cover the basics of AIOps."
 slug = "inside-azure-aiops-01-introduction"
 date = "2024-11-11"
 categories = [
@@ -11,6 +12,7 @@ tags = [
     "DevOps"
 ]
 series = ["Inside Azure AIOps"]
+keywords = ["Azure", "AIOps", "SRE", "DevOps", "AI"]
 +++
 
 As cloud services continue to grow, Ops (Operations) teams of those service providers face a surging burden. The factors contributing to this may include highly interwinded internal systems, mission-critical workloads requiring high levels of reliability, and demands for optimizing the operational costs of data centers.

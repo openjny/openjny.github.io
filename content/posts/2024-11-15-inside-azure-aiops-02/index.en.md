@@ -1,5 +1,6 @@
 +++
 title = "Inside Azure AIOps #2: Incident Management"
+description = "This article is the second installment in the 'Inside Azure AIOps' series. This time, I will dive in how Microsoft's been advancing incident management with AIOps."
 slug = "inside-azure-aiops-02-incident-management"
 date = "2024-11-15"
 categories = [
@@ -11,9 +12,10 @@ tags = [
     "DevOps"
 ]
 series = ["Inside Azure AIOps"]
+keywords = ["Azure", "AIOps", "Incident Management", "SRE", "DevOps", "AI"]
 +++
 
-This article is the second installment in the "Inside Azure AIOps" series. This time, I will dive in how Microsoft's been beefing up incident management with AIOps.
+This article is the second installment in the "Inside Azure AIOps" series. This time, I will dive in how Microsoft's been advancing incident management with AIOps.
 
 {{< notice info "Series" >}}
 

@@ -1,5 +1,6 @@
 +++
 title = "Azure の運用を支える AIOps #1【イントロ編】"
+description = "Microsoft が運用を効率化するために AI 技術を活用する AIOps について解説します。"
 slug = "inside-azure-aiops-01-introduction"
 date = "2024-11-11"
 categories = [
@@ -11,6 +12,7 @@ tags = [
     "DevOps"
 ]
 series = ["AI の運用を支える AIOps"]
+keywords = ["Azure", "AIOps", "SRE", "DevOps", "AI", "運用効率化"]
 isCJKLanguage = true
 +++
 
