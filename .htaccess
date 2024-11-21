@@ -1,0 +1,3 @@
+RewriteEngine  on
+# (en)?/yyyy/mm/dd/(.+) -> $1/posts/$2/$3/$4/$5
+RewriteRule ^(/[a-z]+)?/(\d{4})/(\d{2})/(\d{2})/(.+)$ $1/posts/$2/$3/$4 [R=301,L]
