@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI の運用を支える AIOps on /etc/openjny</title><link>https://openjny.github.io/series/ai-%E3%81%AE%E9%81%8B%E7%94%A8%E3%82%92%E6%94%AF%E3%81%88%E3%82%8B-aiops/</link><description>Recent content in AI の運用を支える AIOps on /etc/openjny</description><generator>Hugo</generator><language>ja</language><lastBuildDate>Fri, 15 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://openjny.github.io/series/ai-%E3%81%AE%E9%81%8B%E7%94%A8%E3%82%92%E6%94%AF%E3%81%88%E3%82%8B-aiops/index.xml" rel="self" type="application/rss+xml"/><item><title>Azure の運用を支える AIOps #2【インシデント管理編】</title><link>https://openjny.github.io/2024/11/15/inside-azure-aiops-02-incident-management/</link><pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2024/11/15/inside-azure-aiops-02-incident-management/</guid><description>&lt;p>この記事は「Azure の運用を支える AIOps」シリーズの第２回です。今回は、Microsoft Azure のインシデント管理システムで活用されている AIOps のテクノロジーを紹介します。AIOps の概要や Microsoft と AIOps の関わり方については、第１回をご覧ください。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI の運用を支える AIOps on /etc/openjny</title><link>https://openjny.github.io/series/ai-%E3%81%AE%E9%81%8B%E7%94%A8%E3%82%92%E6%94%AF%E3%81%88%E3%82%8B-aiops/</link><description>Recent content in AI の運用を支える AIOps on /etc/openjny</description><generator>Hugo</generator><language>ja</language><lastBuildDate>Fri, 15 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://openjny.github.io/series/ai-%E3%81%AE%E9%81%8B%E7%94%A8%E3%82%92%E6%94%AF%E3%81%88%E3%82%8B-aiops/index.xml" rel="self" type="application/rss+xml"/><item><title>Azure の運用を支える AIOps #2【インシデント管理編】</title><link>https://openjny.github.io/posts/2024/11/15/inside-azure-aiops-02-incident-management/</link><pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2024/11/15/inside-azure-aiops-02-incident-management/</guid><description>&lt;p>この記事は「Azure の運用を支える AIOps」シリーズの第２回です。今回は、Microsoft Azure のインシデント管理システムで活用されている AIOps のテクノロジーを紹介します。AIOps の概要や Microsoft と AIOps の関わり方については、第１回をご覧ください。&lt;/p>
 &lt;div class="notice info">
  &lt;div class="notice-title">
  &lt;i class="fa-solid fa-exclamation-circle" aria-hidden="true">&lt;/i>Info
  &lt;/div>
  &lt;div class="notice-content">&lt;p>&lt;strong>Azure の運用を支える AIOps シリーズ&lt;/strong>&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://openjny.github.io/2024/11/11/inside-azure-aiops-01-introduction/" class="external-link" target="_blank" rel="noopener">Azure の運用を支える AIOps #1【イントロ編】&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://openjny.github.io/2024/11/15/inside-azure-aiops-02-incident-management/" class="external-link" target="_blank" rel="noopener">Azure の運用を支える AIOps #2【インシデント管理編】&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://openjny.github.io/posts/2024/11/11/inside-azure-aiops-01-introduction/" class="external-link" target="_blank" rel="noopener">Azure の運用を支える AIOps #1【イントロ編】&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://openjny.github.io/posts/2024/11/15/inside-azure-aiops-02-incident-management/" class="external-link" target="_blank" rel="noopener">Azure の運用を支える AIOps #2【インシデント管理編】&lt;/a>&lt;/li>
 &lt;li>Azure の運用を支える AIOps #3【リソース管理編】&lt;/li>
 &lt;/ul>&lt;/div>
 &lt;/div>
@@ -17,7 +17,7 @@
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
-&lt;/h2></description></item><item><title>Azure の運用を支える AIOps #1【イントロ編】</title><link>https://openjny.github.io/2024/11/11/inside-azure-aiops-01-introduction/</link><pubDate>Mon, 11 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2024/11/11/inside-azure-aiops-01-introduction/</guid><description>&lt;p>クラウドサービスが成長するとともに、サービスの運用（Ops）チームは多くの負担を負うようになりました。負担を生んでいる要素には、複雑化していく内部システム、高いレベルの信頼性を要求するミッション クリティカルなワークロード、データセンター運用費に対する最適化要請などがあげられます。&lt;/p>
+&lt;/h2></description></item><item><title>Azure の運用を支える AIOps #1【イントロ編】</title><link>https://openjny.github.io/posts/2024/11/11/inside-azure-aiops-01-introduction/</link><pubDate>Mon, 11 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2024/11/11/inside-azure-aiops-01-introduction/</guid><description>&lt;p>クラウドサービスが成長するとともに、サービスの運用（Ops）チームは多くの負担を負うようになりました。負担を生んでいる要素には、複雑化していく内部システム、高いレベルの信頼性を要求するミッション クリティカルなワークロード、データセンター運用費に対する最適化要請などがあげられます。&lt;/p>
 &lt;p>これは、Microsoft が抱える課題でもあります。全世界で 60 以上存在する Azure リージョンには、300 を超えるデータセンターと数百万台に及ぶサーバーが展開され、数多のサービスが提供されています。このような規模でサービスを運用していきながら、複雑なシステムに対応し、サービスの信頼性を高め、運用コストを削減することが求められているのです。&lt;/p>
 &lt;p>このような背景から、Microsoft では人工知能（AI）技術を活用した運用の最適化に取り組んでいます。これは AIOps と呼ばれるアプローチです。AIOps で取り扱う運用タスクは千差万別ですが、多くが次の二つの運用オペレーションに関連するものです。&lt;/p>
 &lt;ol>
@@ -31,8 +31,8 @@
  &lt;/div>
  &lt;div class="notice-content">&lt;p>&lt;strong>Azure の運用を支える AIOps シリーズ&lt;/strong>&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://openjny.github.io/2024/11/11/inside-azure-aiops-01-introduction/" class="external-link" target="_blank" rel="noopener">Azure の運用を支える AIOps #1【イントロ編】&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://openjny.github.io/2024/11/15/inside-azure-aiops-02-incident-management/" class="external-link" target="_blank" rel="noopener">Azure の運用を支える AIOps #2【インシデント管理編】&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://openjny.github.io/posts/2024/11/11/inside-azure-aiops-01-introduction/" class="external-link" target="_blank" rel="noopener">Azure の運用を支える AIOps #1【イントロ編】&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://openjny.github.io/posts/2024/11/15/inside-azure-aiops-02-incident-management/" class="external-link" target="_blank" rel="noopener">Azure の運用を支える AIOps #2【インシデント管理編】&lt;/a>&lt;/li>
 &lt;li>Azure の運用を支える AIOps #3【リソース管理編】&lt;/li>
 &lt;/ul>&lt;/div>
 &lt;/div>

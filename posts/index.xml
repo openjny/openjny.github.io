@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on /etc/openjny</title><link>https://openjny.github.io/posts/</link><description>Recent content in Posts on /etc/openjny</description><generator>Hugo</generator><language>ja</language><lastBuildDate>Mon, 18 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://openjny.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>ブログを Hugo に引っ越した</title><link>https://openjny.github.io/2024/11/18/migrate-blog-to-hugo/</link><pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2024/11/18/migrate-blog-to-hugo/</guid><description>&lt;p>数年間更新してなかった個人ブログを再度整備しようと思い、あわせて SSG を Hugo に乗り換えてみました。これはその備忘録的なポストです。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on /etc/openjny</title><link>https://openjny.github.io/posts/</link><description>Recent content in Posts on /etc/openjny</description><generator>Hugo</generator><language>ja</language><lastBuildDate>Mon, 18 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://openjny.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>ブログを Hugo に引っ越した</title><link>https://openjny.github.io/posts/2024/11/18/migrate-blog-to-hugo/</link><pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2024/11/18/migrate-blog-to-hugo/</guid><description>&lt;p>数年間更新してなかった個人ブログを再度整備しようと思い、あわせて SSG を Hugo に乗り換えてみました。これはその備忘録的なポストです。&lt;/p>
 &lt;h2 id="heading">
  
  &lt;a class="heading-link" href="#heading">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
-&lt;/h2></description></item><item><title>Azure の運用を支える AIOps #2【インシデント管理編】</title><link>https://openjny.github.io/2024/11/15/inside-azure-aiops-02-incident-management/</link><pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2024/11/15/inside-azure-aiops-02-incident-management/</guid><description>&lt;p>この記事は「Azure の運用を支える AIOps」シリーズの第２回です。今回は、Microsoft Azure のインシデント管理システムで活用されている AIOps のテクノロジーを紹介します。AIOps の概要や Microsoft と AIOps の関わり方については、第１回をご覧ください。&lt;/p>
+&lt;/h2></description></item><item><title>Azure の運用を支える AIOps #2【インシデント管理編】</title><link>https://openjny.github.io/posts/2024/11/15/inside-azure-aiops-02-incident-management/</link><pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2024/11/15/inside-azure-aiops-02-incident-management/</guid><description>&lt;p>この記事は「Azure の運用を支える AIOps」シリーズの第２回です。今回は、Microsoft Azure のインシデント管理システムで活用されている AIOps のテクノロジーを紹介します。AIOps の概要や Microsoft と AIOps の関わり方については、第１回をご覧ください。&lt;/p>
 &lt;div class="notice info">
  &lt;div class="notice-title">
  &lt;i class="fa-solid fa-exclamation-circle" aria-hidden="true">&lt;/i>Info
  &lt;/div>
  &lt;div class="notice-content">&lt;p>&lt;strong>Azure の運用を支える AIOps シリーズ&lt;/strong>&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://openjny.github.io/2024/11/11/inside-azure-aiops-01-introduction/" class="external-link" target="_blank" rel="noopener">Azure の運用を支える AIOps #1【イントロ編】&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://openjny.github.io/2024/11/15/inside-azure-aiops-02-incident-management/" class="external-link" target="_blank" rel="noopener">Azure の運用を支える AIOps #2【インシデント管理編】&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://openjny.github.io/posts/2024/11/11/inside-azure-aiops-01-introduction/" class="external-link" target="_blank" rel="noopener">Azure の運用を支える AIOps #1【イントロ編】&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://openjny.github.io/posts/2024/11/15/inside-azure-aiops-02-incident-management/" class="external-link" target="_blank" rel="noopener">Azure の運用を支える AIOps #2【インシデント管理編】&lt;/a>&lt;/li>
 &lt;li>Azure の運用を支える AIOps #3【リソース管理編】&lt;/li>
 &lt;/ul>&lt;/div>
 &lt;/div>
@@ -24,7 +24,7 @@
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
-&lt;/h2></description></item><item><title>Azure の運用を支える AIOps #1【イントロ編】</title><link>https://openjny.github.io/2024/11/11/inside-azure-aiops-01-introduction/</link><pubDate>Mon, 11 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2024/11/11/inside-azure-aiops-01-introduction/</guid><description>&lt;p>クラウドサービスが成長するとともに、サービスの運用（Ops）チームは多くの負担を負うようになりました。負担を生んでいる要素には、複雑化していく内部システム、高いレベルの信頼性を要求するミッション クリティカルなワークロード、データセンター運用費に対する最適化要請などがあげられます。&lt;/p>
+&lt;/h2></description></item><item><title>Azure の運用を支える AIOps #1【イントロ編】</title><link>https://openjny.github.io/posts/2024/11/11/inside-azure-aiops-01-introduction/</link><pubDate>Mon, 11 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2024/11/11/inside-azure-aiops-01-introduction/</guid><description>&lt;p>クラウドサービスが成長するとともに、サービスの運用（Ops）チームは多くの負担を負うようになりました。負担を生んでいる要素には、複雑化していく内部システム、高いレベルの信頼性を要求するミッション クリティカルなワークロード、データセンター運用費に対する最適化要請などがあげられます。&lt;/p>
 &lt;p>これは、Microsoft が抱える課題でもあります。全世界で 60 以上存在する Azure リージョンには、300 を超えるデータセンターと数百万台に及ぶサーバーが展開され、数多のサービスが提供されています。このような規模でサービスを運用していきながら、複雑なシステムに対応し、サービスの信頼性を高め、運用コストを削減することが求められているのです。&lt;/p>
 &lt;p>このような背景から、Microsoft では人工知能（AI）技術を活用した運用の最適化に取り組んでいます。これは AIOps と呼ばれるアプローチです。AIOps で取り扱う運用タスクは千差万別ですが、多くが次の二つの運用オペレーションに関連するものです。&lt;/p>
 &lt;ol>
@@ -38,8 +38,8 @@
  &lt;/div>
  &lt;div class="notice-content">&lt;p>&lt;strong>Azure の運用を支える AIOps シリーズ&lt;/strong>&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://openjny.github.io/2024/11/11/inside-azure-aiops-01-introduction/" class="external-link" target="_blank" rel="noopener">Azure の運用を支える AIOps #1【イントロ編】&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://openjny.github.io/2024/11/15/inside-azure-aiops-02-incident-management/" class="external-link" target="_blank" rel="noopener">Azure の運用を支える AIOps #2【インシデント管理編】&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://openjny.github.io/posts/2024/11/11/inside-azure-aiops-01-introduction/" class="external-link" target="_blank" rel="noopener">Azure の運用を支える AIOps #1【イントロ編】&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://openjny.github.io/posts/2024/11/15/inside-azure-aiops-02-incident-management/" class="external-link" target="_blank" rel="noopener">Azure の運用を支える AIOps #2【インシデント管理編】&lt;/a>&lt;/li>
 &lt;li>Azure の運用を支える AIOps #3【リソース管理編】&lt;/li>
 &lt;/ul>&lt;/div>
 &lt;/div>
@@ -50,35 +50,35 @@
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
-&lt;/h2></description></item><item><title>サービス プリンシパルが作成できなかった時に確認したこと</title><link>https://openjny.github.io/2024/07/24/troubleshooting-error-when-creating-service-principal/</link><pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2024/07/24/troubleshooting-error-when-creating-service-principal/</guid><description/></item><item><title>ExpressRoute (Microsoft Peering) を使った経路最適化の勘所</title><link>https://openjny.github.io/2024/06/15/optimizing-routing-with-expressroute-ms-peering/</link><pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2024/06/15/optimizing-routing-with-expressroute-ms-peering/</guid><description/></item><item><title>マルチテナント サービスのスプーフィング リスク</title><link>https://openjny.github.io/2024/06/09/spoofing-risks-in-multitenant-service/</link><pubDate>Sun, 09 Jun 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2024/06/09/spoofing-risks-in-multitenant-service/</guid><description/></item><item><title>Azure Confidential Computing を入門したい人に贈る基本のき</title><link>https://openjny.github.io/2022/12/22/azure-confidential-computing-101/</link><pubDate>Thu, 22 Dec 2022 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2022/12/22/azure-confidential-computing-101/</guid><description/></item><item><title>Azure で IaC (ARM Template/Bicep) するなら PSRule for Azure！#2 [CI パイプライン編]</title><link>https://openjny.github.io/2022/09/08/psrule-for-azure-02/</link><pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2022/09/08/psrule-for-azure-02/</guid><description/></item><item><title>Azure で IaC (ARM Template/Bicep) するなら PSRule for Azure！#1 [導入編]</title><link>https://openjny.github.io/2022/09/07/psrule-for-azure-01/</link><pubDate>Wed, 07 Sep 2022 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2022/09/07/psrule-for-azure-01/</guid><description/></item><item><title>Bluebird: Azure SDN を支えるプログラマブル SDN ToR スイッチ</title><link>https://openjny.github.io/2022/04/15/bluebird-azure-adn-tor-switch/</link><pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2022/04/15/bluebird-azure-adn-tor-switch/</guid><description/></item><item><title>Azure Gateway Load Balancer (Preview) を試す</title><link>https://openjny.github.io/2021/11/11/azure-gateway-load-balancer-with-linux-vm/</link><pubDate>Thu, 11 Nov 2021 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2021/11/11/azure-gateway-load-balancer-with-linux-vm/</guid><description/></item><item><title>[bpf-perf-workshop] lab2: SSH ログイン パフォーマンス</title><link>https://openjny.github.io/2021/05/18/bpf-perf-workshop-lab2/</link><pubDate>Tue, 18 May 2021 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2021/05/18/bpf-perf-workshop-lab2/</guid><description>&lt;p>Brendan Gregg 氏のハンズオン ワークショップ &amp;ldquo;bpf-perf-workshop&amp;rdquo; より、SSH 経由のコマンドのパフォーマンスに関する課題 &amp;ldquo;lab2&amp;rdquo; をやってみました。&lt;/p>
+&lt;/h2></description></item><item><title>サービス プリンシパルが作成できなかった時に確認したこと</title><link>https://openjny.github.io/posts/2024/07/24/troubleshooting-error-when-creating-service-principal/</link><pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2024/07/24/troubleshooting-error-when-creating-service-principal/</guid><description/></item><item><title>ExpressRoute (Microsoft Peering) を使った経路最適化の勘所</title><link>https://openjny.github.io/posts/2024/06/15/optimizing-routing-with-expressroute-ms-peering/</link><pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2024/06/15/optimizing-routing-with-expressroute-ms-peering/</guid><description/></item><item><title>マルチテナント サービスのスプーフィング リスク</title><link>https://openjny.github.io/posts/2024/06/09/spoofing-risks-in-multitenant-service/</link><pubDate>Sun, 09 Jun 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2024/06/09/spoofing-risks-in-multitenant-service/</guid><description/></item><item><title>Azure Confidential Computing を入門したい人に贈る基本のき</title><link>https://openjny.github.io/posts/2022/12/22/azure-confidential-computing-101/</link><pubDate>Thu, 22 Dec 2022 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2022/12/22/azure-confidential-computing-101/</guid><description/></item><item><title>Azure で IaC (ARM Template/Bicep) するなら PSRule for Azure！#2 [CI パイプライン編]</title><link>https://openjny.github.io/posts/2022/09/08/psrule-for-azure-02/</link><pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2022/09/08/psrule-for-azure-02/</guid><description/></item><item><title>Azure で IaC (ARM Template/Bicep) するなら PSRule for Azure！#1 [導入編]</title><link>https://openjny.github.io/posts/2022/09/07/psrule-for-azure-01/</link><pubDate>Wed, 07 Sep 2022 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2022/09/07/psrule-for-azure-01/</guid><description/></item><item><title>Bluebird: Azure SDN を支えるプログラマブル SDN ToR スイッチ</title><link>https://openjny.github.io/posts/2022/04/15/bluebird-azure-adn-tor-switch/</link><pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2022/04/15/bluebird-azure-adn-tor-switch/</guid><description/></item><item><title>Azure Gateway Load Balancer (Preview) を試す</title><link>https://openjny.github.io/posts/2021/11/11/azure-gateway-load-balancer-with-linux-vm/</link><pubDate>Thu, 11 Nov 2021 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2021/11/11/azure-gateway-load-balancer-with-linux-vm/</guid><description/></item><item><title>[bpf-perf-workshop] lab2: SSH ログイン パフォーマンス</title><link>https://openjny.github.io/posts/2021/05/18/bpf-perf-workshop-lab2/</link><pubDate>Tue, 18 May 2021 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2021/05/18/bpf-perf-workshop-lab2/</guid><description>&lt;p>Brendan Gregg 氏のハンズオン ワークショップ &amp;ldquo;bpf-perf-workshop&amp;rdquo; より、SSH 経由のコマンドのパフォーマンスに関する課題 &amp;ldquo;lab2&amp;rdquo; をやってみました。&lt;/p>
 &lt;h2 id="heading">
  
  &lt;a class="heading-link" href="#heading">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
-&lt;/h2></description></item><item><title>[bpf-perf-workshop] lab1: レイテンシ調査</title><link>https://openjny.github.io/2021/05/11/bpf-perf-workshop-lab1/</link><pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2021/05/11/bpf-perf-workshop-lab1/</guid><description>&lt;p>Brendan Gregg 氏のハンズオン ワークショップ &amp;ldquo;bpf-perf-workshop&amp;rdquo; より、最初の課題 (アプリケーション レイテンシの調査課題) &amp;ldquo;lab2&amp;rdquo; をやってみました。&lt;/p>
+&lt;/h2></description></item><item><title>[bpf-perf-workshop] lab1: レイテンシ調査</title><link>https://openjny.github.io/posts/2021/05/11/bpf-perf-workshop-lab1/</link><pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2021/05/11/bpf-perf-workshop-lab1/</guid><description>&lt;p>Brendan Gregg 氏のハンズオン ワークショップ &amp;ldquo;bpf-perf-workshop&amp;rdquo; より、最初の課題 (アプリケーション レイテンシの調査課題) &amp;ldquo;lab2&amp;rdquo; をやってみました。&lt;/p>
 &lt;h2 id="heading">
  
  &lt;a class="heading-link" href="#heading">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
-&lt;/h2></description></item><item><title>Linux での TCP KeepAlive 有効化方法</title><link>https://openjny.github.io/2021/03/11/how-to-enable-tcp-keepalive-on-linux/</link><pubDate>Thu, 11 Mar 2021 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2021/03/11/how-to-enable-tcp-keepalive-on-linux/</guid><description>&lt;p>Linux の TCP KeepAlive について調べたので、その備忘録です。&lt;/p>
+&lt;/h2></description></item><item><title>Linux での TCP KeepAlive 有効化方法</title><link>https://openjny.github.io/posts/2021/03/11/how-to-enable-tcp-keepalive-on-linux/</link><pubDate>Thu, 11 Mar 2021 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2021/03/11/how-to-enable-tcp-keepalive-on-linux/</guid><description>&lt;p>Linux の TCP KeepAlive について調べたので、その備忘録です。&lt;/p>
 &lt;h2 id="heading">
  
  &lt;a class="heading-link" href="#heading">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
-&lt;/h2></description></item><item><title>Azure Load Balancer の正常性関連メトリックを使いこなす</title><link>https://openjny.github.io/2020/10/03/azure-lb-health-probes-101/</link><pubDate>Sat, 03 Oct 2020 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2020/10/03/azure-lb-health-probes-101/</guid><description/></item><item><title>Velocity 2015, Linux Performance Tools, Brendan Gregg: 方法論</title><link>https://openjny.github.io/2020/06/21/velocity-2015-linux-perf-tools-methodologies/</link><pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2020/06/21/velocity-2015-linux-perf-tools-methodologies/</guid><description>&lt;p>Gregg 先生が 2015 年の Velocity Conference で公演した &amp;ldquo;Linux Performance Tools, Brendan Gregg&amp;rdquo; を YouTube で見つけたので、今日ははじめのトラブルシューティングの方法論についてまとめました。&lt;/p>
+&lt;/h2></description></item><item><title>Azure Load Balancer の正常性関連メトリックを使いこなす</title><link>https://openjny.github.io/posts/2020/10/03/azure-lb-health-probes-101/</link><pubDate>Sat, 03 Oct 2020 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2020/10/03/azure-lb-health-probes-101/</guid><description/></item><item><title>Velocity 2015, Linux Performance Tools, Brendan Gregg: 方法論</title><link>https://openjny.github.io/posts/2020/06/21/velocity-2015-linux-perf-tools-methodologies/</link><pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2020/06/21/velocity-2015-linux-perf-tools-methodologies/</guid><description>&lt;p>Gregg 先生が 2015 年の Velocity Conference で公演した &amp;ldquo;Linux Performance Tools, Brendan Gregg&amp;rdquo; を YouTube で見つけたので、今日ははじめのトラブルシューティングの方法論についてまとめました。&lt;/p>
 &lt;h2 id="heading">
  
  &lt;a class="heading-link" href="#heading">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
-&lt;/h2></description></item><item><title>和訳: Who’s to blame? Debugging Internet performance for Azure users with BlameIt</title><link>https://openjny.github.io/2020/03/11/debugging-internet-performance-for-azure-users-with-blameit/</link><pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2020/03/11/debugging-internet-performance-for-azure-users-with-blameit/</guid><description>&lt;p>Azure にアクセスするユーザーが低レイテンシで快適にサービスを利用できるように、Microsoft では ISP (自律システム) の障害を検知するシステムを活用しています。そのシステム &amp;ldquo;BlameIt&amp;rdquo; を紹介する公式ブログがあったので、それを和訳してみました。&lt;/p>
+&lt;/h2></description></item><item><title>和訳: Who’s to blame? Debugging Internet performance for Azure users with BlameIt</title><link>https://openjny.github.io/posts/2020/03/11/debugging-internet-performance-for-azure-users-with-blameit/</link><pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2020/03/11/debugging-internet-performance-for-azure-users-with-blameit/</guid><description>&lt;p>Azure にアクセスするユーザーが低レイテンシで快適にサービスを利用できるように、Microsoft では ISP (自律システム) の障害を検知するシステムを活用しています。そのシステム &amp;ldquo;BlameIt&amp;rdquo; を紹介する公式ブログがあったので、それを和訳してみました。&lt;/p>
 &lt;p>&lt;a href="https://www.microsoft.com/en-us/research/blog/whos-to-blame-debugging-internet-performance-for-azure-users-with-blameit/" class="external-link" target="_blank" rel="noopener">Who’s to blame? Debugging Internet performance for Azure users with BlameIt - Microsoft Research&lt;/a>&lt;/p>
 &lt;h2 id="heading">
  
@@ -86,28 +86,28 @@
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
-&lt;/h2></description></item><item><title>DiCE: 反実仮想サンプルによる機械学習モデル解釈</title><link>https://openjny.github.io/2020/02/01/dice-counterfactual-explanations/</link><pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2020/02/01/dice-counterfactual-explanations/</guid><description>&lt;p>&lt;a href="https://www.microsoft.com/en-us/research/blog/open-source-library-provides-explanation-for-machine-learning-through-diverse-counterfactuals/" class="external-link" target="_blank" rel="noopener">Open-source library provides explanation for machine learning through diverse counterfactuals&lt;/a> を読んだのでそのまとめです。&lt;/p>
+&lt;/h2></description></item><item><title>DiCE: 反実仮想サンプルによる機械学習モデル解釈</title><link>https://openjny.github.io/posts/2020/02/01/dice-counterfactual-explanations/</link><pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2020/02/01/dice-counterfactual-explanations/</guid><description>&lt;p>&lt;a href="https://www.microsoft.com/en-us/research/blog/open-source-library-provides-explanation-for-machine-learning-through-diverse-counterfactuals/" class="external-link" target="_blank" rel="noopener">Open-source library provides explanation for machine learning through diverse counterfactuals&lt;/a> を読んだのでそのまとめです。&lt;/p>
 &lt;h2 id="heading">
  
  &lt;a class="heading-link" href="#heading">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
-&lt;/h2></description></item><item><title>VuePress で始める静的サイトブログ</title><link>https://openjny.github.io/2019/12/28/hello-vuepress/</link><pubDate>Sat, 28 Dec 2019 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2019/12/28/hello-vuepress/</guid><description>&lt;p>VuePress でのブログ環境を整えたのでその備忘録です。&lt;/p>
+&lt;/h2></description></item><item><title>VuePress で始める静的サイトブログ</title><link>https://openjny.github.io/posts/2019/12/28/hello-vuepress/</link><pubDate>Sat, 28 Dec 2019 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2019/12/28/hello-vuepress/</guid><description>&lt;p>VuePress でのブログ環境を整えたのでその備忘録です。&lt;/p>
 &lt;h2 id="heading">
  
  &lt;a class="heading-link" href="#heading">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
-&lt;/h2></description></item><item><title>Hexo 執筆のための Docker 環境</title><link>https://openjny.github.io/2019/12/27/hexo-docker/</link><pubDate>Fri, 27 Dec 2019 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2019/12/27/hexo-docker/</guid><description>&lt;p>hexo を使うための &lt;code>nodejs, pandoc&lt;/code> 入りの Ubuntu 環境を作りました。&lt;/p>
+&lt;/h2></description></item><item><title>Hexo 執筆のための Docker 環境</title><link>https://openjny.github.io/posts/2019/12/27/hexo-docker/</link><pubDate>Fri, 27 Dec 2019 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2019/12/27/hexo-docker/</guid><description>&lt;p>hexo を使うための &lt;code>nodejs, pandoc&lt;/code> 入りの Ubuntu 環境を作りました。&lt;/p>
 &lt;h2 id="heading">
  
  &lt;a class="heading-link" href="#heading">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
-&lt;/h2></description></item><item><title>Azure Load Balancer の SNAT がさっぱりわからん</title><link>https://openjny.github.io/2019/12/25/alb-snat/</link><pubDate>Wed, 25 Dec 2019 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2019/12/25/alb-snat/</guid><description>&lt;p>この記事では、Azure Load Balancer の配下にある VM から、インターネットと通信したい時の話を取りあげます。
+&lt;/h2></description></item><item><title>Azure Load Balancer の SNAT がさっぱりわからん</title><link>https://openjny.github.io/posts/2019/12/25/alb-snat/</link><pubDate>Wed, 25 Dec 2019 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2019/12/25/alb-snat/</guid><description>&lt;p>この記事では、Azure Load Balancer の配下にある VM から、インターネットと通信したい時の話を取りあげます。
 具体的には、いわゆる SNAT と呼ばれる仕組みで、Outbound 通信ができるパターンが LB の構成に依存していくつか存在するので、それを紹介します。&lt;/p>
 &lt;h2 id="heading">
  
@@ -115,7 +115,7 @@
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
-&lt;/h2></description></item><item><title>Ananta: Azure を支えるステートフル L4 ロードバランサー</title><link>https://openjny.github.io/2019/12/23/ananta/</link><pubDate>Mon, 23 Dec 2019 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2019/12/23/ananta/</guid><description>&lt;p>この記事は &lt;a href="https://qiita.com/advent-calendar/2019/microsoft-azure-tech" class="external-link" target="_blank" rel="noopener">Microsoft Azure Tech Advent Calendar 2019&lt;/a> の 18 日目の記事です。
+&lt;/h2></description></item><item><title>Ananta: Azure を支えるステートフル L4 ロードバランサー</title><link>https://openjny.github.io/posts/2019/12/23/ananta/</link><pubDate>Mon, 23 Dec 2019 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2019/12/23/ananta/</guid><description>&lt;p>この記事は &lt;a href="https://qiita.com/advent-calendar/2019/microsoft-azure-tech" class="external-link" target="_blank" rel="noopener">Microsoft Azure Tech Advent Calendar 2019&lt;/a> の 18 日目の記事です。
 今日は、Azure の裏側の話、データーセンター (DC) を支える、Ananta と呼ばれる Software Load Balancer (SLB) アーキテクチャを紹介したいと思います。&lt;/p>
 &lt;h2 id="heading">
  
@@ -123,7 +123,7 @@
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
-&lt;/h2></description></item><item><title>Hexo によるブログ執筆環境の構築</title><link>https://openjny.github.io/2019/02/24/hexo-blog/</link><pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate><guid>https://openjny.github.io/2019/02/24/hexo-blog/</guid><description>&lt;p>静的サイトジェネレータ Hexo で生成したブログを github pages で公開するまでの手順のメモ&lt;/p>
+&lt;/h2></description></item><item><title>Hexo によるブログ執筆環境の構築</title><link>https://openjny.github.io/posts/2019/02/24/hexo-blog/</link><pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2019/02/24/hexo-blog/</guid><description>&lt;p>静的サイトジェネレータ Hexo で生成したブログを github pages で公開するまでの手順のメモ&lt;/p>
 &lt;h2 id="heading">
  
  &lt;a class="heading-link" href="#heading">

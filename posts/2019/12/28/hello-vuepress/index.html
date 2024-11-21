@@ -1,0 +1,217 @@
+<!doctype html><html lang=ja><head><title>VuePress で始める静的サイトブログ · /etc/openjny
+</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Junya Yamaguchi (@openjny)"><meta name=description content="VuePress でのブログ環境を整えたのでその備忘録です。
+
+  
+  
+    
+    見出しへのリンク
+  
+"><meta name=keywords content="blog,azure,cloud computing,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="VuePress で始める静的サイトブログ"><meta name=twitter:description content="VuePress でのブログ環境を整えたのでその備忘録です。
+見出しへのリンク"><meta property="og:url" content="https://openjny.github.io/posts/2019/12/28/hello-vuepress/"><meta property="og:site_name" content="/etc/openjny"><meta property="og:title" content="VuePress で始める静的サイトブログ"><meta property="og:description" content="VuePress でのブログ環境を整えたのでその備忘録です。
+見出しへのリンク"><meta property="og:locale" content="ja"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2019-12-28T00:00:00+00:00"><meta property="article:modified_time" content="2019-12-28T00:00:00+00:00"><meta property="article:tag" content="ブログ"><meta property="article:tag" content="VuePress"><meta property="article:tag" content="SSG"><link rel=canonical href=https://openjny.github.io/posts/2019/12/28/hello-vuepress/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.140953f60ced76bc313e5d112c66fd4eb9df859f9cbc71a559db3d781dadcc70.css integrity="sha256-FAlT9gztdrwxPl0RLGb9TrnfhZ+cvHGlWds9eB2tzHA=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://openjny.github.io/>/etc/openjny
+</a><input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/posts/>ブログ</a></li><li class=navigation-item><a class=navigation-link href=/tags/>タグ</a></li><li class=navigation-item><a class=navigation-link href=/categories/>カテゴリ</a></li><li class=navigation-item><a class=navigation-link href=/projects/>プロジェクト</a></li><li class=navigation-item><a class=navigation-link href=/about-me/>About Me</a></li><li class="navigation-item menu-separator"><span>|</span></li><li class=navigation-item><a href=/en/>🇺🇸</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://openjny.github.io/posts/2019/12/28/hello-vuepress/>VuePress で始める静的サイトブログ</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
+<time datetime=2019-12-28T00:00:00Z>2019年12月28日
+</time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
+6分で読めます</span></div><div class=categories><i class="fa-solid fa-folder" aria-hidden=true></i>
+<a href=/categories/%E3%81%9D%E3%81%AE%E4%BB%96/>その他</a></div><div class=tags><i class="fa-solid fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/%E3%83%96%E3%83%AD%E3%82%B0/>ブログ</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/vuepress/>VuePress</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/ssg/>SSG</a></span></div></div></header><div class=post-content><p>VuePress でのブログ環境を整えたのでその備忘録です。</p><h2 id=heading><a class=heading-link href=#heading><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><h2 id=はじめに>はじめに
+<a class=heading-link href=#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><p>自分がブログに求めることは次の点です。</p><ul><li>Markdown でブログ本文が記述出来る</li><li>GHF (github flavored) や pandoc スタイルのような、汎用的な Markdown の記述で<em>なるべく</em>完結する</li><li>mathjax/katex がエスケープなしで記述出来る</li><li>記事にカテゴリ/タグが使える</li></ul><p>今までは上のような要件を満たす <code>hexo</code> と呼ばれる SGG (static site generator) を pandoc とともに利用していましたが、最近ひょんなことから知った VuePress で同じようなことが出来るみたいだったので、勉強がてら乗り換えてみました。</p><h3 id=vuepress>VuePress
+<a class=heading-link href=#vuepress><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>VuePress は Vue, Vue Router, webpack を利用した静的サイトジェネレーターです。</p><p><a href=https://v1.vuepress.vuejs.org/ class=external-link target=_blank rel=noopener>https://v1.vuepress.vuejs.org/</a></p><p>VuePress で生成された静的サイトは SPA になっていて、事前に HTML にコンパイルされた markdown を Vue で描写することで、モダンな感じのサイトを作成することが出来ます。</p><p><a href=https://nuxtjs.org/ class=external-link target=_blank rel=noopener>Nuxt.js</a> でも似たようなことが出来ますが、両者は「汎用的なアプリ作成フレームワーク」か「静的サイト生成に特化したフレームワーク」かという違いがあります。僕もよくわかってないので詳しいことは Google 先生に聞いてみてください。</p><div class="notice info"><div class=notice-title><i class="fa-solid fa-exclamation-circle" aria-hidden=true></i>Info</div><div class=notice-content><ul><li><a href=https://vuepress.vuejs.org/ class=external-link target=_blank rel=noopener>VuePress</a></li><li><a href=https://tomopict.netlify.com/posts/2018/12/31/_20181231.html class=external-link target=_blank rel=noopener>VuePressとnetlifyでblogをはじめる | tomopictのblog</a></li><li><a href=https://naranoshika.netlify.com/post/vuepress/hello.html class=external-link target=_blank rel=noopener>Hello VuePress | memo</a></li><li><a href=https://qiita.com/dojineko/items/aae7e6d13479e08d49fd#%E8%87%AA%E5%8B%95%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%AE%E8%A8%AD%E5%AE%9A class=external-link target=_blank rel=noopener>VuePress をお試ししてみた - Qiita</a></li><li><a href=https://qiita.com/tomopict/items/9da7cf28c9bcd5f933cb#%E7%B4%B0%E3%81%8B%E3%81%84%E8%AA%BF%E6%95%B4 class=external-link target=_blank rel=noopener>VuePressで作ったblogに配布されているテーマを設定する - Qiita</a></li></ul></div></div><h3 id=meteorlxy>Meteorlxy
+<a class=heading-link href=#meteorlxy><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p><a href=https://vuepress-theme-meteorlxy.meteorlxy.cn/ class=external-link target=_blank rel=noopener>Home | vuepress-theme-meteorlxy</a></p><p>公式のブログのテーマが物足りなかったので上のテーマを使ってます。</p><h2 id=機能>機能
+<a class=heading-link href=#%e6%a9%9f%e8%83%bd><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><h3 id=container>Container
+<a class=heading-link href=#container><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>Meteorlxy によって提供される独自拡張の一つで、<code>markdown-it-container</code> を使って注釈のような div ブロックが挿入できる。</p><pre tabindex=0><code>::: [tip|warning|danger|details] タイトル(opt)
+内容
+:::
+</code></pre><div class="notice info"><div class=notice-title><i class="fa-solid fa-exclamation-circle" aria-hidden=true></i>Info</div><div class=notice-content>こうなります</div></div><p>また、自作コンテナの定義もできる。
+以下は <code>.vuepress/styles/index.styl</code> で定義した <code>pre.vue-container</code> スタイルに基づいて、独自のコンテナを追加する例です。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span>    },
+</span></span><span style=display:flex><span>    <span style=color:#e06c75>plugins</span><span style=color:#56b6c2>:</span> [
+</span></span><span style=display:flex><span>        [<span style=color:#98c379>&#39;container&#39;</span>, {
+</span></span><span style=display:flex><span>            <span style=color:#e06c75>type</span><span style=color:#56b6c2>:</span> <span style=color:#98c379>&#39;vue&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e06c75>before</span><span style=color:#56b6c2>:</span> <span style=color:#98c379>&#39;&lt;pre class=&#34;vue-container&#34;&gt;&lt;code&gt;&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e06c75>after</span><span style=color:#56b6c2>:</span> <span style=color:#98c379>&#39;&lt;/code&gt;&lt;/pre&gt;&#39;</span>
+</span></span><span style=display:flex><span>        }],
+</span></span><span style=display:flex><span>        [<span style=color:#98c379>&#39;container&#39;</span>, {
+</span></span><span style=display:flex><span>            <span style=color:#e06c75>type</span><span style=color:#56b6c2>:</span> <span style=color:#98c379>&#39;ref&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e06c75>defaultTitle</span><span style=color:#56b6c2>:</span> <span style=color:#98c379>&#39;Reference&#39;</span>,
+</span></span></code></pre></div><div class="notice info"><div class=notice-title><i class="fa-solid fa-exclamation-circle" aria-hidden=true></i>Info</div><div class=notice-content>.
+├── docs
+│ ├── .vuepress <em>(<strong>Optional</strong>)</em>
+│ │ ├── <code>components</code> <em>(<strong>Optional</strong>)</em>
+│ │ ├── <code>theme</code> <em>(<strong>Optional</strong>)</em>
+│ │ │ └── Layout.vue
+│ │ ├── <code>public</code> <em>(<strong>Optional</strong>)</em>
+│ │ ├── <code>styles</code> <em>(<strong>Optional</strong>)</em>
+│ │ │ ├── index.styl
+│ │ │ └── palette.styl
+│ │ ├── <code>templates</code> <em>(<strong>Optional, Danger Zone</strong>)</em>
+│ │ │ ├── dev.html
+│ │ │ └── ssr.html
+│ │ ├── <code>config.js</code> <em>(<strong>Optional</strong>)</em>
+│ │ └── <code>enhanceApp.js</code> <em>(<strong>Optional</strong>)</em>
+│ └── README.md
+└── package.json</div></div><div class="notice info"><div class=notice-title><i class="fa-solid fa-exclamation-circle" aria-hidden=true></i>Info</div><div class=notice-content><ul><li><a href=https://vuepress.vuejs.org/guide/markdown.html#custom-containers class=external-link target=_blank rel=noopener>Markdown Extensions | VuePress</a></li><li><a href=https://vuepress.github.io/en/plugins/container/#demo class=external-link target=_blank rel=noopener>vuepress-plugin-container | VuePress Community</a></li></ul></div></div><h3 id=生の-url-に対するリンク>生の URL に対するリンク
+<a class=heading-link href=#%e7%94%9f%e3%81%ae-url-%e3%81%ab%e5%af%be%e3%81%99%e3%82%8b%e3%83%aa%e3%83%b3%e3%82%af><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>URL テキストをリンクにするには、既定ではオフになっている <code>markdown-it-linkify</code> の linkify オプションを有効にする。</p><h4 id=構成例>構成例
+<a class=heading-link href=#%e6%a7%8b%e6%88%90%e4%be%8b><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h4><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span>  <span style=color:#e06c75>markdown</span><span style=color:#56b6c2>:</span> {
+</span></span><span style=display:flex><span>    <span style=color:#e06c75>linkify</span><span style=color:#56b6c2>:</span> <span style=color:#e5c07b>true</span>
+</span></span><span style=display:flex><span>  },
+</span></span></code></pre></div><h4 id=サンプル>サンプル
+<a class=heading-link href=#%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h4><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-md data-lang=md><span style=display:flex><span>まずは https://v1.vuepress.vuejs.org/ を御覧ください。
+</span></span></code></pre></div><p>まずは <a href=https://v1.vuepress.vuejs.org/ class=external-link target=_blank rel=noopener>https://v1.vuepress.vuejs.org/</a> を御覧ください。</p><h4 id=参考>参考
+<a class=heading-link href=#%e5%8f%82%e8%80%83><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h4><ul><li><a href=https://qiita.com/dojineko/items/aae7e6d13479e08d49fd#%E8%87%AA%E5%8B%95%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%AE%E8%A8%AD%E5%AE%9A class=external-link target=_blank rel=noopener>VuePress をお試ししてみた - Qiita</a></li><li><a href=https://github.com/vuejs/vetur/blob/ad2490ac55838bda7d18acbf3eaa071ab3ea809d/docs/.vuepress/config.js#L5 class=external-link target=_blank rel=noopener>https://github.com/vuejs/vetur/blob/ad2490ac55838bda7d18acbf3eaa071ab3ea809d/docs/.vuepress/config.js#L5</a></li></ul><h3 id=相対パスによる画像>相対パスによる画像
+<a class=heading-link href=#%e7%9b%b8%e5%af%be%e3%83%91%e3%82%b9%e3%81%ab%e3%82%88%e3%82%8b%e7%94%bb%e5%83%8f><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p><a href=https://v1.vuepress.vuejs.org/guide/assets.html class=external-link target=_blank rel=noopener>Asset Handling | VuePress</a></p><p>既定で相対パスに対応している。なお、生成されたサイトでは <code>asset</code> フォルダー以下にランダムに生成された名前のファイルとして配置される。
+また、Webpack のエイリアス機能を使ってより柔軟にベース フォルダを指定できる。詳細はドキュメントを参照のこと。</p><h4 id=サンプル-1>サンプル
+<a class=heading-link href=#%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab-1><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h4><pre tabindex=0><code><figure><img src=2019-12-28-hello-vuepress/mikyan.png alt=みきゃん><figcaption>
+      <p>みきゃん</p>
+    </figcaption>
+</figure>
+
+</code></pre><figure><img src=2019-12-28-hello-vuepress/mikyan.png alt=みきゃん><figcaption><p>みきゃん</p></figcaption></figure><h3 id=数式>数式
+<a class=heading-link href=#%e6%95%b0%e5%bc%8f><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p><code>vuepress-plugin-mathjax</code> でも良かったけど、<a href=https://github.com/vuepress/vuepress-plugin-mathjax/blob/master/src/markdown.js class=external-link target=_blank rel=noopener>実装</a> を見る限り数式の判定がなんだか怪しい<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>ので、<code>markdown-it-katex</code> の拡張で代用しました。</p><p>ただ、無印の (<code>@</code> によるスコープ指定をしない) <code>markdown-it-katex</code> は <a href=https://github.com/waylonflinn/markdown-it-katex/issues/23 class=external-link target=_blank rel=noopener>更新が止まっていて version 0.5.0 くらいまでしか使えません</a>。なので、<code>@iktakahiro/markdown-it-katex</code> を利用させてもらいました。</p><h4 id=構成例-1>構成例
+<a class=heading-link href=#%e6%a7%8b%e6%88%90%e4%be%8b-1><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h4><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ yarn add @iktakahiro/markdown-it-katex --dev
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#7f848e>// .vuepress/config.js
+</span></span></span><span style=display:flex><span><span style=color:#7f848e></span>    <span style=color:#e06c75>head</span><span style=color:#56b6c2>:</span> [
+</span></span><span style=display:flex><span>        [<span style=color:#98c379>&#39;link&#39;</span>, {
+</span></span><span style=display:flex><span>            <span style=color:#e06c75>rel</span><span style=color:#56b6c2>:</span> <span style=color:#98c379>&#39;stylesheet&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e06c75>href</span><span style=color:#56b6c2>:</span> <span style=color:#98c379>&#39;https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css&#39;</span>
+</span></span><span style=display:flex><span>        }]
+</span></span><span style=display:flex><span>    ],
+</span></span><span style=display:flex><span>    <span style=color:#e06c75>markdown</span><span style=color:#56b6c2>:</span> {
+</span></span><span style=display:flex><span>        <span style=color:#e06c75>extendMarkdown</span><span style=color:#56b6c2>:</span> <span style=color:#e06c75>md</span> =&gt; {
+</span></span><span style=display:flex><span>            <span style=color:#e06c75>md</span>.<span style=color:#e06c75>use</span>(<span style=color:#e06c75>require</span>(<span style=color:#98c379>&#39;@iktakahiro/markdown-it-katex&#39;</span>), {
+</span></span><span style=display:flex><span>                <span style=color:#e06c75>throwOnError</span><span style=color:#56b6c2>:</span> <span style=color:#e5c07b>false</span>,
+</span></span><span style=display:flex><span>                <span style=color:#e06c75>errorColor</span><span style=color:#56b6c2>:</span> <span style=color:#98c379>&#34;#cc0000&#34;</span>,
+</span></span><span style=display:flex><span>                <span style=color:#e06c75>macros</span><span style=color:#56b6c2>:</span> {
+</span></span><span style=display:flex><span>                    <span style=color:#98c379>&#39;\\Z&#39;</span><span style=color:#56b6c2>:</span> <span style=color:#98c379>&#39;\\mathbb{Z}&#39;</span>,
+</span></span><span style=display:flex><span>                    <span style=color:#98c379>&#39;*&#39;</span><span style=color:#56b6c2>:</span> <span style=color:#98c379>&#39;\\times&#39;</span>
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            })
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span></code></pre></div><h4 id=サンプル-2>サンプル
+<a class=heading-link href=#%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab-2><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h4><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-md data-lang=md><span style=display:flex><span>$\sin(x) = 2\pi$ という簡単な方程式でも、小学生には難しいです。
+</span></span></code></pre></div><p>$\sin(x) = 2\pi$ という簡単な方程式でも、小学生には難しいです。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-md data-lang=md><span style=display:flex><span>機械学習とは、データセット $\mathcal{D} = \{ \mathbf{x}_n \in \mathcal{X}, y_n \in \mathcal{Y} \}_{n=1}^N$ が与えられた時に、入力と出力を対応付ける写像
+</span></span><span style=display:flex><span>$$
+</span></span><span style=display:flex><span>  f: \mathcal{X} \to \mathcal{Y}
+</span></span><span style=display:flex><span>$$
+</span></span><span style=display:flex><span>を学習すること。
+</span></span></code></pre></div><p>機械学習とは、データセット $\mathcal{D} = { \mathbf{x}<em>n \in \mathcal{X}, y_n \in \mathcal{Y} }</em>{n=1}^N$ が与えられた時に、入力と出力を対応付ける写像
+$$
+f: \mathcal{X} \to \mathcal{Y}
+$$
+を学習すること。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-md data-lang=md><span style=display:flex><span>$$\frac {\partial^r} {\partial \omega^r} \left(\frac {y^{\omega}} {\omega}\right) 
+</span></span><span style=display:flex><span>= \left(\frac {y^{\omega}} {\omega}\right) \left\{(\log y)^r + \sum_{i=1}^r \frac {(-1)^i r \cdots (r-i+1) (\log y)^{r-i}} {\omega^i} \right\}$$
+</span></span></code></pre></div><p>$$\frac {\partial^r} {\partial \omega^r} \left(\frac {y^{\omega}} {\omega}\right)
+= \left(\frac {y^{\omega}} {\omega}\right) \left{(\log y)^r + \sum_{i=1}^r \frac {(-1)^i r \cdots (r-i+1) (\log y)^{r-i}} {\omega^i} \right}$$</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-md data-lang=md><span style=display:flex><span>$\Z$ を $\mathbb{Z}$ のエイリアスとして定義しました。また $a*b$ は $a \times b$ となるように乗算記号も手を入れています。
+</span></span></code></pre></div><p>$\Z$ を $\mathbb{Z}$ のエイリアスとして定義しました。また $a*b$ は $a \times b$ となるように乗算記号も手を入れています。</p><pre tabindex=0><code>$\unknown$ なコマンドは使わないこと。
+</code></pre><p>$\unknown$ なコマンドは使わないこと。</p><h4 id=参考-1>参考
+<a class=heading-link href=#%e5%8f%82%e8%80%83-1><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h4><ul><li><a href=https://naranoshika.netlify.com/post/vuepress/markdown-it-katex.html#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%A8%E8%A8%AD%E5%AE%9A class=external-link target=_blank rel=noopener>VuePress で markdown-it-katex | memo</a></li><li><a href=https://github.com/iktakahiro/markdown-it-katex class=external-link target=_blank rel=noopener>iktakahiro/markdown-it-katex: Add Math to your Markdown with a KaTeX plugin for Markdown-it</a></li></ul><h3 id=ソースコード-ハイライト>ソースコード ハイライト
+<a class=heading-link href=#%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89-%e3%83%8f%e3%82%a4%e3%83%a9%e3%82%a4%e3%83%88><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><ul><li><a href=https://vuepress.vuejs.org/guide/markdown.html#syntax-highlighting-in-code-blocks class=external-link target=_blank rel=noopener>Markdown Extensions | VuePress</a></li></ul><p>既定だと行数が表示されるので、お好みで非表示に。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span>  <span style=color:#e06c75>markdown</span><span style=color:#56b6c2>:</span> {
+</span></span><span style=display:flex><span>      <span style=color:#e06c75>lineNumbers</span><span style=color:#56b6c2>:</span> <span style=color:#e5c07b>false</span>,
+</span></span></code></pre></div><h3 id=emoji>Emoji
+<a class=heading-link href=#emoji><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><ul><li><a href=https://vuepress.vuejs.org/guide/markdown.html#emoji class=external-link target=_blank rel=noopener>Markdown Extensions | VuePress</a></li></ul><pre tabindex=0><code>:tada: :100: :thinking:
+</code></pre><p>&#x1f389; &#x1f4af; &#x1f914;</p><h3 id=目次>目次
+<a class=heading-link href=#%e7%9b%ae%e6%ac%a1><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><ul><li><a href=https://vuepress.vuejs.org/guide/markdown.html#emoji class=external-link target=_blank rel=noopener>Markdown Extensions | VuePress</a></li></ul><pre tabindex=0><code></code></pre><h3 id=定義リスト>定義リスト
+<a class=heading-link href=#%e5%ae%9a%e7%be%a9%e3%83%aa%e3%82%b9%e3%83%88><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ yarn add markdown-it-deflist --dev
+</span></span></code></pre></div><pre tabindex=0><code>パターン認識
+:   パターン認識（パターンにんしき、英: Pattern recognition）は自然情報処理のひとつ。
+画像・音声などの雑多な情報を含むデータの中から、一定の規則や意味を持つ対象を選別して取り出す処理である。
+
+サポートベクターマシン *(support vetor machine; SVM)*
+:   サポートベクターマシン（英: support vector machine, SVM）は、教師あり学習を用いるパターン認識モデルの一つである。
+    分類や回帰へ適用できる。
+
+    サポートベクターマシンは、現在知られている手法の中でも認識性能が優れた学習モデルの一つである。サポートベクターマシンが優れた認識性能を発揮することができる理由は、未学習データに対して高い識別性能を得るための工夫があるためである。
+</code></pre><dl><dt>パターン認識</dt><dd>パターン認識（パターンにんしき、英: Pattern recognition）は自然情報処理のひとつ。
+画像・音声などの雑多な情報を含むデータの中から、一定の規則や意味を持つ対象を選別して取り出す処理である。</dd><dt>サポートベクターマシン <em>(support vetor machine; SVM)</em></dt><dd>サポートベクターマシン（英: support vector machine, SVM）は、教師あり学習を用いるパターン認識モデルの一つである。
+分類や回帰へ適用できる。<p>サポートベクターマシンは、現在知られている手法の中でも認識性能が優れた学習モデルの一つである。サポートベクターマシンが優れた認識性能を発揮することができる理由は、未学習データに対して高い識別性能を得るための工夫があるためである。</p></dd></dl><h2 id=新規ポスト>新規ポスト
+<a class=heading-link href=#%e6%96%b0%e8%a6%8f%e3%83%9d%e3%82%b9%e3%83%88><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-md data-lang=md><span style=display:flex><span>---
+</span></span><span style=display:flex><span>title: {{ title }}
+</span></span><span style=display:flex><span>slug: hello-vuepress
+</span></span><span style=display:flex><span>date: 2019-12-28
+</span></span><span style=display:flex><span>category: {{ category }}
+</span></span><span style=display:flex><span>tags:
+</span></span><span style=display:flex><span>  <span style=color:#c678dd>-</span> {{ tags }}
+</span></span><span style=display:flex><span>header-title: true
+</span></span><span style=display:flex><span>header-image:
+</span></span><span style=display:flex><span>  <span style=color:#c678dd>-</span> /img/header/random-01.jpg
+</span></span><span style=display:flex><span>---
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>{{ overview }}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>## &lt;!--more--&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># {{ title }}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>## はじめに
+</span></span></code></pre></div><h2 id=デプロイ>デプロイ
+<a class=heading-link href=#%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><h3 id=ブランチ構成>ブランチ構成
+<a class=heading-link href=#%e3%83%96%e3%83%a9%e3%83%b3%e3%83%81%e6%a7%8b%e6%88%90><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>自分の場合、既に <code>openjny.github.io</code> レポジトリを次のように使っていました。</p><ul><li><code>master</code> ブランチ: 静的ファイルの配置用</li><li><code>src</code> ブランチ: hexo の設定/記事ファイルの管理用</li></ul><p>なので <code>src</code> はそのままにして、<code>vuepress</code> 用の孤児ブランチを作ることにしました。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ <span style=color:#e5c07b>cd</span> vuepress-blog
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>$ git init
+</span></span><span style=display:flex><span>$ git checkout -b vuepress
+</span></span><span style=display:flex><span>$ git add -A
+</span></span><span style=display:flex><span>$ git commit -m <span style=color:#98c379>&#34;:tada: first commit!&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>$ git remote add -t vuepress origin git@github.com:openjny/openjny.github.io.git
+</span></span><span style=display:flex><span>$ git push -u origin vuepress
+</span></span></code></pre></div><p>これで今度からは <code>vuepress</code> ブランチを使えば良い。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ git clone --branch vuepress git@github.com:OpenJNY/openjny.github.io.git blog
+</span></span><span style=display:flex><span>$ <span style=color:#e5c07b>cd</span> blog
+</span></span></code></pre></div><h2 id=継続的インテグレーション>継続的インテグレーション
+<a class=heading-link href=#%e7%b6%99%e7%b6%9a%e7%9a%84%e3%82%a4%e3%83%b3%e3%83%86%e3%82%b0%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><p><a href=https://vuepress.vuejs.org/guide/deploy.html#github-pages class=external-link target=_blank rel=noopener>公式の方法</a> に従って、以下のようなスクリプトも書いてはみたものの、結局 Travis の <code>page</code> provider に頼った。</p><p><a href=https://github.com/OpenJNY/openjny.github.io/blob/vuepress/.travis.yml class=external-link target=_blank rel=noopener>https://github.com/OpenJNY/openjny.github.io/blob/vuepress/.travis.yml</a></p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#7f848e>#!/usr/bin/env sh
+</span></span></span><span style=display:flex><span><span style=color:#7f848e></span>
+</span></span><span style=display:flex><span><span style=color:#7f848e># abort on errors</span>
+</span></span><span style=display:flex><span><span style=color:#e5c07b>set</span> -e
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#7f848e># build</span>
+</span></span><span style=display:flex><span>yarn build
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#7f848e># navigate into the build output directory</span>
+</span></span><span style=display:flex><span><span style=color:#e5c07b>cd</span> <span style=color:#98c379>&#34;</span><span style=color:#98c379>${</span><span style=color:#e06c75>VUEPRESS_DIR</span><span style=color:#98c379>}</span><span style=color:#98c379>/.vuepress/dist&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>git init
+</span></span><span style=display:flex><span>git add -A
+</span></span><span style=display:flex><span>git commit -m <span style=color:#98c379>&#34;Publishing site on </span><span style=color:#c678dd>$(</span>date <span style=color:#98c379>&#34;+%Y-%m-%d %H:%M:%S&#34;</span><span style=color:#c678dd>)</span><span style=color:#98c379>&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#7f848e># if you are deploying to https://&lt;USERNAME&gt;.github.io</span>
+</span></span><span style=display:flex><span>git push -f --quiet <span style=color:#98c379>&#34;https://</span><span style=color:#98c379>${</span><span style=color:#e06c75>GITHUB_TOKEN</span><span style=color:#98c379>}</span><span style=color:#98c379>@github.com/</span><span style=color:#98c379>${</span><span style=color:#e06c75>GITHUB_USER</span><span style=color:#98c379>}</span><span style=color:#98c379>/</span><span style=color:#98c379>${</span><span style=color:#e06c75>GITHUB_USER</span><span style=color:#98c379>}</span><span style=color:#98c379>.github.io.git&#34;</span> master
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e5c07b>cd</span> -
+</span></span></code></pre></div><h2 id=今後の予定>今後の予定
+<a class=heading-link href=#%e4%bb%8a%e5%be%8c%e3%81%ae%e4%ba%88%e5%ae%9a><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><p>自由に Vue ファイルを書いて機能を追加出来るので、javascript の勉強がてら書いてみたい。</p><ul><li>Google Analytics</li><li>Tags/Category ページ</li><li>コメント</li></ul><h3 id=参考サイト>参考サイト
+<a class=heading-link href=#%e5%8f%82%e8%80%83%e3%82%b5%e3%82%a4%e3%83%88><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><ul><li><a href=https://naranoshika.netlify.com/post/vuepress/google-analytics-and-search-console.html class=external-link target=_blank rel=noopener>VuePress で Google Anayltics と Search Console を設定する | memo</a></li><li><a href=https://tomopict.netlify.com/posts/2019/05/03/_20190225.html#theme-%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%97%E3%81%A6%E3%81%84%E3%81%8F class=external-link target=_blank rel=noopener>VuePressにblogの機能を追加していく | tomopictのblog</a></li><li><a href=https://vssue.js.org/ class=external-link target=_blank rel=noopener>Vssue</a></li><li><a href=https://vuepress-theme-meteorlxy.meteorlxy.cn/posts/2019/02/27/theme-guide-en.html#posts-comments class=external-link target=_blank rel=noopener>Theme Guide | vuepress-theme-meteorlxy</a></li></ul><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>正規表現使うもんかと思ってた。&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+2024
+Junya Yamaguchi (@openjny)
+·
+Powered by <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/ target=_blank rel=noopener>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script><script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "0a99e4ebb1e342beb03db419a6eea4a6"}'></script></body></html>

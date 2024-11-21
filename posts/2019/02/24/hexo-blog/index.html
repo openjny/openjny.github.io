@@ -1,0 +1,120 @@
+<!doctype html><html lang=ja><head><title>Hexo によるブログ執筆環境の構築 · /etc/openjny
+</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Junya Yamaguchi (@openjny)"><meta name=description content="静的サイトジェネレータ Hexo で生成したブログを github pages で公開するまでの手順のメモ
+
+  
+  
+    
+    見出しへのリンク
+  
+"><meta name=keywords content="blog,azure,cloud computing,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Hexo によるブログ執筆環境の構築"><meta name=twitter:description content="静的サイトジェネレータ Hexo で生成したブログを github pages で公開するまでの手順のメモ
+見出しへのリンク"><meta property="og:url" content="https://openjny.github.io/posts/2019/02/24/hexo-blog/"><meta property="og:site_name" content="/etc/openjny"><meta property="og:title" content="Hexo によるブログ執筆環境の構築"><meta property="og:description" content="静的サイトジェネレータ Hexo で生成したブログを github pages で公開するまでの手順のメモ
+見出しへのリンク"><meta property="og:locale" content="ja"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2019-02-24T00:00:00+00:00"><meta property="article:modified_time" content="2019-02-24T00:00:00+00:00"><meta property="article:tag" content="ブログ"><meta property="article:tag" content="Hexo"><meta property="article:tag" content="SSG"><link rel=canonical href=https://openjny.github.io/posts/2019/02/24/hexo-blog/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.140953f60ced76bc313e5d112c66fd4eb9df859f9cbc71a559db3d781dadcc70.css integrity="sha256-FAlT9gztdrwxPl0RLGb9TrnfhZ+cvHGlWds9eB2tzHA=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://openjny.github.io/>/etc/openjny
+</a><input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/posts/>ブログ</a></li><li class=navigation-item><a class=navigation-link href=/tags/>タグ</a></li><li class=navigation-item><a class=navigation-link href=/categories/>カテゴリ</a></li><li class=navigation-item><a class=navigation-link href=/projects/>プロジェクト</a></li><li class=navigation-item><a class=navigation-link href=/about-me/>About Me</a></li><li class="navigation-item menu-separator"><span>|</span></li><li class=navigation-item><a href=/en/>🇺🇸</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://openjny.github.io/posts/2019/02/24/hexo-blog/>Hexo によるブログ執筆環境の構築</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
+<time datetime=2019-02-24T00:00:00Z>2019年2月24日
+</time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
+4分で読めます</span></div><div class=categories><i class="fa-solid fa-folder" aria-hidden=true></i>
+<a href=/categories/%E3%81%9D%E3%81%AE%E4%BB%96/>その他</a></div><div class=tags><i class="fa-solid fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/%E3%83%96%E3%83%AD%E3%82%B0/>ブログ</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/hexo/>Hexo</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/ssg/>SSG</a></span></div></div></header><div class=post-content><p>静的サイトジェネレータ Hexo で生成したブログを github pages で公開するまでの手順のメモ</p><h2 id=heading><a class=heading-link href=#heading><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><h2 id=はじめに>はじめに
+<a class=heading-link href=#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><p><code>.md</code> や <code>.py</code> といったテキストファイルから、静的なドキュメントやブログ（つまり html/css/js）を生成するツールを <strong>静的サイトジェネレータ (static site generator; SSG)</strong> と呼びます。SSG を使うと、例えば、markdown でブログを書くことが出来て、しかもそのソースコードをバージョン管理できます。
+世の中にはたくさんの SSG があり、次のようなページで簡潔にまとめられています。</p><ul><li><a href=https://github.com/myles/awesome-static-generators class=external-link target=_blank rel=noopener>myles/awesome-static-generators: A curated list of static web site generators.</a></li></ul><p>この記事では、<strong>Hexo</strong> と呼ばれる Javascript 製の SSG について注目します。
+Hexo の一般的な使い方は次のようなサイト等にまとめられていますが、ここで自分の使いやすい環境を構築することに専念して、その手順を完結に示したいと思います。</p><ul><li><a href=https://pepese.github.io/blog/hexo-github-pages/ class=external-link target=_blank rel=noopener>Hexoで作ったブログをGithub Pagesで公開 | ぺーぺーSEのテックブログ</a></li></ul><h2 id=インストール>インストール
+<a class=heading-link href=#%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><h3 id=本体>本体
+<a class=heading-link href=#%e6%9c%ac%e4%bd%93><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>npm install hexo-cli -g
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#7f848e># cd working-dirctory</span>
+</span></span><span style=display:flex><span>hexo init &lt;blog-name&gt;
+</span></span></code></pre></div><p>設定 <code>_config.yml</code> の大まかな設定方法</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml><span style=display:flex><span><span style=color:#e06c75>title</span>: タイトル
+</span></span><span style=display:flex><span><span style=color:#e06c75>slug</span>: hexo-blog
+</span></span><span style=display:flex><span><span style=color:#e06c75>subtitle</span>: サブタイトル
+</span></span><span style=display:flex><span><span style=color:#e06c75>description</span>: ブログの説明
+</span></span><span style=display:flex><span><span style=color:#e06c75>keywords</span>:
+</span></span><span style=display:flex><span>  - キーワード1
+</span></span><span style=display:flex><span>  - キーワード2
+</span></span><span style=display:flex><span><span style=color:#e06c75>author</span>: OpenJNY
+</span></span><span style=display:flex><span><span style=color:#e06c75>language</span>: ja
+</span></span><span style=display:flex><span><span style=color:#e06c75>timezone</span>: Asia/Tokyo
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>url</span>: https://openjny.github.io/
+</span></span><span style=display:flex><span><span style=color:#e06c75>root</span>: /
+</span></span><span style=display:flex><span><span style=color:#e06c75>permalink</span>: :year/:month/:day/:title/
+</span></span><span style=display:flex><span><span style=color:#e06c75>permalink_defaults</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>new_post_name</span>: :year-:month-:day-:title.md <span style=color:#7f848e># File name of new posts</span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>default_layout</span>: post
+</span></span><span style=display:flex><span><span style=color:#e06c75>titlecase</span>: <span style=color:#e5c07b>true</span> <span style=color:#7f848e># Transform title into titlecase</span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>filename_case</span>: <span style=color:#d19a66>1</span> <span style=color:#7f848e># lower-case</span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>external_link</span>: <span style=color:#e5c07b>true</span> <span style=color:#7f848e># Open external links in new tab</span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>render_drafts</span>: <span style=color:#e5c07b>false</span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>post_asset_folder</span>: <span style=color:#e5c07b>false</span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>relative_link</span>: <span style=color:#e5c07b>false</span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>future</span>: <span style=color:#e5c07b>true</span>
+</span></span></code></pre></div><h3 id=レンダリング>レンダリング
+<a class=heading-link href=#%e3%83%ac%e3%83%b3%e3%83%80%e3%83%aa%e3%83%b3%e3%82%b0><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>数式や GHF な md を書くために render エンジンを pandoc へ変更する。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>npm uninstall hexo-renderer-marked
+</span></span><span style=display:flex><span>npm i hexo-renderer-pandoc --save
+</span></span></code></pre></div><p>katex で数式をレンダリングするために <code>hexo-katex-macros</code> を導入する。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>npm i hexo-katex-macros --save
+</span></span></code></pre></div><p>そのままでも使えるが、マクロを設定したければ、ソースコードを管理してるリポジトリにサンプルがあるのでそれを参考にしながら <code>_config.yml</code> に記述。<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml><span style=display:flex><span><span style=color:#7f848e># _config.yml</span>
+</span></span><span style=display:flex><span><span style=color:#e06c75>katex</span>:
+</span></span><span style=display:flex><span>  <span style=color:#e06c75>macros</span>:
+</span></span><span style=display:flex><span>    <span style=color:#e06c75>&#34;\\set&#34;: </span><span style=color:#98c379>&#34;\\left\\{ #1 \\right\\}&#34;</span>
+</span></span></code></pre></div><h3 id=デプロイ>デプロイ
+<a class=heading-link href=#%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>サイトの生成からデプロイまでを自動化する為に <code>hexo-deployer-git</code> を追加する。
+使い方は <code>hexo deploy g</code> みたいな感じ。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>npm i hexo-deployer-git --save
+</span></span></code></pre></div><p>設定は <code>_config.yml</code> を次のようにする。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml><span style=display:flex><span><span style=color:#e06c75>deploy</span>:
+</span></span><span style=display:flex><span>  <span style=color:#e06c75>type</span>: git
+</span></span><span style=display:flex><span>  <span style=color:#e06c75>repo</span>: git@github.com:OpenJNY/openjny.github.io.git
+</span></span><span style=display:flex><span>  <span style=color:#e06c75>branch</span>: master
+</span></span><span style=display:flex><span>  <span style=color:#e06c75>message</span>: <span style=color:#98c379>&#34;[update] Site updated: {{ now(&#39;YYYY-MM-DD HH:mm:ss&#39;) }}&#34;</span>
+</span></span></code></pre></div><p>なお、gh-pages 以外のホスティングサービスを使うときは、それに応じて適当なものインストールするか、CI/CD 機能を使ってデプロイを行うと良い。</p><h2 id=テーマ>テーマ
+<a class=heading-link href=#%e3%83%86%e3%83%bc%e3%83%9e><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><figure><img src=2019-02-24-hexo-blog/hexo-next-theme.jpg></figure><p><code>hexo-theme-next</code> という名前の素晴らしいテーマがあるので、それをフォークしたものを使う。
+自分用にカスタマイズした設定をフォーク先のレポジトリで管理することで、複数のブログを作るときに使いやすくする狙いがある。
+ちなみにこれがそう。</p><ul><li><a href=https://github.com/OpenJNY/hexo-theme-next class=external-link target=_blank rel=noopener>https://github.com/OpenJNY/hexo-theme-next</a></li></ul><p>こいつを <code>themes</code> に配置する。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git submodule add git@github.com:OpenJNY/hexo-theme-next.git themes/next
+</span></span></code></pre></div><h2 id=その他>その他
+<a class=heading-link href=#%e3%81%9d%e3%81%ae%e4%bb%96><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h2><h3 id=vs-code-による執筆>VS Code による執筆
+<a class=heading-link href=#vs-code-%e3%81%ab%e3%82%88%e3%82%8b%e5%9f%b7%e7%ad%86><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>vs code には hexo の記事を書くときに色々嬉しいことがあります。
+markdown の preview だとか textlint だとかは、割とどのエディタでも使えるものですが、特に vs code ならではの利点は Paste Image。</p><ul><li><a href="https://marketplace.visualstudio.com/items?itemName=mushan.vscode-paste-image" class=external-link target=_blank rel=noopener>Paste Image - Visual Studio Marketplace</a></li></ul><p>Paste Image は画像を扱う vs code のプラグインで、こいつはかなりの優れもの。
+クリップボードにコピーされている画像を markdown に埋め込みつつ、いい感じに実体化してくれます。</p><p>例えば、<code>.vscode/settings.json</code> を次のように設定すれば、<code>source/images/{article-name}/{datetime}.png</code> として自動的に実体化し、そのパスを makrdown に埋め込んでくれる。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span><span style=color:#98c379>&#34;pasteImage.defaultName&#34;</span>: <span style=color:#98c379>&#34;Y-MM-DD-HH-mm-ss&#34;</span>,
+</span></span><span style=display:flex><span><span style=color:#98c379>&#34;pasteImage.insertPattern&#34;</span>: <span style=color:#98c379>&#34;![](${imageFilePath})&#34;</span>,
+</span></span><span style=display:flex><span><span style=color:#98c379>&#34;pasteImage.path&#34;</span>: <span style=color:#98c379>&#34;${projectRoot}/source/images/${currentFileNameWithoutExt}&#34;</span>,
+</span></span><span style=display:flex><span><span style=color:#98c379>&#34;pasteImage.basePath&#34;</span>: <span style=color:#98c379>&#34;${projectRoot}/source&#34;</span>,
+</span></span><span style=display:flex><span><span style=color:#98c379>&#34;pasteImage.forceUnixStyleSeparator&#34;</span>: <span style=color:#e5c07b>true</span>,
+</span></span><span style=display:flex><span><span style=color:#98c379>&#34;pasteImage.prefix&#34;</span>: <span style=color:#98c379>&#34;/&#34;</span>
+</span></span></code></pre></div><p>普段でもかなり重宝しているので、hexo に関係なくインストールすることをオススメしたい。</p><h3 id=git-によるソースコード管理>Git によるソースコード管理
+<a class=heading-link href=#git-%e3%81%ab%e3%82%88%e3%82%8b%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89%e7%ae%a1%e7%90%86><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
+<span class=sr-only>見出しへのリンク</span></a></h3><p>この手順で作成したブログを GitHub で公開してます。</p><ul><li><a href=https://github.com/OpenJNY/openjny.github.io class=external-link target=_blank rel=noopener>https://github.com/OpenJNY/openjny.github.io</a></li></ul><p><code>src</code> ブランチでソースコードを管理し、<code>master</code> に生成した html たちを配置して公開する運用をとっています。
+「その他」までで示した手順を踏んだ後、次のようなことをすれば、同じような結果になると思います。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git init
+</span></span><span style=display:flex><span>git commit -a -m <span style=color:#98c379>&#34;:tada: initial commit&#34;</span>
+</span></span><span style=display:flex><span>git remote add origin awesome-repository
+</span></span><span style=display:flex><span>git push -u origin master:src
+</span></span><span style=display:flex><span>hexo deploy
+</span></span></code></pre></div><p>このような環境では、新たな記事が次のような流れで執筆できます。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#7f848e># create a new post</span>
+</span></span><span style=display:flex><span>hexo new post <span style=color:#98c379>&#34;Awesome article&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#7f848e># edit it</span>
+</span></span><span style=display:flex><span>code <span style=color:#c678dd>$(</span>find source/_posts -maxdepth <span style=color:#d19a66>1</span> -type f -print0 | xargs -0 ls -drt | tail -n 1<span style=color:#c678dd>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#7f848e># deploy and backup</span>
+</span></span><span style=display:flex><span>git commit -am <span style=color:#98c379>&#34;perfect commit&#34;</span>
+</span></span><span style=display:flex><span>git push origin HEAD:src <span style=color:#7f848e># or simply $ git push</span>
+</span></span><span style=display:flex><span>hexo clean <span style=color:#56b6c2>&amp;&amp;</span> hexo deploy
+</span></span></code></pre></div><p>また、新しいPC等で再度環境を整えるには、次の手順を踏むだけでOKです。</p><div class=highlight><pre tabindex=0 style=color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git clone --recurse-submodules -b src git@github.com:OpenJNY/openjny.github.io.git blog
+</span></span><span style=display:flex><span><span style=color:#e5c07b>cd</span> blog
+</span></span><span style=display:flex><span>npm install
+</span></span></code></pre></div><p>何かの参考になれば幸いです。</p><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p><a href=https://github.com/OpenJNY/hexo-katex-macros/tree/master/examples class=external-link target=_blank rel=noopener>hexo-katex-macros/examples at master · OpenJNY/hexo-katex-macros</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+2024
+Junya Yamaguchi (@openjny)
+·
+Powered by <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/ target=_blank rel=noopener>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script><script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "0a99e4ebb1e342beb03db419a6eea4a6"}'></script></body></html>
