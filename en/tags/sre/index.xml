@@ -10,9 +10,9 @@
 &lt;/ul>&lt;/div>
 &lt;/div>
 
-&lt;h2 id="heading">
- 
- &lt;a class="heading-link" href="#heading">
+&lt;h2 id="incident-management-and-aiops">
+ Incident Management and AIOps
+ &lt;a class="heading-link" href="#incident-management-and-aiops">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
  &lt;span class="sr-only">Link to heading&lt;/span>
  &lt;/a>
@@ -29,9 +29,9 @@
 &lt;li>&lt;a href="https://openjny.github.io/en/posts/2024/11/15/inside-azure-aiops-02-incident-management/" >Inside Azure AIOps #2: Incident Management&lt;/a>&lt;/li>
 &lt;li>Inside Azure AIOps #3: Resource Management&lt;/li>
 &lt;/ul>
-&lt;h2 id="heading">
- 
- &lt;a class="heading-link" href="#heading">
+&lt;h2 id="what-is-aiops">
+ What is AIOps?
+ &lt;a class="heading-link" href="#what-is-aiops">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
  &lt;span class="sr-only">Link to heading&lt;/span>
  &lt;/a>

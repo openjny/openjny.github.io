@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bcc on /etc/openjny</title><link>https://openjny.github.io/tags/bcc/</link><description>Recent content in Bcc on /etc/openjny</description><generator>Hugo</generator><language>ja</language><lastBuildDate>Tue, 11 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://openjny.github.io/tags/bcc/index.xml" rel="self" type="application/rss+xml"/><item><title>[bpf-perf-workshop] lab1: レイテンシ調査</title><link>https://openjny.github.io/posts/2021/05/11/bpf-perf-workshop-lab1/</link><pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate><guid>https://openjny.github.io/posts/2021/05/11/bpf-perf-workshop-lab1/</guid><description>&lt;p>Brendan Gregg 氏のハンズオン ワークショップ &amp;ldquo;bpf-perf-workshop&amp;rdquo; より、最初の課題 (アプリケーション レイテンシの調査課題) &amp;ldquo;lab2&amp;rdquo; をやってみました。&lt;/p>
-&lt;h2 id="heading">
- 
- &lt;a class="heading-link" href="#heading">
+&lt;h2 id="課題">
+ 課題
+ &lt;a class="heading-link" href="#%e8%aa%b2%e9%a1%8c">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="見出しへのリンク">&lt;/i>
  &lt;span class="sr-only">見出しへのリンク&lt;/span>
  &lt;/a>
