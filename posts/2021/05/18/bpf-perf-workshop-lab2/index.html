@@ -228,7 +228,8 @@ Under load, it can take a few seconds to login to your lab system via SSH. Even 
 </span></span></code></pre></div><p>また、<code>execsnoop</code> で実行されるプロセス数をカウントしてみると、対応前 60 以上あった子孫プロセスが、10 程度に抑えられていることも確認できた。</p><h2 id=まとめ>まとめ
 <a class=heading-link href=#%e3%81%be%e3%81%a8%e3%82%81><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
 <span class=sr-only>見出しへのリンク</span></a></h2><p>今回の課題では、非常に生存時間が短く、かつ事前にわかっているのは <code>fork</code> 元のプロセス ID だけ、というアプリケーションのレイテンシを増加させている原因を調査しました。WEB アプリケーションへの GET 要求等、ネットワーク越しの処理はおそらくこのようなシナリオに該当するのだろう。</p><p>そして、<code>strace</code> や <code>tcpdump</code> 等が使えないセンシティブなサーバー環境でも、コンポーネントごとにワークロード計測ができることを確認できました。十分とは言えないかもしれないけど、実際にレイテンシを削減することのできる対応を考えつくことが出来たので、最低限のところまでは対応できたと思います。</p><p>ただ、<code>systemd</code> の動作がわかっていればよりプロセス間の関係、生成されたプロセスの意味が解釈しやすかったのだろうと思うと、やはり内部アーキテクチャを知っていることは重要であることを改めて感じた。また、今回は bcc だけで乗り切ったけど、<code>bpftrace</code> でだけ提供されているネットワーク系ツール等も発見したので、今後活用していきたい。</p></div><footer></footer></article></section></div><footer class=footer><section class=container>©
-2024
+2024 -
+2025
 Junya Yamaguchi (@openjny)
 ·
 Powered by <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/ target=_blank rel=noopener>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script><script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "0a99e4ebb1e342beb03db419a6eea4a6"}'></script></body></html>
