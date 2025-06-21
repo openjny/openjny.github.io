@@ -1,8 +1,23 @@
 # openjny.github.io
 
-## Markdown 表記
+## ローカル環環のセットアップ
 
-### テーマに関するもの: hugo-coder
+1. Hugo のインストール
+2. リポジトリのクローン
+
+```bash
+git clone --recursive github.com:openjny/openjny.github.io.git
+gh repo clone openjny/openjny.github.io -- --recursive
+```
+
+3. テーマのサブモジュールを更新
+
+```bash
+cd openjny.github.io
+git submodule update --init --recursive
+```
+
+## テーマ特化のマークダウン表記
 
 ```bash
 # note, tip, example, question, info, warning, error
@@ -17,8 +32,6 @@
 # ref
 [link]({{< ref "path-to-another.md" >}})
 ```
-
-## 移行
 
 ## スクリプト
 
