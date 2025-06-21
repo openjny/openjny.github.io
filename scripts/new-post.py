@@ -42,6 +42,7 @@ def main():
     parser = argparse.ArgumentParser(description="Create a new post (multi-language or single-language)")
     parser.add_argument('slug', help='slug for the post (e.g. aiops-intro)')
     parser.add_argument('--single', action='store_true', help='Create single markdown file instead of multi-language')
+    parser.add_argument('--date', type=str, help='Date for the post (e.g. 2026-06-24 or 2026/6/24)')
     args = parser.parse_args()
 
     slug = args.slug
@@ -53,7 +54,22 @@ def main():
         slug = to_kebab_case(slug)
         print(f"Warning: Slug '{slug_input}' was converted to kebab-case: '{slug}'")
 
-    post_date = datetime.now().strftime('%Y-%m-%d')
+    # 日付の処理
+    if args.date:
+        date_input = args.date
+        try:
+            # 2026-06-24
+            post_date = datetime.strptime(date_input, '%Y-%m-%d').strftime('%Y-%m-%d')
+        except ValueError:
+            try:
+                # 2026/6/24, 2026/06/24, 2026/6/4
+                post_date = datetime.strptime(date_input, '%Y/%m/%d').strftime('%Y-%m-%d')
+            except ValueError:
+                print(f"Error: Invalid date format: '{date_input}'. Use YYYY-MM-DD or YYYY/MM/DD.")
+                sys.exit(1)
+    else:
+        post_date = datetime.now().strftime('%Y-%m-%d')
+
     posts_dir = os.path.join(os.path.dirname(__file__), '..', 'content', 'posts')
 
     if args.single:
