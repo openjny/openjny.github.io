@@ -20,11 +20,16 @@
 
 ## 移行
 
-### スクリプト
+## スクリプト
 
-- [ ]: 画像のダウンロードとリンクの自動修正
+新しい post を作成する:
 
 ```bash
-# zenn からの移行
-./scripts/convert-from-zenn.sh /tmp/old.md
+uvx python ./scripts/new-post.py "slug-for-new-post"
+```
+
+zenn からの移行:
+
+```bash
+uvx python ./scripts/convert-from-zenn.sh old.md > new.md
 ```
