@@ -1,14 +1,14 @@
 +++
 title = "About Me"
 description = "About Me"
-date = "2024-11-18"
+date = "2026-02-04"
 aliases = ["about-me", "contact"]
 author = "Junya Yamaguchi"
 +++
 
 {{< figure src="/images/avatar-photo.jpg" caption="A man excitedly walking through downtown Seattle, blissfully unaware that a torrential rain is coming soon." width=250 >}}
 
-I am Junya Yamaguchi (usually going by @openjny), a Japanese guy working at Microsoft as Cloud Solution Architect. While my professional speciality is Azure Infrastructure, I pretty much enjoy diverse genres such as Machine Learning and PenTesting. I currently live in Tokyo🗼, playing tourist from time to time.
+I am Junya Yamaguchi (usually going by @openjny), a Japanese guy working at Microsoft as Cloud Solution Architect. While my professional speciality is Azure (AI, Apps Modernization, Networking, etc), I pretty much enjoy diverse genres such as Machine Learning, PenTesting, and so on. I currently live in Tokyo🗼, playing tourist from time to time.
 
 - [X (Twitter)](https://x.com/openjny)
 - [GitHub](https://github.com/openjny)
@@ -22,14 +22,15 @@ I am Junya Yamaguchi (usually going by @openjny), a Japanese guy working at Micr
 - Workout 💪
 - Piano 🎹
 - Coffee ☕
-- Studying English
+- Golf ⛳
+- Snowboarding 🏂
 
 ## Areas of Interest
 
-- Azure
-- Performance Analysis
 - Probability and Statistics
 - Machine Learning
+- Azure
+- Performance Analysis
 - Penetration Testing
 
 ## Favorite Books

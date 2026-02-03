@@ -1,13 +1,13 @@
 +++
 title = "About Me"
 description = "About Me"
-date = "2024-11-18"
+date = "2026-02-04"
 aliases = ["about", "about-me", "contact"]
 +++
 
 {{< figure src="/images/avatar.jpg" caption="妹に書いてもらったイラスト" width=250 >}}
 
-普段は Azure インフラ（仮想マシン、ネットワーク、etc）に関係する仕事をやっていますが、いろんなジャンルが好きです。SNS はだいたい @openjny でやってます。
+Microsoft の Cloud Solution Architect (AI & Apps) として、Azure に関わる技術支援をしています。機械学習、統計、数理最適、ネットワーク、Ethical Hacking など色んなジャンルが好きです。SNS はだいたい @openjny でやってます。
 
 - [X (Twitter)](https://x.com/openjny)
 - [GitHub](https://github.com/openjny)
@@ -21,6 +21,8 @@ aliases = ["about", "about-me", "contact"]
 - 筋トレ 💪
 - ピアノ 🎹
 - 英語の勉強
+- ゴルフ ⛳
+- スノボ 🏂
 
 ## 興味のある領域
 
