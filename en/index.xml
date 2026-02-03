@@ -9,13 +9,7 @@
 &lt;p>Also, Microsoft provides other official MCP servers besides the Learn Docs MCP Server, such as the Azure MCP Server. If you&amp;rsquo;re interested, see:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/microsoft/mcp" class="external-link" target="_blank" rel="noopener">https://github.com/microsoft/mcp&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>About Me</title><link>https://openjny.github.io/en/about-me/</link><pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/en/about-me/</guid><description>&lt;figure>&lt;img src="https://openjny.github.io/images/avatar-photo.jpg"
- alt="A man excitedly walking through downtown Seattle, blissfully unaware that a torrential rain is coming soon." width="250">&lt;figcaption>
- &lt;p>A man excitedly walking through downtown Seattle, blissfully unaware that a torrential rain is coming soon.&lt;/p>
- &lt;/figcaption>
-&lt;/figure>
-
-&lt;p>I am Junya Yamaguchi (usually going by @openjny), a Japanese guy working at Microsoft as Cloud Solution Architect. While my professional speciality is Azure Infrastructure, I pretty much enjoy diverse genres such as Machine Learning and PenTesting. I currently live in Tokyo🗼, playing tourist from time to time.&lt;/p></description></item><item><title>Inside Azure AIOps #2: Incident Management</title><link>https://openjny.github.io/en/posts/2024/11/15/inside-azure-aiops-02-incident-management/</link><pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/en/posts/2024/11/15/inside-azure-aiops-02-incident-management/</guid><description>&lt;p>This article is the second installment in the &amp;ldquo;Inside Azure AIOps&amp;rdquo; series. This time, I will dive in how Microsoft&amp;rsquo;s been advancing incident management with AIOps.&lt;/p>
+&lt;/ul></description></item><item><title>Inside Azure AIOps #2: Incident Management</title><link>https://openjny.github.io/en/posts/2024/11/15/inside-azure-aiops-02-incident-management/</link><pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate><guid>https://openjny.github.io/en/posts/2024/11/15/inside-azure-aiops-02-incident-management/</guid><description>&lt;p>This article is the second installment in the &amp;ldquo;Inside Azure AIOps&amp;rdquo; series. This time, I will dive in how Microsoft&amp;rsquo;s been advancing incident management with AIOps.&lt;/p>
 &lt;div class="notice info">
  &lt;div class="notice-title">
  &lt;i class="fa-solid fa-exclamation-circle" aria-hidden="true">&lt;/i>Series

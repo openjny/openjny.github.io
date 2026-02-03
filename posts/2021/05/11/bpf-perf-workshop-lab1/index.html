@@ -322,7 +322,7 @@ sdb              0.00    1.00      0.00      4.00     0.00     0.00   0.00   0.0
 <a class=heading-link href=#%e3%81%9d%e3%81%ae%e4%bb%96%e3%81%ae%e5%af%be%e5%bf%9c%e7%ad%96><i class="fa-solid fa-link" aria-hidden=true title=見出しへのリンク></i>
 <span class=sr-only>見出しへのリンク</span></a></h3><p>おそらく他に効果のある対応は以下の通り (最後の方はシステムワイドな変更なので、多分実現可能性は低そう)。</p><ul><li>論理 I/O (write) の書き込みサイズを、統一して大きくする</li><li>同じ箇所 (論理 offset) の書き込みを繰り返すスレッドに分割する (e.g. thread0 は offset = [0, 4096] を担当)</li><li>ファイルシステム (ext4) のブロックサイズを、論理 I/O にあわせて調節する</li><li>ファイルシステムでジャーナリングを無効化する</li></ul></div><footer></footer></article></section></div><footer class=footer><section class=container>©
 2024 -
-2025
+2026
 Junya Yamaguchi (@openjny)
 ·
 Powered by <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/ target=_blank rel=noopener>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script><script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "0a99e4ebb1e342beb03db419a6eea4a6"}'></script></body></html>
